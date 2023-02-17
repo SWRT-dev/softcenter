@@ -1,0 +1,9 @@
+{
+"version":"1.0.5",
+"md5":"ed24d7b031559e3119308849116ddab4",
+"arch":"mips",
+"home_url":"Module_filebrowser.asp",
+"title":"filebrowser",
+"description":"FileBrowser：您的可视化路由文件管理系统",
+"build_date":"2023-02-17_13:19:06"
+}

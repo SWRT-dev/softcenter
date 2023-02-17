@@ -1,0 +1,355 @@
+{
+    "apps": [
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:40:58", 
+            "description": "内网穿透利器，谁用谁知道。", 
+            "home_url": "Module_frps.asp", 
+            "md5": "8c06d4988f71f37915430ab8253386bc", 
+            "name": "frps", 
+            "tar_url": "frps/frps.tar.gz", 
+            "title": "frps穿透服务器", 
+            "version": "1.8"
+        }, 
+        {
+            "build_date": "2021-03-24_20:19:15", 
+            "description": "node.js", 
+            "home_url": "Module_node.asp", 
+            "md5": "b0a25b139b05f04720bd622c0cd060c0", 
+            "name": "node", 
+            "tar_url": "node/node.tar.gz", 
+            "title": "node.js", 
+            "version": "0.0.5"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-12-26_08:37:27", 
+            "description": "tailscale", 
+            "home_url": "Module_tailscale.asp", 
+            "md5": "2b86b932788279396a29ed6460d2d934", 
+            "name": "tailscale", 
+            "tar_url": "tailscale/tailscale.tar.gz", 
+            "title": "tailscale", 
+            "version": "0.0.4"
+        }, 
+        {
+            "build_date": "2021-01-27_14:03:57", 
+            "description": "VPN全家桶, ver 4.30 build 9700", 
+            "home_url": "Module_softether.asp", 
+            "md5": "05e9582c5a43d2d3a036f1b00cdd5e60", 
+            "name": "softether", 
+            "tar_url": "softether/softether.tar.gz", 
+            "title": "SoftEther_VPN_Server", 
+            "version": "2.1"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:43:18", 
+            "description": "局域网网速测试工具", 
+            "home_url": "Module_speedtest.asp", 
+            "md5": "5bd976ef1dbd2369f6f2d97f83022fa3", 
+            "name": "speedtest", 
+            "tar_url": "speedtest/speedtest.tar.gz", 
+            "title": "局域网测速", 
+            "version": "0.0.3"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-02-17_13:19:06", 
+            "description": "FileBrowser：您的可视化路由文件管理系统", 
+            "home_url": "Module_filebrowser.asp", 
+            "md5": "ed24d7b031559e3119308849116ddab4", 
+            "name": "filebrowser", 
+            "tar_url": "filebrowser/filebrowser.tar.gz", 
+            "title": "filebrowser", 
+            "version": "1.0.5"
+        }, 
+        {
+            "build_date": "2021-12-07_16:21:49", 
+            "description": "去广告，没烦恼", 
+            "home_url": "Module_koolproxy.asp", 
+            "md5": "2a19be838a1ca7211280f8e0d9eaa721", 
+            "name": "koolproxy", 
+            "tar_url": "koolproxy/koolproxy.tar.gz", 
+            "title": "koolproxy", 
+            "version": "3.8.5.5"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-07-19_20:55:12", 
+            "description": "阿里云盘 WebDAV 服务器", 
+            "home_url": "Module_aliyundrivewebdav.asp", 
+            "md5": "e17f456b6a9439e33f4eb391e1668534", 
+            "name": "aliyundrivewebdav", 
+            "tar_url": "aliyundrivewebdav/aliyundrivewebdav.tar.gz", 
+            "title": "阿里云盘WebDAV", 
+            "version": "1.8.0"
+        }, 
+        {
+            "build_date": "2021-01-27_14:03:04", 
+            "description": "老板，来一斤虚拟内存~", 
+            "home_url": "Module_swap.asp", 
+            "md5": "53f890a2c4ca81e11fe07d83d3fd7dc2", 
+            "name": "swap", 
+            "tar_url": "swap/swap.tar.gz", 
+            "title": "虚拟内存", 
+            "version": "2.5"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-07-25_20:07:48", 
+            "description": "花生壳内网穿透", 
+            "home_url": "Module_phddns.asp", 
+            "md5": "f58370b25a0cdce529b6ac7098d25fa5", 
+            "name": "phddns", 
+            "tar_url": "phddns/phddns.tar.gz", 
+            "title": "花生壳内网穿透", 
+            "version": "3.0.5"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-12-23_15:28:17", 
+            "description": "分布式的虚拟以太网", 
+            "home_url": "Module_zerotier.asp", 
+            "md5": "e4f2bbc228758a3b9f6f4beca74b6b14", 
+            "name": "zerotier", 
+            "tar_url": "zerotier/zerotier.tar.gz", 
+            "title": "zerotier", 
+            "version": "1.1"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-04-29_09:51:45", 
+            "description": "解锁网易云灰色歌曲", 
+            "home_url": "Module_unblockmusic.asp", 
+            "md5": "5557587e4c1505db52df87a916fa8f03", 
+            "name": "unblockmusic", 
+            "tar_url": "unblockmusic/unblockmusic.tar.gz", 
+            "title": "解锁网易云灰色歌曲", 
+            "version": "1.1.9"
+        }, 
+        {
+            "build_date": "2021-11-06_14:04:25", 
+            "description": "Cloudflare解析自动更新IP", 
+            "home_url": "Module_cfddns.asp", 
+            "md5": "426da12384c00239f16ebbd592112e5f", 
+            "name": "cfddns", 
+            "tar_url": "cfddns/cfddns.tar.gz", 
+            "title": "Cloudflare DDNS", 
+            "version": "1.7"
+        }, 
+        {
+            "build_date": "2021-03-24_19:51:07", 
+            "description": "灵缇游戏加速插件", 
+            "home_url": "Module_lingti.asp", 
+            "md5": "b5fdee43bdab6ac7ae1a24d1a4c1f392", 
+            "name": "lingti", 
+            "tar_url": "lingti/lingti.tar.gz", 
+            "title": "灵缇游戏加速插件", 
+            "version": "1.0.2"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-07-23_13:05:15", 
+            "description": "kms", 
+            "home_url": "Module_kms.asp", 
+            "md5": "0fc6894581873e8f8e5e89fcb8da36cb", 
+            "name": "kms", 
+            "tar_url": "kms/kms.tar.gz", 
+            "title": "系统工具", 
+            "version": "1.9"
+        }, 
+        {
+            "build_date": "2020-08-13_10:29:08", 
+            "description": "解决重启Bug", 
+            "home_url": "Module_reboothelper.asp", 
+            "md5": "5482a195e0573d5808e129cc81f5ab97", 
+            "name": "reboothelper", 
+            "tar_url": "reboothelper/reboothelper.tar.gz", 
+            "title": "重启助手", 
+            "version": "0.4"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-03-20_15:55:10", 
+            "description": "支持Alidns(阿里云) Dnspod(腾讯云) Cloudflare 华为云 Callback", 
+            "home_url": "Module_ddns.asp", 
+            "md5": "bb349d0e7bb3467b0ec19030482438e7", 
+            "name": "ddns", 
+            "tar_url": "ddns/ddns.tar.gz", 
+            "title": "多ddns合一", 
+            "version": "0.1"
+        }, 
+        {
+            "build_date": "2021-04-04_17:09:01", 
+            "description": "自己的私有云", 
+            "home_url": "Module_verysync.asp", 
+            "md5": "2fa32c61b65aa7784d60181a82f00370", 
+            "name": "verysync", 
+            "tar_url": "verysync/verysync.tar.gz", 
+            "title": "微力同步", 
+            "version": "1.1.0"
+        }, 
+        {
+            "build_date": "2021-03-24_19:44:38", 
+            "description": "自动部署SSL证书", 
+            "home_url": "Module_acme.asp", 
+            "md5": "bb966154a3d05659034ff1841528bbc8", 
+            "name": "acme", 
+            "tar_url": "acme/acme.tar.gz", 
+            "title": "Let's Encrypt", 
+            "version": "3.4"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:40:09", 
+            "description": "内网穿透利器，谁用谁知道。", 
+            "home_url": "Module_frpc.asp", 
+            "md5": "0e37311cfd88d765195ef5da1c0ccd8c", 
+            "name": "frpc", 
+            "tar_url": "frpc/frpc.tar.gz", 
+            "title": "frpc穿透", 
+            "version": "2.1"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-03-20_09:59:37", 
+            "description": "aliddns", 
+            "home_url": "Module_aliddns.asp", 
+            "md5": "5ae53c373169f5556250b06278956535", 
+            "name": "aliddns", 
+            "tar_url": "aliddns/aliddns.tar.gz", 
+            "title": "阿里DDNS", 
+            "version": "2.4"
+        }, 
+        {
+            "build_date": "2020-08-12_14:31:04", 
+            "description": "广告屏蔽大师", 
+            "home_url": "Module_adbyby.asp", 
+            "md5": "8b009dfd315122059a7458e8eb5f93c3", 
+            "name": "adbyby", 
+            "tar_url": "adbyby/adbyby.tar.gz", 
+            "title": "adbyby", 
+            "version": "1.2"
+        }, 
+        {
+            "build_date": "2020-08-12_14:49:56", 
+            "description": "迅雷快鸟，为上网加速而生~", 
+            "home_url": "Module_fastd1ck.asp", 
+            "md5": "f56f57f7b5a11894bb49af96147d0dd4", 
+            "name": "fastd1ck", 
+            "tar_url": "fastd1ck/fastd1ck.tar.gz", 
+            "title": "讯雷快鸟", 
+            "version": "1.8"
+        }, 
+        {
+            "build_date": "2020-08-13_09:56:59", 
+            "description": "pppoe单线多拨，带宽提升神器！", 
+            "home_url": "Module_mdial.asp", 
+            "md5": "9c750947118234302cfe99fa3b0fd683", 
+            "name": "mdial", 
+            "tar_url": "mdial/mdial.tar.gz", 
+            "title": "单线多拨", 
+            "version": "1.6"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2022-03-12_19:53:55", 
+            "description": "linux下载利器", 
+            "home_url": "Module_aria2.asp", 
+            "md5": "e5fe42f277351ac8f094d005a7a0b987", 
+            "name": "aria2", 
+            "tar_url": "aria2/aria2.tar.gz", 
+            "title": "Aria2", 
+            "version": "3.1"
+        }, 
+        {
+            "build_date": "2019-07-16_22:30:15", 
+            "description": "Intel CPU频率设置", 
+            "home_url": "Module_cpufreq.asp", 
+            "md5": "58c9d683cde4844c5da21ee88dba4a27", 
+            "name": "cpufreq", 
+            "tar_url": "cpufreq/cpufreq.tar.gz", 
+            "title": "CPU频率设置", 
+            "version": "1.0"
+        }, 
+        {
+            "build_date": "2020-08-13_09:59:22", 
+            "description": "这是一只自动帮你签到的dog", 
+            "home_url": "Module_qiandao.asp", 
+            "md5": "6e570ebdced8744b8c8b9b5b818a6a47", 
+            "name": "qiandao", 
+            "tar_url": "qiandao/qiandao.tar.gz", 
+            "title": "签到dog", 
+            "version": "1.7"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:42:34", 
+            "description": "超强的SSH网页客户端~", 
+            "home_url": "Module_shellinabox.asp", 
+            "md5": "8516c9796253dea1025d25444b5f5377", 
+            "name": "shellinabox", 
+            "tar_url": "shellinabox/shellinabox.tar.gz", 
+            "title": "shellinabox", 
+            "version": "2.3"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:41:46", 
+            "description": "从路由器推送状态及通知的工具", 
+            "home_url": "Module_serverchan.asp", 
+            "md5": "423c0b9526187318708adc421c7b688d", 
+            "name": "serverchan", 
+            "tar_url": "serverchan/serverchan.tar.gz", 
+            "title": "ServerChan微信推送", 
+            "version": "2.4"
+        }, 
+        {
+            "build_date": "2020-11-19_18:44:08", 
+            "description": "使用Dnspod的ddns服务", 
+            "home_url": "Module_ddnspod.asp", 
+            "md5": "c5598b2855d3dabb0e7362fa3fa63509", 
+            "name": "ddnspod", 
+            "tar_url": "ddnspod/ddnspod.tar.gz", 
+            "title": "DDnspod", 
+            "version": "1.7"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-20_13:29:24", 
+            "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav，后端基于gin，前端使用react。", 
+            "home_url": "Module_alist.asp", 
+            "md5": "5de0918124728562eb6f4ee3591c9b2c", 
+            "name": "alist", 
+            "tar_url": "alist/alist.tar.gz", 
+            "title": "Alist文件列表", 
+            "version": "1.0.0"
+        }, 
+        {
+            "arch": "mips", 
+            "build_date": "2023-01-08_12:39:28", 
+            "description": "百度盘", 
+            "home_url": "Module_baidupcs.asp", 
+            "md5": "62b15bb0e99b802675f30cc2e1a37697", 
+            "name": "baidupcs", 
+            "tar_url": "baidupcs/baidupcs.tar.gz", 
+            "title": "百度盘", 
+            "version": "1.8"
+        }, 
+        {
+            "build_date": "2021-01-27_14:02:26", 
+            "description": "腾讯云ddns", 
+            "home_url": "Module_tenddns.asp", 
+            "md5": "1c2934300bf9512bdec05f96ecde4190", 
+            "name": "tenddns", 
+            "tar_url": "tenddns/tenddns.tar.gz", 
+            "title": "腾讯云ddns", 
+            "version": "0.0.3"
+        }
+    ], 
+    "home_url": "https://raw.githubusercontent.com/paldier/softcenter/master", 
+    "md5": "39972d684c0d13f99abdd831f982eedb", 
+    "tar_url": "softcenter/softcenter.tar.gz", 
+    "version": "1.4.6"
+}

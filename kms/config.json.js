@@ -1,0 +1,9 @@
+{
+"version":"1.9",
+"md5":"0fc6894581873e8f8e5e89fcb8da36cb",
+"arch":"mips",
+"home_url":"Module_kms.asp",
+"title":"系统工具",
+"description":"kms",
+"build_date":"2022-07-23_13:05:15"
+}
