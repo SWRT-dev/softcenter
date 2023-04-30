@@ -215,14 +215,14 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2022-03-20_09:59:37", 
+            "build_date": "2023-04-30_08:22:52", 
             "description": "aliddns", 
             "home_url": "Module_aliddns.asp", 
-            "md5": "5ae53c373169f5556250b06278956535", 
+            "md5": "94e8cfcf2fc86b09e12bb9defa4ad7ad", 
             "name": "aliddns", 
             "tar_url": "aliddns/aliddns.tar.gz", 
             "title": "阿里DDNS", 
-            "version": "2.4"
+            "version": "2.5"
         }, 
         {
             "arch": "mips", 
