@@ -321,10 +321,10 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2023-10-24_18:37:00", 
+            "build_date": "2023-10-24_18:44:33", 
             "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav，后端基于gin，前端使用react。", 
             "home_url": "Module_alist.asp", 
-            "md5": "487098f727bab428db1f611ab9ea08ad", 
+            "md5": "f2b886075dcffd8944ca93013238593a", 
             "name": "alist", 
             "tar_url": "alist/alist.tar.gz", 
             "title": "Alist文件列表", 
