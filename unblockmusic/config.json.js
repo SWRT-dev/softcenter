@@ -1,9 +1,9 @@
 {
-"version":"1.1.9",
-"md5":"5557587e4c1505db52df87a916fa8f03",
+"version":"1.2.0",
+"md5":"62be22222155df0089059317b2f12e28",
 "arch":"mips",
 "home_url":"Module_unblockmusic.asp",
 "title":"解锁网易云灰色歌曲",
 "description":"解锁网易云灰色歌曲",
-"build_date":"2022-04-29_09:51:45"
+"build_date":"2023-10-24_15:07:41"
 }
