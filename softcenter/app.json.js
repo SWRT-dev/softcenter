@@ -215,14 +215,14 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2023-12-07_07:48:50", 
+            "build_date": "2024-02-26_09:50:35", 
             "description": "内网穿透利器，谁用谁知道。", 
             "home_url": "Module_frpc.asp", 
-            "md5": "281c3d8fa754e0a2028b45261cfb00a8", 
+            "md5": "9f1bd13ca0dcc0e95885b9c17504c22c", 
             "name": "frpc", 
             "tar_url": "frpc/frpc.tar.gz", 
             "title": "frpc穿透", 
-            "version": "2.3"
+            "version": "2.4"
         }, 
         {
             "arch": "mips", 
