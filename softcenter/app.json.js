@@ -13,10 +13,10 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2024-02-28_21:07:26", 
+            "build_date": "2024-03-05_08:31:42", 
             "description": "简便高效的异地组网、内网穿透工具", 
             "home_url": "Module_vnt.asp", 
-            "md5": "5d24b45c7a2f91cf8887a119d25ead9f", 
+            "md5": "81044c271366e2ec87fb5f8815c8791a", 
             "name": "vnt", 
             "tar_url": "vnt/vnt.tar.gz", 
             "title": "vnt", 
