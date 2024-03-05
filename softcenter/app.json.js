@@ -45,6 +45,17 @@
         }, 
         {
             "arch": "mips", 
+            "build_date": "2024-03-05_08:20:57", 
+            "description": "Socat 端口转发", 
+            "home_url": "Module_socat.asp", 
+            "md5": "735505b2f709ec4767932cde2fa11bb4", 
+            "name": "socat", 
+            "tar_url": "socat/socat.tar.gz", 
+            "title": "Socat端口转发", 
+            "version": "1.0"
+        }, 
+        {
+            "arch": "mips", 
             "build_date": "2023-12-07_07:59:51", 
             "description": "VPN全家桶, ver 4.30 build 9700", 
             "home_url": "Module_softether.asp", 
