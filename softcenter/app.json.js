@@ -131,14 +131,14 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2023-03-01_11:16:14", 
+            "build_date": "2024-04-08_09:46:57", 
             "description": "分布式的虚拟以太网", 
             "home_url": "Module_zerotier.asp", 
-            "md5": "4575bd52023154251155ed83058e432d", 
+            "md5": "5eff0e2598dffcbed638fb47defa792e", 
             "name": "zerotier", 
             "tar_url": "zerotier/zerotier.tar.gz", 
             "title": "zerotier", 
-            "version": "1.2"
+            "version": "1.3"
         }, 
         {
             "arch": "mips", 
