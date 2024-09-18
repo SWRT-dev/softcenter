@@ -34,14 +34,14 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2024-06-15_07:38:27", 
+            "build_date": "2024-09-18_08:12:02", 
             "description": "tailscale", 
             "home_url": "Module_tailscale.asp", 
-            "md5": "38918972aa161a44c668d05892bb99e7", 
+            "md5": "3fa1bb8e8f5ad06da664ccda59862ed6", 
             "name": "tailscale", 
             "tar_url": "tailscale/tailscale.tar.gz", 
             "title": "tailscale", 
-            "version": "0.0.5"
+            "version": "0.0.6"
         }, 
         {
             "arch": "mips", 
@@ -171,6 +171,19 @@
             "tar_url": "lingti/lingti.tar.gz", 
             "title": "灵缇游戏加速插件", 
             "version": "1.0.2"
+        }, 
+        {
+            "author": "vj23456, kiritoknight", 
+            "description": "端口转发/DDNS/Web服务/Stun内网穿透/网络唤醒/计划任务/ACME自动证书/网络存储", 
+            "home_url": "Module_lucky.asp", 
+            "link": "https://github.com/vj23456/MerlinLucky", 
+            "md5": "44ca9b43b762bb0b24b49d6c40fb044f", 
+            "module": "lucky", 
+            "name": "lucky", 
+            "tags": "工具", 
+            "tar_url": "lucky/lucky.tar.gz", 
+            "title": "Lucky", 
+            "version": "1.3.1"
         }, 
         {
             "arch": "mips", 
