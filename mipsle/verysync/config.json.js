@@ -1,0 +1,9 @@
+{
+"version":"1.1.1",
+"md5":"72a678631a0f6e0acd58d1ef85ef3da4",
+"arch":"mipsle",
+"home_url":"Module_verysync.asp",
+"title":"微力同步",
+"description":"自己的私有云",
+"build_date":"2024-10-31_14:12:03"
+}

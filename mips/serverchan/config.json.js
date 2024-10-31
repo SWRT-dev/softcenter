@@ -1,0 +1,9 @@
+{
+"version":"2.7",
+"md5":"ba6495f1d019c334cdb7a386a416e4c4",
+"arch":"mips",
+"home_url":"Module_serverchan.asp",
+"title":"ServerChan微信推送",
+"description":"从路由器推送状态及通知的工具",
+"build_date":"2024-10-31_14:12:08"
+}

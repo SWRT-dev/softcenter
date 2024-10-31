@@ -1,0 +1,9 @@
+{
+"version":"3.2",
+"md5":"773a706f6051fd9b18c67f49360ead08",
+"arch":"mipsle",
+"home_url":"Module_aria2.asp",
+"title":"Aria2",
+"description":"linux下载利器",
+"build_date":"2024-10-31_14:12:06"
+}

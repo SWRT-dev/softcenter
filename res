@@ -1,0 +1,1 @@
+softcenter/res

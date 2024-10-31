@@ -1,0 +1,9 @@
+{
+"version":"2.0",
+"md5":"086533b0b755b16fab204d2e80abd436",
+"arch":"arm64",
+"home_url":"Module_kms.asp",
+"title":"系统工具",
+"description":"kms",
+"build_date":"2024-10-31_14:12:03"
+}

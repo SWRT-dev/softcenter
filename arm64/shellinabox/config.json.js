@@ -1,0 +1,9 @@
+{
+"version":"2.5",
+"md5":"e3566eeeb334657943e5c4b35e8c338c",
+"arch":"arm64",
+"home_url":"Module_shellinabox.asp",
+"title":"shellinabox",
+"description":"超强的SSH网页客户端~",
+"build_date":"2024-10-31_14:12:08"
+}

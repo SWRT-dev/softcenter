@@ -1,0 +1,9 @@
+{
+"version":"1.1.1",
+"md5":"04841c45f0368f776a56a6278465669b",
+"arch":"mips",
+"home_url":"Module_verysync.asp",
+"title":"微力同步",
+"description":"自己的私有云",
+"build_date":"2024-10-31_14:12:03"
+}

@@ -1,0 +1,9 @@
+{
+"version":"1.7",
+"md5":"647e122d5b5763cd4f1fc88253c94b3b",
+"arch":"mipsle",
+"home_url":"Module_mdial.asp",
+"title":"单线多拨",
+"description":"pppoe单线多拨，带宽提升神器！",
+"build_date":"2024-10-31_14:12:05"
+}

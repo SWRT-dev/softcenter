@@ -1,0 +1,9 @@
+{
+"version":"2.6",
+"md5":"78990bcba609c5102a694dc868c354c5",
+"arch":"mips",
+"home_url":"Module_aliddns.asp",
+"title":"阿里DDNS",
+"description":"aliddns",
+"build_date":"2024-10-31_14:12:04"
+}

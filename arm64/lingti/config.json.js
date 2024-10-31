@@ -1,0 +1,9 @@
+{
+"version":"1.0.3",
+"md5":"d5c64870c7b308d911f5ad2847dd33dc",
+"arch":"arm64",
+"home_url":"Module_lingti.asp",
+"title":"灵缇游戏加速插件",
+"description":"灵缇游戏加速插件",
+"build_date":"2024-10-31_14:12:02"
+}
