@@ -1,6 +1,6 @@
 {
-"version":"1.5.3",
-"md5":"3ec583bc9df03e98ada845dcc4b3606f",
+"version":"1.5.4",
+"md5":"fa64949838b599aa25605d33e3fc4b0c",
 "tar_url":"armng/softcenter/softcenter.tar.gz",
 "home_url":"https://raw.githubusercontent.com/SWRT-dev/softcenter/master"
 }

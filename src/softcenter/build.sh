@@ -1,5 +1,5 @@
 #! /bin/sh
-VERSION=1.5.3
+VERSION=1.5.4
 ARCH_LIST="arm armng arm64 mips mipsle"
 
 build_package(){
@@ -32,7 +32,7 @@ EOF
 mv -f version ../../$1/softcenter/version
 mv -f config.json.js ../../$1/softcenter/config.json.js
 mv -f softcenter.tar.gz ../../$1/softcenter/softcenter.tar.gz
-python ./gen_install.py stage2 $1
+python2 ./gen_install.py stage2 $1
 rm -rf softcenter/.soft_ver
 rm -rf softcenter/bin/jq
 rm -rf softcenter/bin/sc_auth

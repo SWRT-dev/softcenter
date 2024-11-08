@@ -82,5 +82,5 @@ mv -f version ../../$SC_ARCH/${MODULE}/version
 mv -f config.json.js ../../$SC_ARCH/${MODULE}/config.json.js
 mv -f ${MODULE}.tar.gz ../../$SC_ARCH/${MODULE}/${MODULE}.tar.gz
 cp -rf ${MODULE}/res/icon-${MODULE}.png ../../res/
-python ../softcenter/gen_install.py stage2 $SC_ARCH
+python2 ../softcenter/gen_install.py stage2 $SC_ARCH
 }
