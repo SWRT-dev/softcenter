@@ -11,25 +11,14 @@ eval $(dbus export softcenter_installing_)
 source /jffs/softcenter/scripts/base.sh
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 softcenter_home_url=$(dbus get softcenter_home_url)
-softcenter_arch=$(dbus get softcenter_arch)
 softcenter_server_tcode=$(dbus get softcenter_server_tcode)
 LOG_FILE=/tmp/upload/soft_install_log.txt
 LOG_FILE_BACKUP=/tmp/upload/soft_install_log_backup.txt
 URL_SPLIT="/"
 
-if [ "$softcenter_arch" == "" ]; then
-	/jffs/softcenter/bin/sc_auth arch
-	eval $(dbus export softcenter_arch)
-fi
 if [ "$softcenter_server_tcode" == "" ]; then
 	/jffs/softcenter/bin/sc_auth tcode
 	eval $(dbus export softcenter_server_tcode)
-fi
-ARCH_SUFFIX=$softcenter_arch
-if [ "$ARCH_SUFFIX" == "armv7l" ]; then
-	ARCH_SUFFIX="arm"
-elif [ "$ARCH_SUFFIX" == "aarch64" ]; then
-	ARCH_SUFFIX="arm64"
 fi
 
 MODEL=$(nvram get productid)
@@ -154,11 +143,7 @@ install_module() {
 		quit_install
 	fi
 
-	if [ "$softcenter_server_tcode" == "CN" ]; then
-		HOME_URL="https://sc.softcenter.site/$ARCH_SUFFIX"
-	else
-		HOME_URL="https://sc.paldier.com/$ARCH_SUFFIX"
-	fi
+	HOME_URL=${softcenter_home_url}
 
 	local TAR_URL=${HOME_URL}${URL_SPLIT}${softcenter_installing_tar_url}
 	local FNAME=$(basename ${softcenter_installing_tar_url})
