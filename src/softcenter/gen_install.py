@@ -79,14 +79,14 @@ def gen_modules(modules):
                 if m:
                     m["name"] = module
                     if "tar_url" not in m:
-                        m["tar_url"] = arch + "/" + module + "/" + module + ".tar.gz"
+                        m["tar_url"] = module + "/" + module + ".tar.gz"
                     if "home_url" not in m:
                         m["home_url"] = "Module_" + module + ".asp"
         except:
             pass
 
         if not m:
-            m = {"name":module, "title":module, "tar_url": arch + "/" + module + "/" + module + ".tar.gz"}
+            m = {"name":module, "title":module, "tar_url": module + "/" + module + ".tar.gz"}
         modules.append(m)
 
 if stage == "stage1":

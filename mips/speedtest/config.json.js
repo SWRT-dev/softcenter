@@ -1,9 +1,9 @@
 {
 "version":"0.0.4",
-"md5":"3554567687e8feb843fd62dd1dae0c72",
+"md5":"78c5b802ab7dbb21e6c1f392bdf42b84",
 "arch":"mips",
 "home_url":"Module_speedtest.asp",
 "title":"局域网测速",
 "description":"局域网网速测试工具",
-"build_date":"2024-10-31_14:11:57"
+"build_date":"2024-11-09_12:35:32"
 }

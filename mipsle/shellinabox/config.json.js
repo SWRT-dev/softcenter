@@ -1,9 +1,9 @@
 {
 "version":"2.5",
-"md5":"87d105561cf0ab8c57788ff3410be3c9",
+"md5":"377c5f39584043fad5b1cb25718161e1",
 "arch":"mipsle",
 "home_url":"Module_shellinabox.asp",
 "title":"shellinabox",
 "description":"超强的SSH网页客户端~",
-"build_date":"2024-10-31_14:12:08"
+"build_date":"2024-11-09_12:35:47"
 }

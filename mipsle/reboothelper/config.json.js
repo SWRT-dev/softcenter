@@ -1,9 +1,9 @@
 {
 "version":"0.5",
-"md5":"e815580141b1028700b70166cf57c6fd",
+"md5":"9be96b12dc2f26787323fcb15f9568f1",
 "arch":"mipsle",
 "home_url":"Module_reboothelper.asp",
 "title":"重启助手",
 "description":"解决重启Bug",
-"build_date":"2024-10-31_14:12:03"
+"build_date":"2024-11-09_12:35:40"
 }

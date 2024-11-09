@@ -1,9 +1,9 @@
 {
 "version":"2.7",
-"md5":"3a168704aa9cbd37fcc9058b4f8ba16e",
+"md5":"0fc3f49002acadb4144e08f8f900acc6",
 "arch":"armng",
 "home_url":"Module_serverchan.asp",
 "title":"ServerChan微信推送",
 "description":"从路由器推送状态及通知的工具",
-"build_date":"2024-10-31_14:12:08"
+"build_date":"2024-11-09_12:35:47"
 }

@@ -1,9 +1,9 @@
 {
 "version":"3.0.6",
-"md5":"7b0611413babf5299fc45fe636ee76e9",
+"md5":"3b64366f908dda13cf1ba1aa1f5b0529",
 "arch":"arm64",
 "home_url":"Module_phddns.asp",
 "title":"花生壳内网穿透",
 "description":"花生壳内网穿透",
-"build_date":"2024-10-31_14:12:00"
+"build_date":"2024-11-09_12:35:36"
 }

@@ -1,9 +1,9 @@
 {
 "version":"1.2",
-"md5":"267fa78e2d2f50b1b4eb243df80e99e1",
+"md5":"c445caa892b8e3e6dd2dd72a1b68b2c1",
 "arch":"arm64",
 "home_url":"Module_vnt.asp",
 "title":"vnt",
 "description":"简便高效的异地组网、内网穿透工具",
-"build_date":"2024-10-31_14:11:49"
+"build_date":"2024-11-09_12:35:20"
 }

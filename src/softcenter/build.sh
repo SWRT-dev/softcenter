@@ -25,7 +25,7 @@ cat > ./config.json.js <<EOF
 {
 "version":"$VERSION",
 "md5":"$md5value",
-"tar_url":"$1/softcenter/softcenter.tar.gz",
+"tar_url":"softcenter/softcenter.tar.gz",
 "home_url":"https://raw.githubusercontent.com/SWRT-dev/softcenter/master"
 }
 EOF
