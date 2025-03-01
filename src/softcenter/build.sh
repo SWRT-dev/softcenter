@@ -1,5 +1,5 @@
 #! /bin/sh
-VERSION=1.5.4
+VERSION=1.5.5
 ARCH_LIST="arm armng arm64 mips mipsle"
 
 build_package(){
