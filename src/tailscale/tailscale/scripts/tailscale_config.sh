@@ -5,7 +5,7 @@ eval `dbus export tailscale_`
 
 PID_FILE=/var/run/tailscaled.pid
 LOG_FILE=/tmp/upload/tailscale_log.txt
-JSON_ALL=""
+JSON_LANG=""
 date_format=""
 echo "" > $LOG_FILE
 
@@ -25,13 +25,13 @@ get_lang(){
 			date_format=%Y/%m/%d
 		;;
 	esac
-	JSON_ALL=`cat /jffs/softcenter/res/${json_file}`
+	JSON_LANG=`cat /jffs/softcenter/res/${json_file}`
 }
 alias echo_date='echo [$(date -R +${date_format}\ %X)]:'
 tailscale_start(){
 	local subnet subnet1 subnet2 subnet3 args msg
 	if [ "$tailscale_enable" == "1" ];then
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Start"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Start"'`
 		echo_date "${msg} tailscaled"
 		mkdir -p /jffs/softcenter/etc/tailscale
 		ln -sf /jffs/softcenter/etc/tailscale /tmp/var/lib/tailscale
@@ -44,40 +44,40 @@ tailscale_start(){
 			subnet3=`echo $subnet |cut -d. -f3`
 			subnet="${subnet1}.${subnet2}.${subnet3}.0/24"
 			args=" --advertise-routes=${subnet}"
-			msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Advertise routing is enabled"'`
+			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Advertise routing is enabled"'`
 			echo_date "${msg}"
 		fi
 		if [ "$tailscale_accept_routes" == "1" ];then
 			args="${args} --accept-routes"
-			msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Accept routing is enabled"'`
+			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Accept routing is enabled"'`
 			echo_date "${msg}"
 		fi
-		if [ "$tailscale_accept_routes" == "1" ];then
+		if [ "$tailscale_exit_node" == "1" ];then
 			args="${args} --advertise-exit-node"
-			msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Exit node is enabled"'`
+			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Exit node is enabled"'`
 			echo_date "${msg}"
 		fi
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Start tailscale network connection"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Start tailscale network connection"'`
 		echo_date "${msg}"
 		/jffs/softcenter/bin/tailscale up --accept-dns=false ${args} --reset &
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Detect tailscale login status"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Detect tailscale login status"'`
 		echo_date "${msg}"
 		sleep 4s #wait for tailscaled to receive reply
 		check_login_status
 		if [ "$tailscale_auto_update" == "1" ];then
 			/jffs/softcenter/bin/tailscale set --auto_update
-			msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Auto update is enabled"'`
+			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Auto update is enabled"'`
 			echo_date "${msg}"
 		fi
 #		if [ "$tailscale_ipv4_enable" == "0" ];then
 #		elif [ "$tailscale_ipv6_enable" == "0" ];then
 #		fi
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Setting dnsmasq for tailscale"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Setting dnsmasq for tailscale"'`
 		echo_date "${msg}"
 		echo "interface=tailscale*" > /etc/dnsmasq.user/ts.conf
 		echo "no-dhcp-interface=tailscale*" > /etc/dnsmasq.user/ts.conf
 		service restart_dnsmasq 2>&1
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Tailscale startup completed"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale startup completed"'`
 		echo_date "${msg}"
     fi
 }
@@ -86,10 +86,10 @@ tailscale_stop(){
 #	/jffs/softcenter/bin/tailscale down &
 	if [ -n "$(pidof tailscaled)" ];then
 		local msg
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Stop tailscale network connection"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Stop tailscale network connection"'`
 		echo_date "${msg}"
 		/jffs/softcenter/bin/tailscaled --cleanup >/dev/null 2>&1 
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Stop"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Stop"'`
 		echo_date "${msg} tailscale"
 		killall tailscale >/dev/null 2>&1 
 		killall tailscaled >/dev/null 2>&1 
@@ -103,15 +103,15 @@ check_login_status(){
 	info_all=`/jffs/softcenter/bin/tailscale status --json`
 	status=`echo ${info_all} | /jffs/softcenter/bin/jq -r .BackendState`
 	if [ "$status" == "NoState" -o "$status" == "Stopped" ]; then
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Tailscale cannot connect to the server"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale cannot connect to the server"'`
 		echo_date "${msg}"
 	elif [ "$status" == "NeedsLogin" -o "$status" == "NeedsMachineAuth" ]; then
 		ipaddr=`nvram get lan_ipaddr`
 		/jffs/softcenter/bin/tailscale web --listen ${ipaddr}:8088 &
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Open web site"' | sed 's/router/'"${ipaddr}"'/g'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Open web site"' | sed 's/router/'"${ipaddr}"'/g'`
 		echo_date "${msg}"
 	else
-		msg=`echo ${JSON_ALL} | /jffs/softcenter/bin/jq -r '."Tailscale has joined the network"'`
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale has joined the network"'`
 		echo_date "${msg}"
 	fi
 }
