@@ -5,9 +5,20 @@ eval `dbus export tailscale_`
 
 PID_FILE=/var/run/tailscaled.pid
 LOG_FILE=/tmp/upload/tailscale_log.txt
+LOCK_FILE=/var/lock/tailscaled.lock
 JSON_LANG=""
 date_format=""
 echo "" > $LOG_FILE
+
+set_lock() {
+	exec 1000>"$LOCK_FILE"
+	flock -x 1000
+}
+
+unset_lock() {
+	flock -u 1000
+	rm -rf "$LOCK_FILE"
+}
 
 get_lang(){
 	local json_file
@@ -37,6 +48,9 @@ tailscale_start(){
 		ln -sf /jffs/softcenter/etc/tailscale /tmp/var/lib/tailscale
 		/jffs/softcenter/bin/tailscaled --cleanup
 		/jffs/softcenter/bin/tailscaled > /tmp/upload/tailscaled_log.txt 2>&1 &
+		if [ -z "$(pidof tailscaled)" ];then
+			/jffs/softcenter/bin/tailscaled > /tmp/upload/tailscaled_log.txt 2>&1 &
+		fi
 		if [ "$tailscale_advertise_routes" == "1" ];then
 			subnet=`nvram get lan_ipaddr`
 			subnet1=`echo $subnet |cut -d. -f1`
@@ -59,7 +73,7 @@ tailscale_start(){
 		fi
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Start tailscale network connection"'`
 		echo_date "${msg}"
-		/jffs/softcenter/bin/tailscale up --accept-dns=false ${args} --reset &
+		/jffs/softcenter/bin/tailscale up --accept-dns=false ${args} &
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Detect tailscale login status"'`
 		echo_date "${msg}"
 		sleep 4s #wait for tailscaled to receive reply
@@ -75,7 +89,7 @@ tailscale_start(){
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Setting dnsmasq for tailscale"'`
 		echo_date "${msg}"
 		echo "interface=tailscale*" > /etc/dnsmasq.user/ts.conf
-		echo "no-dhcp-interface=tailscale*" > /etc/dnsmasq.user/ts.conf
+		echo "no-dhcp-interface=tailscale*" >> /etc/dnsmasq.user/ts.conf
 		service restart_dnsmasq 2>&1
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale startup completed"'`
 		echo_date "${msg}"
@@ -99,16 +113,21 @@ tailscale_stop(){
 }
 
 check_login_status(){
-	local status ipaddr info_all msg
+	local status info_all msg authurl
 	info_all=`/jffs/softcenter/bin/tailscale status --json`
 	status=`echo ${info_all} | /jffs/softcenter/bin/jq -r .BackendState`
 	if [ "$status" == "NoState" -o "$status" == "Stopped" ]; then
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale cannot connect to the server"'`
 		echo_date "${msg}"
 	elif [ "$status" == "NeedsLogin" -o "$status" == "NeedsMachineAuth" ]; then
-		ipaddr=`nvram get lan_ipaddr`
-		/jffs/softcenter/bin/tailscale web --listen ${ipaddr}:8088 &
-		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Open web site"' | sed 's/router/'"${ipaddr}"'/g'`
+		authurl=`echo ${info_all} | /jffs/softcenter/bin/jq -r .AuthURL`
+		authurl=${authurl##*/}
+		if [ -z "${authurl}" ];then
+			info_all=`/jffs/softcenter/bin/tailscale status --json`
+			authurl=`echo ${info_all} | /jffs/softcenter/bin/jq -r .AuthURL`
+			authurl=${authurl##*/}
+		fi
+		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Open web site"' | sed 's/router/'"${authurl}"'/g'`
 		echo_date "${msg}"
 	else
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale has joined the network"'`
@@ -118,16 +137,20 @@ check_login_status(){
 
 case $1 in
 start)
+		set_lock
 		get_lang
 		tailscale_stop >> $LOG_FILE
 		tailscale_start >> $LOG_FILE
 		echo XU6J03M6 >> $LOG_FILE
+		unset_lock
         ;;
 start_nat)
+		set_lock
 		get_lang
 		tailscale_stop >> $LOG_FILE
 		tailscale_start >> $LOG_FILE
 		echo XU6J03M6 >> $LOG_FILE
+		unset_lock
         ;;
 stop)
 		get_lang
@@ -142,11 +165,13 @@ case $2 in
 #        ;;
 
 web_submit)
+		set_lock
 		get_lang
 		http_response $1
 		tailscale_stop >> $LOG_FILE
 		tailscale_start >> $LOG_FILE
 		echo XU6J03M6 >> $LOG_FILE
+		unset_lock
         ;;
 esac
 

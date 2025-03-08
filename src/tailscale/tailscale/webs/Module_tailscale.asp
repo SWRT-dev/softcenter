@@ -288,6 +288,24 @@ function register_event(){
 	});
 
 }
+function get_proces_status2(id) {
+	$.ajax({
+		url: '/_temp/'+id,
+		type: 'GET',
+		async: true,
+		cache: false,
+		dataType: 'text',
+		success: function(res) {
+			if(res.indexOf("@@") != -1){
+				var arr = res.split("@@");
+				E("tailscale_status").innerHTML = arr[0];
+				E("tailnet_state").innerHTML = arr[1];
+				setTimeout("get_proces_status();", 8000);
+			}else
+				setTimeout("get_proces_status2("+id+");", 1000);
+		}
+	});
+}
 function get_proces_status() {
 	var id = parseInt(Math.random() * 100000000);
 	var postData = {"id": id, "method": "tailscale_fettle.sh", "params":[], "fields": ""};
@@ -303,11 +321,42 @@ function get_proces_status() {
 				var arr = response.result.split("@@");
 				E("tailscale_status").innerHTML = arr[0];
 				E("tailnet_state").innerHTML = arr[1];
-			}
-			setTimeout("get_proces_status();", 5000);
+				setTimeout("get_proces_status();", 8000);
+			}else
+				get_proces_status2(id);
 		},
 		error: function() {
 			setTimeout("get_proces_status();", 15000);
+		}
+	});
+}
+function get_tcnets_status2(id) {
+	$.ajax({
+		url: '/_temp/'+id,
+		type: 'GET',
+		async: true,
+		cache: false,
+		dataType: 'text',
+		success: function(res) {
+			if(res.length > 0){
+				E("tailscale_tcnets").style.display = "";
+				var data = JSON.parse(Base64.decode(res));
+				//console.log(data)
+				$("#tailscale_tcnets_status").find("tr:gt(1)").remove();
+				var code = ''
+				for (var field in data) {
+					var f = data[field];
+					code = code + '<tr>';
+					code = code + '<td>' + f.if + '</td>';
+					code = code + '<td>' + f.ip + '</td>';
+					code = code + '<td>' + f.rx + '</td>';
+					code = code + '<td>' + f.tx + '</td>';
+					code = code + '</tr>';
+				}
+				$('#tailscale_tcnets_status tr:last').after(code);
+				setTimeout("get_tcnets_status();", 11000);
+			}else
+				setTimeout("get_tcnets_status2("+id+");", 1000);
 		}
 	});
 }
@@ -325,22 +374,27 @@ function get_tcnets_status(){
 			if (response.result == "empty"){
 				return false;
 			}
-			E("tailscale_tcnets").style.display = "";
-			var data = JSON.parse(Base64.decode(response.result));
-			//console.log(data)
-			$("#tailscale_tcnets_status").find("tr:gt(1)").remove();
-			var code = ''
-			for (var field in data) {
-				var f = data[field];
-				code = code + '<tr>';
-				code = code + '<td>' + f.if + '</td>';
-				code = code + '<td>' + f.ip + '</td>';
-				code = code + '<td>' + f.rx + '</td>';
-				code = code + '<td>' + f.tx + '</td>';
-				code = code + '</tr>';
+			else if(typeof response.result == "number"){
+				get_tcnets_status2(id);
 			}
-			$('#tailscale_tcnets_status tr:last').after(code);
-			setTimeout("get_tcnets_status();", 11000);
+			else{
+				E("tailscale_tcnets").style.display = "";
+				var data = JSON.parse(Base64.decode(response.result));
+				//console.log(data)
+				$("#tailscale_tcnets_status").find("tr:gt(1)").remove();
+				var code = ''
+				for (var field in data) {
+					var f = data[field];
+					code = code + '<tr>';
+					code = code + '<td>' + f.if + '</td>';
+					code = code + '<td>' + f.ip + '</td>';
+					code = code + '<td>' + f.rx + '</td>';
+					code = code + '<td>' + f.tx + '</td>';
+					code = code + '</tr>';
+				}
+				$('#tailscale_tcnets_status tr:last').after(code);
+				setTimeout("get_tcnets_status();", 11000);
+			}
 		},
 		error: function(XmlHttpRequest, textStatus, errorThrown){
 			console.log(XmlHttpRequest.responseText);

@@ -43,7 +43,7 @@
   "Stop": "關閉",
   "Tailscale cannot connect to the server": "tailscale無法連接伺服器",
   "Tailscale has joined the network": "tailscale已加入網絡",
-  "Open web site": "tailscale未加入網路,瀏覽器開啟http://router:8088加入網路,此連結在tailscale加入網路完成後下次啟動時自動失效",
+  "Open web site": "tailscale未加入網路,瀏覽器開啟https://login.tailscale.com/a/router加入網路,此連結在tailscale加入網路完成後下次啟動時自動失效",
   "Autoupdate": "自動檢查更新tailscale(--auto-update)"
 }
 

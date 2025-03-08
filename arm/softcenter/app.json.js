@@ -24,14 +24,14 @@
         }, 
         {
             "arch": "arm", 
-            "build_date": "2024-11-09_12:35:23", 
+            "build_date": "2025-03-08_15:54:13", 
             "description": "tailscale", 
             "home_url": "Module_tailscale.asp", 
-            "md5": "f2339d8f8fb8f7bde77642fd70611ccf", 
+            "md5": "2f645825c9c61c354f511643f9a424b3", 
             "name": "tailscale", 
             "tar_url": "tailscale/tailscale.tar.gz", 
             "title": "tailscale", 
-            "version": "0.0.8"
+            "version": "0.0.9"
         }, 
         {
             "arch": "arm", 

@@ -43,7 +43,7 @@
   "Stop": "Stop",
   "Tailscale cannot connect to the server": "Tailscale cannot connect to the server",
   "Tailscale has joined the network": "Tailscale has joined the network",
-  "Open web site": "Tailscale has not joined the network. Open http://router:8088 in the browser to join the network. This link will automatically become invalid the next time Tailscale is started after joining the network.",
+  "Open web site": "Tailscale has not joined the network. Open https://login.tailscale.com/a/router in the browser to join the network. This link will automatically become invalid the next time Tailscale is started after joining the network.",
   "Autoupdate": "Auto update tailscale(--auto-update)"
 }
 

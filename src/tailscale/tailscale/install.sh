@@ -11,7 +11,7 @@ platform_test(){
 	local LARCH=$(dbus get softcenter_arch)
 	if [ "$MARCH" == "$LARCH" ];then
 		if [ "$MARCH" == "arm" -a "${LINUX_VER}" == "26" ];then
-			echo_date 机型："${MODEL} 内核版本过旧，不支持WG协议，无法安装插件！"
+			echo_date 机型："${MODEL} 官改固件内核版本过旧，不支持WG协议，无法安装插件！可改用swrt固件"
 			exit_install 1
 		else
 			echo_date 机型："${MODEL} 符合安装要求，开始安装插件！"
