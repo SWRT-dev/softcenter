@@ -59,6 +59,9 @@ softcenter_install() {
 			cd /jffs/softcenter/bin && rm -rf versioncmp && ln -sf /usr/sbin/versioncmp versioncmp
 			cd /jffs/softcenter/bin && rm -rf resolveip && ln -sf /usr/sbin/resolveip resolveip
 		fi
+		if [ -f "/usr/bin/jq" ];then
+			cd /jffs/softcenter/bin && rm -rf jq && ln -sf /usr/bin/jq jq
+		fi
 		cd /jffs/softcenter/scripts && ln -sf ks_app_install.sh ks_app_remove.sh
 		chmod 755 /jffs/softcenter/bin/*
 		#chmod 755 /jffs/softcenter/init.d/*
