@@ -178,6 +178,17 @@
         }, 
         {
             "arch": "mipsle", 
+            "build_date": "2025-03-23_14:29:52", 
+            "description": "lucky", 
+            "home_url": "Module_lucky.asp", 
+            "md5": "a530600aa3d3c3f068c69930889b0ac8", 
+            "name": "lucky", 
+            "tar_url": "lucky/lucky.tar.gz", 
+            "title": "lucky", 
+            "version": "1.4.3"
+        }, 
+        {
+            "arch": "mipsle", 
             "build_date": "2024-11-09_12:35:39", 
             "description": "kms", 
             "home_url": "Module_kms.asp", 

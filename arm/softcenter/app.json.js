@@ -167,6 +167,17 @@
         }, 
         {
             "arch": "arm", 
+            "build_date": "2025-03-23_14:29:51", 
+            "description": "lucky", 
+            "home_url": "Module_lucky.asp", 
+            "md5": "f072f93ae90d2f49e9b45561c7d7fea5", 
+            "name": "lucky", 
+            "tar_url": "lucky/lucky.tar.gz", 
+            "title": "lucky", 
+            "version": "1.4.3"
+        }, 
+        {
+            "arch": "arm", 
             "build_date": "2024-11-09_12:35:39", 
             "description": "kms", 
             "home_url": "Module_kms.asp", 

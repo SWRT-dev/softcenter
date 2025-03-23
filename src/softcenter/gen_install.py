@@ -33,7 +33,7 @@ def work_paths_by_walk():
             print os.path.join(root,sub)
 
 def work_parent():
-    ignore_paths = frozenset(["maintain_files", "softcenter", "fastd1ck", "speedup", "syncthing", "lucky"])
+    ignore_paths = frozenset(["maintain_files", "softcenter", "fastd1ck", "speedup", "syncthing"])
     for fname in os.listdir(parent_path):
 
         if fname[0] == "." or fname in ignore_paths:

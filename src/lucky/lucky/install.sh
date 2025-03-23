@@ -1,5 +1,5 @@
 #!/bin/sh
-source /koolshare/scripts/base.sh
+source /jffs/softcenter/scripts/base.sh
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 MODEL=
 FW_TYPE_CODE=
@@ -14,37 +14,6 @@ get_model(){
 		MODEL="${ODMPID}"
 	else
 		MODEL="${PRODUCTID}"
-	fi
-}
-
-get_fw_type() {
-	local KS_TAG=$(nvram get extendno|grep -Eo "kool.+")
-	if [ -d "/koolshare" ];then
-		if [ -n "${KS_TAG}" ];then
-			FW_TYPE_CODE="2"
-			FW_TYPE_NAME="${KS_TAG}官改固件"
-		else
-			FW_TYPE_CODE="4"
-			FW_TYPE_NAME="koolshare梅林改版固件"
-		fi
-	else
-		if [ "$(uname -o|grep Merlin)" ];then
-			FW_TYPE_CODE="3"
-			FW_TYPE_NAME="梅林原版固件"
-		else
-			FW_TYPE_CODE="1"
-			FW_TYPE_NAME="华硕官方固件"
-		fi
-	fi
-}
-
-platform_test(){
-	local LINUX_VER=$(uname -r|awk -F"." '{print $1$2}')
-	local ARCH=$(uname -m)
-	if [ -d "/koolshare" -a -f "/usr/bin/skipd" -a "${LINUX_VER}" -ge "41" ];then
-		echo_date 机型："${MODEL} ${FW_TYPE_NAME} 符合安装要求，开始安装插件！"
-	else
-		exit_install 1
 	fi
 }
 
@@ -71,9 +40,7 @@ exit_install(){
 	local state=$1
 	case $state in
 		1)
-			echo_date "本插件适用于【koolshare 梅林改/官改 hnd/axhnd/axhnd.675x】固件平台！"
 			echo_date "你的固件平台不能安装！！!"
-			echo_date "本插件支持机型/平台：https://github.com/koolshare/rogsoft#rogsoft"
 			echo_date "退出安装！"
 			rm -rf /tmp/lucky* >/dev/null 2>&1
 			exit 1
@@ -105,48 +72,48 @@ install_now() {
 		cru d lucky_watchdog 2>&1
 	fi
 
-	# stop ddns-go
+	# stop lucky
 	local lucky_enable=$(dbus get lucky_enable)
 	local lucky_process=$(pidof lucky)
 	local lucky_install=$(dbus get softcenter_module_lucky_install)
 	if [ "$lucky_enable" == "1" -o -n "${lucky_process}" ];then
 		echo_date "先关闭Lucky插件！以保证更新成功！"
-		sh /koolshare/scripts/lucky_config.sh stop
+		sh /jffs/softcenter/scripts/lucky_config.sh stop
 	fi
 
-	# create ddns-go config dirctory
-	mkdir -p /koolshare/configs/lucky
+	# create lucky config dirctory
+	mkdir -p /jffs/softcenter/configs/lucky
 	
 	# remove some files first, old file should be removed, too
-	find /koolshare/init.d/ -name "*lucky*" | xargs rm -rf
-	rm -rf /koolshare/scripts/lucky*.sh 2>/dev/null
-	rm -rf /koolshare/scripts/*lucky.sh 2>/dev/null
-	rm -rf /koolshare/bin/lucky 2>/dev/null
+	find /jffs/softcenter/init.d/ -name "*lucky*" | xargs rm -rf
+	rm -rf /jffs/softcenter/scripts/lucky*.sh 2>/dev/null
+	rm -rf /jffs/softcenter/scripts/*lucky.sh 2>/dev/null
+	rm -rf /jffs/softcenter/bin/lucky 2>/dev/null
 
 	# isntall file
 	echo_date "安装插件相关文件..."
-	cp -rf /tmp/${module}/bin/lucky /koolshare/bin/
+	cp -rf /tmp/${module}/bin/lucky /jffs/softcenter/bin/
 	if [ "$lucky_install" != "1" ];then
-	cp -rf /tmp/${module}/bin/lucky_base.lkcf /koolshare/configs/lucky/
-  fi
-	cp -rf /tmp/${module}/res/* /koolshare/res/
-	cp -rf /tmp/${module}/scripts/* /koolshare/scripts/
-	cp -rf /tmp/${module}/webs/* /koolshare/webs/
-	cp -rf /tmp/${module}/uninstall.sh /koolshare/scripts/uninstall_${module}.sh
+		cp -rf /tmp/${module}/bin/lucky_base.lkcf /jffs/softcenter/configs/lucky/
+	fi
+	cp -rf /tmp/${module}/res/* /jffs/softcenter/res/
+	cp -rf /tmp/${module}/scripts/* /jffs/softcenter/scripts/
+	cp -rf /tmp/${module}/webs/* /jffs/softcenter/webs/
+	cp -rf /tmp/${module}/uninstall.sh /jffs/softcenter/scripts/uninstall_${module}.sh
 	
 	#创建开机自启任务
-	[ ! -L "/koolshare/init.d/S110lucky.sh" ] && ln -sf /koolshare/scripts/lucky_config.sh /koolshare/init.d/S110lucky.sh
-	[ ! -L "/koolshare/init.d/N110lucky.sh" ] && ln -sf /koolshare/scripts/lucky_config.sh /koolshare/init.d/N110lucky.sh
+	[ ! -L "/jffs/softcenter/init.d/S110lucky.sh" ] && ln -sf /jffs/softcenter/scripts/lucky_config.sh /jffs/softcenter/init.d/S110lucky.sh
+	[ ! -L "/jffs/softcenter/init.d/N110lucky.sh" ] && ln -sf /jffs/softcenter/scripts/lucky_config.sh /jffs/softcenter/init.d/N110lucky.sh
 
 	# Permissions
-	chmod +x /koolshare/scripts/lucky* >/dev/null 2>&1
-	chmod +x /koolshare/scripts/*lucky.sh >/dev/null 2>&1
-	chmod +x /koolshare/bin/lucky >/dev/null 2>&1
+	chmod +x /jffs/softcenter/scripts/lucky* >/dev/null 2>&1
+	chmod +x /jffs/softcenter/scripts/*lucky.sh >/dev/null 2>&1
+	chmod +x /jffs/softcenter/bin/lucky >/dev/null 2>&1
 
 	# dbus value
 	echo_date "设置插件默认参数..."
 	dbus set lucky_version="${PLVER}"
-	dbus set lucky_binary="2.10.9"
+	dbus set lucky_binary="2.15.7"
 	dbus set softcenter_module_lucky_version="${PLVER}"
 	dbus set softcenter_module_lucky_install="1"
 	dbus set softcenter_module_lucky_name="${module}"
@@ -154,7 +121,6 @@ install_now() {
 	dbus set softcenter_module_lucky_description="${DESCR}"
 
 	# 检查插件默认dbus值
-	dbus_nset lucky_watchdog "0"
 	dbus_nset lucky_enable "0"
 	dbus_nset lucky_port "16601"
 	dbus_nset lucky_reset_disable "0"
@@ -166,7 +132,7 @@ install_now() {
 	# re_enable
 	if [ "${lucky_enable}" == "1" ];then
 		echo_date "重新启动Lucky插件！"
-		sh /koolshare/scripts/lucky_config.sh boot_up
+		sh /jffs/softcenter/scripts/lucky_config.sh boot_up
 	fi
 
 	# finish
@@ -176,8 +142,6 @@ install_now() {
 
 install() {
   get_model
-  get_fw_type
-  platform_test
   install_now
 }
 

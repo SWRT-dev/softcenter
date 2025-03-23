@@ -1,0 +1,9 @@
+{
+"version":"1.4.3",
+"md5":"751bd20fe82ce599200cce5d1f1289f9",
+"arch":"arm64",
+"home_url":"Module_lucky.asp",
+"title":"lucky",
+"description":"lucky",
+"build_date":"2025-03-23_14:29:52"
+}

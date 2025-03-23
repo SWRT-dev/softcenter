@@ -1,0 +1,9 @@
+{
+"version":"1.4.3",
+"md5":"a530600aa3d3c3f068c69930889b0ac8",
+"arch":"mipsle",
+"home_url":"Module_lucky.asp",
+"title":"lucky",
+"description":"lucky",
+"build_date":"2025-03-23_14:29:52"
+}

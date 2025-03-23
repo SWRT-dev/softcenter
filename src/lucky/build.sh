@@ -1,7 +1,7 @@
 #!/bin/sh
 
 MODULE=lucky
-VERSION=1.3.1
+VERSION=1.4.3
 TITLE="lucky"
 DESCRIPTION="lucky"
 HOME_URL=Module_lucky.asp

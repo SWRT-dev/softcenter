@@ -16,10 +16,10 @@
 <link rel="stylesheet" type="text/css" href="/js/table/table.css">
 <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
+<script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/state.js"></script>
 <script type="text/javascript" src="/popup.js"></script>
 <script type="text/javascript" src="/help.js"></script>
-<script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/general.js"></script>
 <script type="text/javascript" language="JavaScript" src="/js/table/table.js"></script>
 <script type="text/javascript" src="/res/softcenter.js"></script>
@@ -134,7 +134,7 @@ var count_down;
 var _responseLen;
 var STATUS_FLAG;
 var noChange = 0;
-var params_check = ['lucky_watchdog','lucky_reset_safeurl','lucky_reset_user','lucky_reset_port','lucky_reset_disable'];
+var params_check = ['lucky_reset_safeurl','lucky_reset_user','lucky_reset_port','lucky_reset_disable'];
 var params_input = ['lucky_port','lucky_safeurl'];
 
 String.prototype.myReplace = function(f, e){
@@ -228,8 +228,8 @@ function show_hide_element(){
 }
 
 function menu_hook(title, tab) {
-	tabtitle[tabtitle.length - 1] = new Array("", "lucky");
-	tablink[tablink.length - 1] = new Array("", "Module_lucky.asp");
+	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "lucky");
+	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_lucky.asp");
 }
 
 function register_event(){
@@ -258,6 +258,7 @@ function check_status(){
 		type: "POST",
 		url: "/_api/",
 		async: true,
+		dataType: "json",
 		data: JSON.stringify(postData),
 		success: function (response) {
 			E("lucky_status").innerHTML = response.result;
@@ -482,7 +483,6 @@ function validateInput(input, minValue, maxValue) {
 										<div style="margin: 10px 0 10px 5px;" class="splitLine"></div>
 										<div class="SimpleNote">
 	                                      <a href="https://lucky666.cn/docs/intro" target="_blank"><em>Lucky</em></a>&nbsp;是一款由Golang写的集合了 <em style='color: gold;'>端口转发 / DDNS / Web服务 / Stun内网穿透 / 网络唤醒 / 计划任务 / ACME自动证书 / 网络存储 </em>等功能的强大网络工具。
-											<span><a type="button" href="https://github.com/vj23456/MerlinLucky" target="_blank" class="ks_btn" style="margin-left:5px;" >项目地址</a></span>
 											<span><a type="button" class="ks_btn" href="javascript:void(0);" onclick="get_log(1)" style="margin-left:5px;">插件日志</a></span>
 										</div>
 										<div id="lucky_status_pannel">
@@ -519,12 +519,6 @@ function validateInput(input, minValue, maxValue) {
 														<td colspan="2">Lucky - 设置</td>
 													</tr>
 												</thead>
-												<tr>
-													<th>实时进程守护</th>
-													<td>
-														<input type="checkbox" id="lucky_watchdog" style="vertical-align:middle;">
-													</td>
-												</tr>
 											</table>
 										</div>
 										<div style="margin-top:10px">

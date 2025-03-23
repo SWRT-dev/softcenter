@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source /koolshare/scripts/base.sh
+source /jffs/softcenter/scripts/base.sh
 eval $(dbus export lucky_)
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 LOG_FILE=/tmp/upload/lucky_log.txt
@@ -54,17 +54,7 @@ check_status(){
 	local LUCKY_PID=$(pidof lucky)
 	if [ "${lucky_enable}" == "1" ]; then
 		if [ -n "${LUCKY_PID}" ]; then
-			if [ "${lucky_watchdog}" == "1" ]; then
-				local lucky_time=$(perpls|grep lucky|grep -Eo "uptime.+-s\ " | awk -F" |:|/" '{print $3}')
-				lucky_time="${lucky_time%s}"
-				if [ -n "${lucky_time}" ]; then
-					local ret="Lucky 进程运行正常！（PID：${LUCKY_PID} , 守护运行时间：$(formatTime $lucky_time)）"
-				else
-					local ret="Lucky 进程运行正常！（PID：${LUCKY_PID}）"
-				fi
-			else
-				local ret="Lucky 进程运行正常！（PID：${LUCKY_PID}）"
-			fi
+			local ret="Lucky 进程运行正常！（PID：${LUCKY_PID}）"
 		else
 			local ret="Lucky 进程未运行！"
 		fi
@@ -102,10 +92,6 @@ close_lucky_process(){
 	lucky_process=$(pidof lucky)
 	if [ -n "${lucky_process}" ]; then
 		echo_date "⛔关闭Lucky进程..."
-		if [ -f "/koolshare/perp/lucky/rc.main" ]; then
-			perpctl d lucky >/dev/null 2>&1
-		fi
-		rm -rf /koolshare/perp/lucky
 		killall lucky >/dev/null 2>&1
 		kill -9 "${lucky_process}" >/dev/null 2>&1
 	fi
@@ -113,31 +99,11 @@ close_lucky_process(){
 
 start_lucky_process(){
 	rm -rf ${LUCKY_LOG_FILE}
-	if [ "${lucky_watchdog}" == "1" ]; then
-		echo_date "🟠启动 Lucky 进程，开启进程实时守护..."
-		mkdir -p /koolshare/perp/lucky
-		cat >/koolshare/perp/lucky/rc.main <<-EOF
-			#!/bin/sh
-			/koolshare/scripts/base.sh
-			if test \${1} = 'start' ; then
-				exec lucky -c /koolshare/configs/lucky/
-			fi
-			exit 0
-
-		EOF
-		chmod +x /koolshare/perp/lucky/rc.main
-		chmod +t /koolshare/perp/lucky/
-		sync
-		perpctl A lucky >/dev/null 2>&1
-		perpctl u lucky >/dev/null 2>&1
-		detect_running_status lucky
-	else
-		echo_date "🟠启动 Lucky 进程..."
-		rm -rf /tmp/lucky.pid
-		start-stop-daemon -S -q -b -m -p /tmp/var/lucky.pid -x /koolshare/bin/lucky -- -cd /koolshare/configs/lucky/
-		sleep 2
-		detect_running_status lucky
-	fi
+	echo_date "🟠启动 Lucky 进程..."
+	rm -rf /tmp/lucky.pid
+	start-stop-daemon -S -q -b -m -p /tmp/var/lucky.pid -x /jffs/softcenter/bin/lucky -- -cd /jffs/softcenter/configs/lucky/
+	sleep 2
+	detect_running_status lucky
 }
 
 read_version() {
@@ -161,7 +127,7 @@ read_version() {
 
 read_base_info() {
 	# 获取lucky baseinfo
-	baseConfInfo=$(lucky -cd /koolshare/configs/lucky -baseConfInfo)
+	baseConfInfo=$(lucky -cd /jffs/softcenter/configs/lucky -baseConfInfo)
 
 	# 解析端口号
     lucky_port=$(echo "$baseConfInfo" | grep -o '"AdminWebListenPort":[0-9]*' | sed 's/"AdminWebListenPort"://')
@@ -188,7 +154,7 @@ reset_param() {
 	if pidof lucky > /dev/null; then
 
 		# 初始化命令
-		command="lucky -cd /koolshare/configs/lucky"
+		command="lucky -cd /jffs/softcenter/configs/lucky"
 
 		# 根据 dbus 参数值拼接命令选项
 		if [ "${lucky_reset_safeurl}" -eq 1 ]; then
@@ -275,7 +241,7 @@ boot_up)
 start_nat)
 	if [ "${lucky_enable}" == "1" ]; then
 	    logger "[软件中心]-[${0##*/}]: NAT重启触发重新启动Lucky！"
-		lucky -cd /koolshare/configs/lucky -rRestart
+		lucky -cd /jffs/softcenter/configs/lucky -rRestart
 	fi
 	;;	
 stop)
