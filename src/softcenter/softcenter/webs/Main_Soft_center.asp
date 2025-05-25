@@ -370,7 +370,6 @@ function toggleAppPanel(showInstall) {
 function renderView(apps) {
 	// set apps to global variable of softInfo
 	softInfo = apps;
-	//console.log(softInfo);
 	//简单模板函数
 	function _format(source, opts) {
 			var source = source.valueOf(),
@@ -422,13 +421,91 @@ function renderView(apps) {
 	$('.show-install-btn').val(dict["Installed"] + '(' + installCount + ')');
 	$('.show-uninstall-btn').val(dict["Online"] + '(' + uninstallCount + ')');
 }
-function getRemoteData() {
-	var remoteURL = db_softcenter_["softcenter_home_url"] + '/' + scarch + '/softcenter/app.json.js';
-	return $.ajax({
+//把本地数据平面化转换成以app为对象
+function _formatLocalData(localData) {
+	var result = {};
+	$.map(db_softcenter_, function(item, key) {
+		key = key.split('_');
+		if ('module' === key[1]) {
+			var name = key[2];
+			var prop = key.slice(3).join("_");
+			if (!result[name]) {
+				result[name] = {};
+				result[name].name = name;
+			}
+			if (prop) {
+				result[name][prop] = item;
+			}
+		}
+	});
+	for (var field in result) {
+		if (!result[field].install){
+			delete(result[field]);
+		}
+	}
+	//console.log(result)
+	return result;
+}
+	//设置默认值
+function _setDefault(source, defaults) {
+	$.map(defaults, function(value, key) {
+		if (!source[key]) {
+			source[key] = value;
+		}
+	});
+}
+//将本地和远程进行一次对比合并
+function _mergeData(remoteData) {
+	var result = {};
+	var localData = _formatLocalData(db_softcenter_);
+	$.each(remoteData, function(i, app) {
+		var name = app.name;
+		var oldApp = localData[name] || {};
+		var install = (parseInt(oldApp.install, 10) === 1 && app.version !== oldApp.version) ? 2 : oldApp.install || "0";
+		result[name] = $.extend(oldApp, app);
+		result[name].install = install;
+	});
+	$.map(localData, function(app, name) {
+		if (!result[name]) {
+			result[name] = app;
+		}
+	});
+	//设置默认值和设置icon的路径
+	$.map(result, function(item, name) {
+		_setDefault(item, {
+			home_url: "Module_" + name + ".asp",
+			title: name.capitalizeFirstLetter(),
+			tar_url: "{0}/{0}.tar.gz".format(name),
+			install: "0",
+			description: dict["None"],
+			new_version: false
+		});
+		// icon 规则:
+		// 如果已安装的插件,那图标必定在 /jffs/softcenter/res 目录, 通过 /res/icon-{name}.png 请求路径得到图标
+		// 如果是未安装的插件,则必定在 https://sc.paldier.com/res/icon-{name}.png
+		item.icon = parseInt(item.install, 10) !== 0 ? ('/res/icon-' + item.name + '.png') : ('https://sc.paldier.com/res/icon-' + item.name + '.png');
+	});
+	return result;
+}
+function getRemoteData(cb) {
+	var remoteURL = db_softcenter_["softcenter_home_url"] + '/' + scarch + '/softcenter/app.json.js' + '?_=' + new Date().getTime();
+	$.ajax({
 		url: remoteURL,
-		method: 'GET',
-		dataType: 'jsonp',
-		timeout: 5000
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		success: function(remoteData) {
+			//远端更新成功
+			syncRemoteSuccess = 1;
+			softceterInitData(remoteData);
+			remoteData = remoteData.apps || [];
+			renderView(_mergeData(remoteData));
+			cb();
+		},
+		error: function(XmlHttpRequest, textStatus, errorThrown){
+			//如果没有更新成功，比如没网络，就用空数据merge本地
+			$("#spnOnlineVersion").html("<i>" +dict["Failed to get online version! Please try to refresh this page, or check your network settings!"] +"</i>")
+		}
 	});
 }
 function softceterInitData(data) {
@@ -449,99 +526,21 @@ function softceterInitData(data) {
 	}
 }
 
-function init(cb) {
-		//设置默认值
-		function _setDefault(source, defaults) {
-				$.map(defaults, function(value, key) {
-					if (!source[key]) {
-						source[key] = value;
-					}
-				});
-			}
-		//把本地数据平面化转换成以app为对象
-		function _formatLocalData(localData) {
-				var result = {};
-				$.map(db_softcenter_, function(item, key) {
-					key = key.split('_');
-					if ('module' === key[1]) {
-						var name = key[2];
-						var prop = key.slice(3).join("_");
-						if (!result[name]) {
-							result[name] = {};
-							result[name].name = name;
-						}
-						if (prop) {
-							result[name][prop] = item;
-						}
-					}
-				});
-				for (var field in result) {
-					if (!result[field].install){
-						delete(result[field]);
-					}
-				}
-				//console.log(result)
-				return result;
-			}
-		//将本地和远程进行一次对比合并
-		function _mergeData(remoteData) {
-			var result = {};
-			var localData = _formatLocalData(db_softcenter_);
-			$.each(remoteData, function(i, app) {
-				var name = app.name;
-				var oldApp = localData[name] || {};
-				var install = (parseInt(oldApp.install, 10) === 1 && app.version !== oldApp.version) ? 2 : oldApp.install || "0";
-				result[name] = $.extend(oldApp, app);
-				result[name].install = install;
-			});
-			$.map(localData, function(app, name) {
-				if (!result[name]) {
-					result[name] = app;
-				}
-			});
-			//设置默认值和设置icon的路径
-			$.map(result, function(item, name) {
-				_setDefault(item, {
-					home_url: "Module_" + name + ".asp",
-					title: name.capitalizeFirstLetter(),
-					tar_url: "{0}/{0}.tar.gz".format(name),
-					install: "0",
-					description: dict["None"],
-					new_version: false
-				});
-				// icon 规则:
-				// 如果已安装的插件,那图标必定在 /jffs/softcenter/res 目录, 通过 /res/icon-{name}.png 请求路径得到图标
-				// 如果是未安装的插件,则必定在 https://sc.paldier.com/res/icon-{name}.png
-				item.icon = parseInt(item.install, 10) !== 0 ? ('/res/icon-' + item.name + '.png') : ('https://sc.paldier.com/res/icon-' + item.name + '.png');
-			});
-			return result;
-		};
-		if (syncRemoteSuccess) {
-			cb();
-			return;
-		} else {
-			renderView(_mergeData({}));
-			cb();
-			getRemoteData()
-				.done(function(remoteData) {
-					//远端更新成功
-					syncRemoteSuccess = 1;
-					softceterInitData(remoteData);
-					remoteData = remoteData.apps || [];
-					renderView(_mergeData(remoteData));
-					cb();
-				})
-				.fail(function() {
-					//如果没有更新成功，比如没网络，就用空数据merge本地
-					$("#spnOnlineVersion").html("<i>" +dict["Failed to get online version! Please try to refresh this page, or check your network settings!"] +"</i>")
-				});
-		}
-		notice_show();
+function initui(cb) {
+	if (syncRemoteSuccess) {
+		cb();
+		return;
+	} else {
+		renderView(_mergeData({}));
+		cb();
+		getRemoteData(cb)
 	}
-	//初始化整个界面展现，包括安装未安装的获取
-	//当初始化过程获取软件列表失败时候，用本地的模块进行渲染
-	//只要一次获取成功，以后不在重新获取，知道页面刷新重入
-$(function() {
+	notice_show();
+}
+//初始化整个界面展现，包括安装未安装的获取
+//当初始化过程获取软件列表失败时候，用本地的模块进行渲染
+//只要一次获取成功，以后不在重新获取，知道页面刷新重入
+function init() {
 	show_menu(menu_hook);
 	set_skin();
 	sc_load_lang("sc1");
@@ -574,18 +573,18 @@ $(function() {
 				return false;
 			}
 			initInstallStatus();
-				init(function() {
+				initui(function() {
 					toggleAppPanel(1);
 					//一刷新界面是否就正在插件在安装.
 				});
 				//挂接tab切换安装状态事件
 				$('.show-install-btn').click(function() {
-					init(function() {
+					initui(function() {
 						toggleAppPanel(1);
 					});
 				});
 				$('.show-uninstall-btn').click(function() {
-					init(function() {
+					initui(function() {
 						toggleAppPanel(0);
 					});
 				});
@@ -638,14 +637,14 @@ $(function() {
 				});
 		}
 	});
-});
+}
 function menu_hook(title, tab) {
 	tabtitle[tabtitle.length -1] = new Array("",dict["Software Center"], dict["Offline installation"]);
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp");
 }
 function notice_show(){
 	if(odmpid != ""){
-        if(modelname == productid)
+		if(modelname == productid)
 			document.getElementById("modelid").innerHTML =modelname ;
 		else
 			document.getElementById("modelid").innerHTML =odmpid ;
@@ -860,7 +859,7 @@ function set_skin(){
 }
 </script>
 </head>
-<body id="scapp" scskin="swrt">
+<body onload="init();" id="scapp" scskin="swrt">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="softcenter_shade_pannel" class="popup_bar_bg_ks">
@@ -963,4 +962,5 @@ function set_skin(){
 <div id="footer"></div>
 </body>
 </html>
+
 
