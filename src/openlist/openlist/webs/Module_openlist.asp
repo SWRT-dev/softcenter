@@ -949,7 +949,7 @@ function mOut(obj){
 										<div style="margin: 10px 0 10px 5px;" class="splitLine"></div>
 										<div style="margin:10px 0 0 5px">
 											<li>建议挂载U盘并配合虚拟内存插件一起食用，口感更佳，否则可能会出现莫名的问题。</li>
-											<li>如有不懂，特别是配置文件的填写，请查看OpenList官方文档：<a href="https://docs.oplist.org/zh/" target="_blank"><em>点这里看文档</em></a>。</li>
+											<li>如有不懂，特别是配置文件的填写，请查看OpenList官方文档：<a href="https://doc.oplist.org/" target="_blank"><em>点这里看文档</em></a>。</li>
 											<li>上表<strong>未列出的</strong>配置，可关闭插件后直接修改配置文件【数据目录/config.json】，这些不会被还原。</li>
 										</div>
 									</td>
