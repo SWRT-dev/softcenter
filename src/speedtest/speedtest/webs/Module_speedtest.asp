@@ -1,38 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
-        <meta HTTP-EQUIV="Expires" CONTENT="-1"/>
-        <link rel="shortcut icon" href="images/favicon.png"/>
-        <link rel="icon" href="images/favicon.png"/>
-        <title>软件中心 - Speedtest网络测速</title>
-        <link rel="stylesheet" type="text/css" href="index_style.css">
-        <link rel="stylesheet" type="text/css" href="form_style.css">
-        <link rel="stylesheet" type="text/css" href="usp_style.css">
-        <link rel="stylesheet" type="text/css" href="/device-map/device-map.css" />
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta HTTP-EQUIV="Pragma" CONTENT="no-cache"/>
+		<meta HTTP-EQUIV="Expires" CONTENT="-1"/>
+		<link rel="shortcut icon" href="images/favicon.png"/>
+		<link rel="icon" href="images/favicon.png"/>
+		<title>软件中心 - Speedtest网络测速</title>
+		<link rel="stylesheet" type="text/css" href="index_style.css">
+		<link rel="stylesheet" type="text/css" href="form_style.css">
+		<link rel="stylesheet" type="text/css" href="usp_style.css">
+		<link rel="stylesheet" type="text/css" href="/device-map/device-map.css" />
 		<link rel="stylesheet" type="text/css" href="/res/softcenter.css"/>
 		<script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 		<script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
-        <script type="text/javascript" src="/state.js"></script>
-        <script type="text/javascript" src="/popup.js"></script>
-        <script type="text/javascript" src="/help.js"></script>
-        <script type="text/javascript" src="/general.js"></script>
-        <script type="text/javascript" src="/client_function.js"></script>
-        <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
-        <script type="text/javascript" src="/form.js"></script>
+		<script type="text/javascript" src="/state.js"></script>
+		<script type="text/javascript" src="/popup.js"></script>
+		<script type="text/javascript" src="/help.js"></script>
+		<script type="text/javascript" src="/general.js"></script>
+		<script type="text/javascript" src="/client_function.js"></script>
+		<script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
+		<script type="text/javascript" src="/form.js"></script>
 		<script type="text/javascript" src="/res/softcenter.js"></script>
 		<script type="text/javascript" src="/js/i18n.js"></script>
-        <style type="text/css">
-        </style>
-        <script type="text/javascript">
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
 			function E(e) {
 				return (typeof(e) == 'string') ? document.getElementById(e) : e;
 			}
-            function init() {
-                show_menu(menu_hook);
-             }
+			function init() {
+				show_menu(menu_hook);
+				get_status();
+			 }
 			function save(action) {
 				var uid = parseInt(Math.random() * 100000000);
 				var params = (action == 1) ? "start" : "stop";
@@ -87,27 +88,27 @@
 			}
 	</script>
 	</head>
-    <body onload="init();">
-        <div id="TopBanner"></div>
-        <div id="Loading" class="popup_bg"></div>
-        <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
-        <form method="post" name="form" action="/applydb.cgi?p=speedtest_" target="hidden_frame">
-            <input type="hidden" name="current_page" value="Module_speedtest.asp"/>
-            <input type="hidden" name="next_page" value="Module_speedtest.asp"/>
-            <input type="hidden" name="group_id" value=""/>
-            <input type="hidden" name="modified" value="0"/>
-            <input type="hidden" name="action_mode" value="toolscript"/>
-            <input type="hidden" name="action_script" value="speedtest_config.sh"/>
-            <input type="hidden" name="action_wait" value="5"/>
-            <input type="hidden" name="first_time" value=""/>
-            <input type="hidden" name="preferred_lang" id="preferred_lang" value="<% nvram_get("preferred_lang"); %>"/>
-            <input type="hidden" name="firmver" value="<% nvram_get("firmver"); %>"/>
+	<body onload="init();">
+		<div id="TopBanner"></div>
+		<div id="Loading" class="popup_bg"></div>
+		<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
+		<form method="post" name="form" action="/applydb.cgi?p=speedtest_" target="hidden_frame">
+			<input type="hidden" name="current_page" value="Module_speedtest.asp"/>
+			<input type="hidden" name="next_page" value="Module_speedtest.asp"/>
+			<input type="hidden" name="group_id" value=""/>
+			<input type="hidden" name="modified" value="0"/>
+			<input type="hidden" name="action_mode" value="toolscript"/>
+			<input type="hidden" name="action_script" value="speedtest_config.sh"/>
+			<input type="hidden" name="action_wait" value="5"/>
+			<input type="hidden" name="first_time" value=""/>
+			<input type="hidden" name="preferred_lang" id="preferred_lang" value="<% nvram_get("preferred_lang"); %>"/>
+			<input type="hidden" name="firmver" value="<% nvram_get("firmver"); %>"/>
 
-            <table class="content" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="17">&nbsp;</td>
-                    <td valign="top" width="202">
-                        <div id="mainMenu"></div>
+			<table class="content" align="center" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="17">&nbsp;</td>
+					<td valign="top" width="202">
+						<div id="mainMenu"></div>
 						<div id="subMenu"></div>
 					</td>
 					<td valign="top">
@@ -167,7 +168,7 @@
 					</td>
 				</tr>
 			</table>
-        </form>
-        <div id="footer"></div>
-    </body>
+		</form>
+		<div id="footer"></div>
+	</body>
 </html>
