@@ -12,7 +12,7 @@ cp -rf /tmp/speedtest/scripts/* /jffs/softcenter/scripts/
 cp -rf /tmp/speedtest/bin/* /jffs/softcenter/bin/
 cp -rf /tmp/speedtest/webs/* /jffs/softcenter/webs/
 
-chmod a+x /jffs/softcenter/scripts/*.sh
+chmod a+x /jffs/softcenter/scripts/speedtest*.sh
 chmod a+x /jffs/softcenter/bin/speedtest
 
 # 离线安装需要向skipd写入安装信息
