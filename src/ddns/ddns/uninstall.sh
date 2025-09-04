@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sh /jffs/softcenter/scripts/ddns_config.sh stop
-
+rm -rf /jffs/softcenter/bin/ddns-go
 rm -rf /jffs/softcenter/res/icon-ddns.png
 rm -rf /jffs/softcenter/scripts/ddns*
 rm -rf /jffs/softcenter/webs/Module_ddns.asp

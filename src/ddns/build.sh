@@ -1,11 +1,12 @@
 #!/bin/sh
 
 MODULE="ddns"
-VERSION="0.3"
+VERSION="0.4"
 TITLE="多ddns合一"
 DESCRIPTION="支持Alidns(阿里云) Dnspod(腾讯云) Cloudflare 华为云 Callback"
 HOME_URL="Module_ddns.asp"
 ARCH_LIST="arm armng arm64 mips mipsle"
+FILE_LIST="ddns-go"
 
 # Check and include base
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -28,5 +29,7 @@ cd $DIR
 # do something here
 for SC_ARCH in $ARCH_LIST
 do
+	cp_arch_bin
 	do_build_result
+	rm_arch_bin
 done

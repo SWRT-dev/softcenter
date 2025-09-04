@@ -200,14 +200,14 @@
         }, 
         {
             "arch": "arm", 
-            "build_date": "2024-11-09_12:35:40", 
+            "build_date": "2025-09-04_08:16:20", 
             "description": "支持Alidns(阿里云) Dnspod(腾讯云) Cloudflare 华为云 Callback", 
             "home_url": "Module_ddns.asp", 
-            "md5": "95f32f7c067b413f3a00bcaa55416a2d", 
+            "md5": "2d1c67102013f75d6dd3c3826dfa336c", 
             "name": "ddns", 
             "tar_url": "ddns/ddns.tar.gz", 
             "title": "多ddns合一", 
-            "version": "0.3"
+            "version": "0.4"
         }, 
         {
             "arch": "arm", 
