@@ -46,14 +46,14 @@
         }, 
         {
             "arch": "armng", 
-            "build_date": "2024-11-09_12:35:29", 
+            "build_date": "2025-09-04_22:50:38", 
             "description": "Socat 端口转发", 
             "home_url": "Module_socat.asp", 
-            "md5": "bd492d9f42ddd9b7bcc6c7e97f36ff88", 
+            "md5": "486cf3339cf4d85ae6d8a8e3cf555931", 
             "name": "socat", 
             "tar_url": "socat/socat.tar.gz", 
             "title": "Socat端口转发", 
-            "version": "1.1"
+            "version": "1.2"
         }, 
         {
             "arch": "armng", 
