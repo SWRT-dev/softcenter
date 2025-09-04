@@ -321,6 +321,17 @@
         }, 
         {
             "arch": "mipsle", 
+            "build_date": "2025-09-04_12:06:49", 
+            "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav。", 
+            "home_url": "Module_openlist.asp", 
+            "md5": "26f24282ba44aa87ef6ec70118f17f28", 
+            "name": "openlist", 
+            "tar_url": "openlist/openlist.tar.gz", 
+            "title": "OpenList文件列表", 
+            "version": "1.0"
+        }, 
+        {
+            "arch": "mipsle", 
             "build_date": "2024-11-09_12:35:47", 
             "description": "光猫助手: 快速设置，通过路由直接访问猫后台", 
             "home_url": "Module_lookcat.asp", 

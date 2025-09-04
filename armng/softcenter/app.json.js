@@ -321,6 +321,17 @@
         }, 
         {
             "arch": "armng", 
+            "build_date": "2025-09-04_12:06:46", 
+            "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav。", 
+            "home_url": "Module_openlist.asp", 
+            "md5": "a041127c9733787a5e6471cddee09790", 
+            "name": "openlist", 
+            "tar_url": "openlist/openlist.tar.gz", 
+            "title": "OpenList文件列表", 
+            "version": "1.0"
+        }, 
+        {
+            "arch": "armng", 
             "build_date": "2024-11-09_12:35:47", 
             "description": "光猫助手: 快速设置，通过路由直接访问猫后台", 
             "home_url": "Module_lookcat.asp", 
