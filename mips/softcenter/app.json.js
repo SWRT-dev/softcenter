@@ -354,10 +354,10 @@
         }, 
         {
             "arch": "mips", 
-            "build_date": "2024-11-09_12:35:47", 
+            "build_date": "2025-09-04_22:51:58", 
             "description": "超强的SSH网页客户端~", 
             "home_url": "Module_shellinabox.asp", 
-            "md5": "6ebad992e55c17f2fcfa50e9946b1160", 
+            "md5": "400db704e641b710e5ae042f738e1a07", 
             "name": "shellinabox", 
             "tar_url": "shellinabox/shellinabox.tar.gz", 
             "title": "shellinabox", 

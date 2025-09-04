@@ -25,7 +25,8 @@ dbus remove softcenter_module_shellinabox_install
 dbus remove softcenter_module_shellinabox_md5
 dbus remove softcenter_module_shellinabox_version
 dbus remove softcenter_module_shellinabox_name
-dbus remove softcenter_module_shellinabox_descripti
+dbus remove softcenter_module_shellinabox_description
+dbus remove softcenter_module_shellinabox_title
 rm -rf /jffs/softcenter/scripts/uninstall_shellinabox.sh
 
 
