@@ -2,14 +2,14 @@
     "apps": [
         {
             "arch": "mipsle", 
-            "build_date": "2024-11-09_12:35:20", 
+            "build_date": "2025-09-05_09:21:12", 
             "description": "内网穿透利器，谁用谁知道。", 
             "home_url": "Module_frps.asp", 
-            "md5": "6e4dcba9ce2769044806be86224151ff", 
+            "md5": "1da997e265b8f5deb6899cb11bf206af", 
             "name": "frps", 
             "tar_url": "frps/frps.tar.gz", 
             "title": "frps穿透服务器", 
-            "version": "2.1"
+            "version": "2.2"
         }, 
         {
             "arch": "mipsle", 

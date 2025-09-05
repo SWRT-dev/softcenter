@@ -1,9 +1,9 @@
 {
-"version":"2.1",
-"md5":"a63b73d9d5442d81781d4dbca59515b1",
+"version":"2.2",
+"md5":"4538c733bc0bc9234e49dc2e1114063e",
 "arch":"armng",
 "home_url":"Module_frps.asp",
 "title":"frps穿透服务器",
 "description":"内网穿透利器，谁用谁知道。",
-"build_date":"2024-11-09_12:35:19"
+"build_date":"2025-09-05_09:21:11"
 }
