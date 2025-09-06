@@ -1,9 +1,9 @@
 {
-"version":"1.0.7",
-"md5":"2b47b707b65437fb390cc965b04e5a0a",
+"version":"1.0.8",
+"md5":"92f948635d9649f176f72bd42924a85c",
 "arch":"mipsle",
 "home_url":"Module_filebrowser.asp",
 "title":"filebrowser",
 "description":"FileBrowser：您的可视化路由文件管理系统",
-"build_date":"2024-11-09_12:35:34"
+"build_date":"2025-09-06_12:18:23"
 }

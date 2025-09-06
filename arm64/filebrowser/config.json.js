@@ -1,9 +1,9 @@
 {
-"version":"1.0.7",
-"md5":"49b1c796cbb77357ffd3fa75b0854841",
+"version":"1.0.8",
+"md5":"20325eabb7ca4a94d47d850314c17c91",
 "arch":"arm64",
 "home_url":"Module_filebrowser.asp",
 "title":"filebrowser",
 "description":"FileBrowser：您的可视化路由文件管理系统",
-"build_date":"2024-11-09_12:35:33"
+"build_date":"2025-09-06_12:18:22"
 }
