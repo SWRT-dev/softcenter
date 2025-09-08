@@ -321,14 +321,14 @@
         }, 
         {
             "arch": "armng", 
-            "build_date": "2025-09-04_12:06:46", 
+            "build_date": "2025-09-08_09:14:19", 
             "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav。", 
             "home_url": "Module_openlist.asp", 
-            "md5": "a041127c9733787a5e6471cddee09790", 
+            "md5": "da5569a5cb46c66f89fe68a3be318448", 
             "name": "openlist", 
             "tar_url": "openlist/openlist.tar.gz", 
             "title": "OpenList文件列表", 
-            "version": "1.0"
+            "version": "1.1"
         }, 
         {
             "arch": "armng", 

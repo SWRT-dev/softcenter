@@ -1,5 +1,5 @@
 MODULE=openlist
-VERSION=1.0
+VERSION=1.1
 TITLE="OpenList文件列表"
 DESCRIPTION="一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav。"
 HOME_URL=Module_openlist.asp
