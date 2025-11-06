@@ -71,6 +71,9 @@ tailscale_start(){
 			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Exit node is enabled"'`
 			echo_date "${msg}"
 		fi
+		if [ "$tailscale_lan_access" == "1" ];then
+			args="${args} --exit-node-allow-lan-access"
+		fi
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Start tailscale network connection"'`
 		echo_date "${msg}"
 		/jffs/softcenter/bin/tailscale up --accept-dns=false ${args} &
@@ -93,7 +96,8 @@ tailscale_start(){
 		service restart_dnsmasq 2>&1
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Tailscale startup completed"'`
 		echo_date "${msg}"
-    fi
+		/jffs/softcenter/scripts/tailscale_redirect.sh &
+	fi
 }
 
 tailscale_stop(){

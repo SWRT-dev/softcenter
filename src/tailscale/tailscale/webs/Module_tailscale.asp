@@ -619,7 +619,7 @@ function open_alist_hint(itemNum) {
 	if (itemNum == 2) {
 		width = "780px";
 		statusmenu = "&nbsp;&nbsp;&nbsp;&nbsp;<b>宣告路由表</b>：将本路由器lan网段，如192.168.50.0/24，宣告给tailnet，如果其它tailscale客户端接受了此路由表，那么其它客户端可以通过192.168.50.0/24内的ip地址访问本路由器和路由器下的客户端。<br/><br/>"
-		statusmenu += "&nbsp;&nbsp;&nbsp;&nbsp;<b>接受路由表</b>：在同一个tailnet网络下，如有其它tailscale客户端宣告了自己的路由表，可以通过此开关选择是否接受此路由表，如果接受，怎可以通过宣告的网段访问到网段内的设备。<br/><br/>"
+		statusmenu += "&nbsp;&nbsp;&nbsp;&nbsp;<b>接受路由表</b>：在同一个tailnet网络下，如有其它tailscale客户端宣告了自己的路由表，可以通过此开关选择是否接受此路由表，如果接受，则可以通过宣告的网段访问到网段内的设备。<font color='red'>!!!警告!!!如果网络内存在exit node，开启本功能会将全部流量转发到exit node(即全局代理模式)。</font><br/><br/>"
 		statusmenu += "-------------------------------------------------------------------------------------------------------------------<br/><br/>"
 		statusmenu += "&nbsp;&nbsp;&nbsp;&nbsp;<font color='red'>情形1：</font><br/><br/>"
 		statusmenu += "&nbsp;&nbsp;&nbsp;&nbsp;假如你此路由器在A地，lan网段为192.168.50.0/24，lan网段里包含：路由器本身：192.168.50.1，一台电脑PC-1：192.168.50.23，一台NAS：192.168.50.55，此时打开宣告路由表开关，则此网段信息:192.168.50.0/24就会被告知到tailnet（tailscale局域网）。<br/><br/>"

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 MODULE=tailscale
-VERSION=0.0.9
+VERSION=0.1.0
 TITLE="tailscale"
 DESCRIPTION="tailscale"
 HOME_URL=Module_tailscale.asp
