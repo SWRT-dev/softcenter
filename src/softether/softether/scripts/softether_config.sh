@@ -153,10 +153,40 @@ start_vpn() {
 		tap=`ifconfig | grep tap_ | awk '{print $1}'`
 		if [ "$i" -lt 1 ];then
 			logger "[软件中心]: 已启动softetherVPN，但未发现网桥tap设备，请按需配置"
-			exit
+			break
 		fi
 		sleep 2
 	done
+
+	# 监测进程
+	if [ -n "$softether_watch_time" ]; then
+	echo "`pidof vpnserver`" >$runDir/vpn_server__watch.pid
+	cat > $runDir/vpn_server__watch.sh <<\EOF
+#! /bin/sh
+
+CURRENT_PID=`pidof vpnserver`
+if [ -z "$CURRENT_PID" ]; then
+	logger "[$0]:进程 vpnserver 未找到，重启"
+	/jffs/softcenter/scripts/softether_config.sh restart &
+	exit
+fi
+PID_file=/tmp/softethervpn/vpn_server__watch.pid   #目录是主脚本 runDir 定义的实际值，勿用变量
+Saved_PID=`cat $PID_file`
+
+if [ "$CURRENT_PID" != "$Saved_PID" ]; then
+	echo "$CURRENT_PID" >$PID_file
+	logger "[$0]:进程 vpnserver 的PID变化! 原: $Saved_PID, 新: $CURRENT_PID"
+
+	tap=`ifconfig |grep tap_ |awk '{print $1}'`
+	[ -n "$tap" ] && [ -z "`brctl show br0 |grep -w $tap`" ] && brctl addif br0 $tap && logger "[$0]:softetherVPN 修复网桥"
+fi
+EOF
+	cru a softether_watch "*/$softether_watch_time * * * * $runDir/vpn_server__watch.sh"
+	chmod 0755 $runDir/vpn_server__watch.sh
+	fi
+
+	#若使用网桥模式，需将tap桥接到lan
+	[ -n "$tap" ] || return
 	brctl addif br0 $tap >/dev/null 2>&1
 	
 # 	echo interface=$tap > /etc/dnsmasq.user/softether.conf
@@ -183,6 +213,10 @@ stop_vpn(){
 	close_port
 	
 	[ "$softether_conf_fix" == "1" ] && do_conf_fix
+	
+	#删除监测
+	[ -n "$(cru l |grep -w 'softether_watch')" ] && cru d softether_watch
+	rm -f $runDir/vpn_server__watch.*
 }
 
 case $1 in
@@ -226,4 +260,3 @@ log_lnk)
 	ln -sf $runDir/server_log/vpn_$(date +%Y%m%d).log /tmp/upload/softether_server_log.lnk
 	;;
 esac
-
