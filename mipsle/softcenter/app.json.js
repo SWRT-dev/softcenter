@@ -35,14 +35,14 @@
         }, 
         {
             "arch": "mipsle", 
-            "build_date": "2025-11-06_22:22:38", 
+            "build_date": "2025-11-29_20:32:28", 
             "description": "tailscale", 
             "home_url": "Module_tailscale.asp", 
-            "md5": "f404ec4aa647851cb582569454f0a81d", 
+            "md5": "d47c21fd1f893cb66752bfe86a4b0e36", 
             "name": "tailscale", 
             "tar_url": "tailscale/tailscale.tar.gz", 
             "title": "tailscale", 
-            "version": "0.1.0"
+            "version": "0.1.1"
         }, 
         {
             "arch": "mipsle", 
