@@ -107,6 +107,9 @@ function get_dbus_data() {
 			if(db_softether["softether_AutoSaveConfigSpan"]){
 				E("softether_AutoSaveConfigSpan").value = db_softether["softether_AutoSaveConfigSpan"];
 			}
+			if(db_softether["softether_watch_time"]){
+				E("softether_watch_time").value = db_softether["softether_watch_time"];
+			}
 			//TMP模式开始
 			E("softether_conf_TMP").checked = db_softether["softether_conf_TMP"] == "1";
 			if(db_softether["softether_conf_cron_time"]){
@@ -161,6 +164,7 @@ function onSubmitCtrl() {
 	db_softether["softether_udp_ports"] = E("softether_udp_ports").value;
 	db_softether["softether_DisableJsonRpcWebApi"] = E("softether_DisableJsonRpcWebApi").value;
 	db_softether["softether_AutoSaveConfigSpan"] = E("softether_AutoSaveConfigSpan").value;
+	db_softether["softether_watch_time"] = E("softether_watch_time").value;
 	
 	//TMP模式开始
 	db_softether["softether_conf_TMP"] = E("softether_conf_TMP").checked ? '1' : '0';
@@ -352,6 +356,11 @@ function open_hint(itemNum) {
 		statusmenu += "&nbsp;&nbsp;2. 某些版本AutoSaveConfigSpan最大3600秒（默认300），若觉得不够大，或不需要统计数据，可试用此模式。此模式下想要保留部分统计数据，可修改AutoSaveConfigSpan为较小的值，然后设置定时保存。"
 		_caption = "配置文件TMP模式";
 	}
+	if (itemNum == 9) {
+		statusmenu = "&nbsp;使用系统定时服务检测vpnserver进程，发现异常进行修复。若运行良好，禁用即可。若有以下异常，建议开启：<br/>"
+		statusmenu += "&nbsp;&nbsp;1. 进程丢失。<br/>&nbsp;&nbsp;2. 进程虽在运行，但无法连接VPN服务。可能是因某些原因，进程发生奔溃后自动重启（pid会变），导致虚拟网卡桥接失效而无法访问。"
+		_caption = "进程检测间隔时间";
+	}
 
 	return overlib(statusmenu, OFFSETX, -140, OFFSETY, 5, LEFT, STICKY, WIDTH, 'width', CAPTION, _caption, CLOSETITLE, '');
 
@@ -491,6 +500,26 @@ function mOut(obj){
 												<label><input type="checkbox" id="softether_udp_v6" name="softether_udp_v6"><i>包含ipv6</i></label></th>
 												<td>
 													<input type="text" oninput="this.value=this.value.replace(/[^\d ]/g, '')" class="input_ss_table" id="softether_udp_ports" name="softether_udp_ports" maxlength="100" value="" placeholder="空格隔开" />
+												</td>
+											</tr>
+											<tr id="watch_time_tr">
+											<th><a onmouseover="mOver(this, 9)" onmouseout="mOut(this)" class="hintstyle" href="javascript:void(0);">进程检测间隔时间</a></th>
+												<td>
+													<select id="softether_watch_time" name="softether_watch_time" style="width:60px;vertical-align: middle;" class="input_option">
+															<option value="">禁用</option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="10">10</option>
+															<option value="12">12</option>
+															<option value="15">15</option>
+															<option value="20">20</option>
+															<option value="30">30</option>
+															<option value="60">60</option>
+														</select>&nbsp;<span>分钟</span>
 												</td>
 											</tr>
 											<thead>
