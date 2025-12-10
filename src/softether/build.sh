@@ -1,7 +1,7 @@
 #!/bin/sh
 
 MODULE="softether"
-VERSION="2.5"
+VERSION="2.6"
 TITLE="SoftEther_VPN_Server"
 DESCRIPTION="VPN全家桶, ver 4.44 build 9807"
 ARCH_LIST="arm armng arm64 mips mipsle"
