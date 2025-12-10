@@ -398,6 +398,17 @@
         }, 
         {
             "arch": "arm64", 
+            "build_date": "2025-12-10_18:27:48", 
+            "description": "解锁网易云灰色歌曲", 
+            "home_url": "Module_unblockneteasemusic.asp", 
+            "md5": "3e6fa87f6cae5d3abbe82bd812ad690b", 
+            "name": "unblockneteasemusic", 
+            "tar_url": "unblockneteasemusic/unblockneteasemusic.tar.gz", 
+            "title": "解锁网易云灰色歌曲", 
+            "version": "1.0.0"
+        }, 
+        {
+            "arch": "arm64", 
             "build_date": "2024-11-09_12:35:58", 
             "description": "DDNSTO远程控制", 
             "home_url": "Module_ddnsto.asp", 
