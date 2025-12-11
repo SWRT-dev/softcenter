@@ -2,7 +2,7 @@
 
 MODULE="unblockneteasemusic"
 VERSION="1.0.0"
-TITLE="解锁网易云灰色歌曲"
+TITLE="解锁网易云灰色歌曲(nodejs版)"
 DESCRIPTION="解锁网易云灰色歌曲"
 HOME_URL="Module_unblockneteasemusic.asp"
 ARCH_LIST="arm64"

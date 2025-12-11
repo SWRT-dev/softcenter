@@ -404,7 +404,7 @@
             "md5": "3e6fa87f6cae5d3abbe82bd812ad690b", 
             "name": "unblockneteasemusic", 
             "tar_url": "unblockneteasemusic/unblockneteasemusic.tar.gz", 
-            "title": "解锁网易云灰色歌曲", 
+            "title": "解锁网易云灰色歌曲(nodejs版)", 
             "version": "1.0.0"
         }, 
         {
