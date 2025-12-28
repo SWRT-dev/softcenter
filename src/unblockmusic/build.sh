@@ -2,7 +2,7 @@
 
 MODULE="unblockmusic"
 VERSION="1.2.1"
-TITLE="解锁网易云灰色歌曲"
+TITLE="解锁网易云灰色歌曲(go版)"
 DESCRIPTION="解锁网易云灰色歌曲"
 HOME_URL="Module_unblockmusic.asp"
 ARCH_LIST="arm armng arm64 mips mipsle"

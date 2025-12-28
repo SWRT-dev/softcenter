@@ -1,15 +1,57 @@
 #!/bin/sh
 
-# Copyright (C) 2021-2023 SWRTdev
+# Copyright (C) 2021-2025 SWRTdev
 eval $(dbus export softcenter_firmware_version)
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
-MODEL=$(nvram get productid)
-if [ "${MODEL:0:3}" == "GT-" ] || [ "$(nvram get swrt_rog)" == "1" ];then
-	ROG=1
-elif [ "${MODEL:0:3}" == "TUF" ] || [ "$(nvram get swrt_tuf)" == "1" ];then
-	TUF=1
-fi
-softcenter_install() {
+get_model(){
+	local ODMPID=$(nvram get odmpid)
+	local PRODUCTID=$(nvram get productid)
+	if [ -n "${ODMPID}" ];then
+		MODEL="${ODMPID}"
+	else
+		MODEL="${PRODUCTID}"
+	fi
+}
+
+set_skin(){
+	local UI_TYPE=ASUSWRT
+	local SC_SKIN=$(nvram get sc_skin)
+	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "D0982C")
+	local WRT_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "4F5B5F")
+
+	if [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	else
+		if [ -n "${TUF_FLAG}" ];then
+			UI_TYPE="TUF"
+		fi
+		if [ -n "${ROG_FLAG}" ];then
+			UI_TYPE="ROG"
+		fi
+		if [ -n "${WRT_FLAG}" ];then
+			UI_TYPE="ASUSWRT"
+		fi
+	fi
+	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
+		nvram set sc_skin="${UI_TYPE}"
+		nvram commit
+	fi
+
+	# compatibile
+	if [ "${UI_TYPE}" == "ASUSWRT" ];then
+		ln -sf /jffs/softcenter/res/softcenter_asus.css /jffs/softcenter/res/softcenter.css
+	elif [ "${UI_TYPE}" == "ROG" ];then
+		ln -sf /jffs/softcenter/res/softcenter_rog.css /jffs/softcenter/res/softcenter.css
+	elif [ "${UI_TYPE}" == "TUF" ];then
+		ln -sf /jffs/softcenter/res/softcenter_tuf.css /jffs/softcenter/res/softcenter.css
+	elif [ "${UI_TYPE}" == "TS" ];then
+		ln -sf /jffs/softcenter/res/softcenter_ts.css /jffs/softcenter/res/softcenter.css
+	fi
+}
+
+install_now() {
 	if [ "$softcenter_firmware_version" = "" -o "$(versioncmp 5.2.2 $softcenter_firmware_version)" = "-1" ]; then
 		echo_date "固件版本过低无法安装"
 		rm -fr /tmp/softcenter* >/dev/null 2>&1
@@ -40,12 +82,7 @@ softcenter_install() {
 		cp -rf /tmp/softcenter/bin/* /jffs/softcenter/bin/
 		cp -rf /tmp/softcenter/scripts/* /jffs/softcenter/scripts
 		cp -rf /tmp/softcenter/.soft_ver /jffs/softcenter/
-		if [ "$ROG" == "1" ]; then
-			cp -rf /tmp/softcenter/ROG/res/* /jffs/softcenter/res/
-		elif [ "$TUF" == "1" ]; then
-			sed -i 's/3e030d/3e2902/g;s/91071f/92650F/g;s/680516/D0982C/g;s/cf0a2c/c58813/g;s/700618/74500b/g;s/530412/92650F/g' /tmp/softcenter/ROG/res/*.css >/dev/null 2>&1
-			cp -rf /tmp/softcenter/ROG/res/* /jffs/softcenter/res/
-		fi
+		set_skin
 		dbus set softcenter_version=`cat /jffs/softcenter/.soft_ver`
 
 		if [ -f "/jffs/softcenter/scripts/ks_tar_intall.sh" ];then
@@ -95,7 +132,13 @@ softcenter_install() {
 			chmod +x /jffs/scripts/post-mount
 		fi
 	fi
+	rm -fr /tmp/softcenter* >/dev/null 2>&1
 	exit 0
 }
 
-softcenter_install
+install(){
+	get_model
+	install_now
+}
+
+install

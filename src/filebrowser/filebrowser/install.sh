@@ -54,7 +54,7 @@ dbus set filebrowser_version="$CUR_VERSION"
 dbus set softcenter_module_filebrowser_install="1"
 dbus set softcenter_module_filebrowser_version="$CUR_VERSION"
 dbus set softcenter_module_filebrowser_title="FileBrowser"
-dbus set softcenter_module_filebrowser_name="FileBrowser"
+dbus set softcenter_module_filebrowser_name="filebrowser"
 dbus set softcenter_module_filebrowser_description="FileBrowser：您的可视化路由文件管理系统"
 echo_date 一点点清理工作...
 rm -rf $DIR >/dev/null 2>&1

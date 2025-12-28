@@ -18,13 +18,11 @@
 <script language="JavaScript" type="text/javascript" src="/help.js"></script>
 <script language="JavaScript" type="text/javascript" src="/general.js"></script>
 <script language="JavaScript" type="text/javascript" src="/popup.js"></script>
-<script language="JavaScript" type="text/javascript" src="/client_function.js"></script>
 <script language="JavaScript" type="text/javascript" src="/validator.js"></script>
-<script type="text/javascript" src="/general.js"></script>
-<script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
-<script type="text/javascript" src="/form.js"></script>
-<script type="text/javascript" src="/res/softcenter.js"></script>
-<script type="text/javascript" src="/js/i18n.js"></script>
+<script language="JavaScript" type="text/javascript" src="/general.js"></script>
+<script language="JavaScript" type="text/javascript" src="/res/softcenter.js"></script>
+<script language="JavaScript" type="text/javascript" src="/form.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/i18n.js"></script>
 <style>
 .cloud_main_radius_left {
 	-webkit-border-radius: 10px 0 0 10px;
@@ -104,9 +102,7 @@ input[type=button]:focus {
 .install-status-0 .icon-desc .opt {
 	height: 100%;
 }
-.icon-desc .install-btn,
-.icon-desc .uninstall-btn,
-.icon-desc .update-btn{
+.icon-desc .install-btn, .icon-desc .uninstall-btn, .icon-desc .update-btn {
 	background: #fff;
 	color:#333;
 	cursor:pointer;
@@ -198,8 +194,7 @@ input[type=button]:focus {
 	margin-top:15px;
 	margin-bottom:15px;
 }
-.cloud_main_radius h3,
-.cloud_main_radius h4 {
+.cloud_main_radius h3, .cloud_main_radius h4 {
 	font-size:12px;
 	color:#FC0;
 	font-weight:normal;
@@ -856,10 +851,14 @@ function set_skin(){
 	if(isEva){
 		$("#scapp").attr("scskin", 'Eva');
 	}
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
 }
 </script>
 </head>
-<body onload="init();" id="scapp" scskin="swrt">
+<body onload="init();" id="scapp" scskin="swrt" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="softcenter_shade_pannel" class="popup_bar_bg_ks">
@@ -962,5 +961,4 @@ function set_skin(){
 <div id="footer"></div>
 </body>
 </html>
-
 
