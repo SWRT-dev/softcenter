@@ -46,14 +46,14 @@
         }, 
         {
             "arch": "arm", 
-            "build_date": "2025-12-10_19:15:54", 
+            "build_date": "2025-12-31_08:55:19", 
             "description": "VPN全家桶, ver 4.44 build 9807", 
             "home_url": "", 
-            "md5": "7f2989ee49f6d8d9f4877192886c9807", 
+            "md5": "b80f469004358199ea1565aa45102472", 
             "name": "softether", 
             "tar_url": "softether/softether.tar.gz", 
             "title": "SoftEther_VPN_Server", 
-            "version": "2.6"
+            "version": "2.7"
         }, 
         {
             "arch": "arm", 

@@ -113,7 +113,22 @@ do_conf_fix(){
 		val=`grep DisableJsonRpcWebApi $binDir/vpn_server.config |awk '{print $3}'`
 		[ -n "$val" ] && [ "$val" != "$softether_DisableJsonRpcWebApi" ] && sed -i "s/bool DisableJsonRpcWebApi $val/bool DisableJsonRpcWebApi $softether_DisableJsonRpcWebApi/g" $binDir/vpn_server.config
 	}
+
 	dbus set softether_conf_fix=0  #改1次即可
+}
+
+brcm_hnd_fix(){
+# Disable brcm Flow Cache Learning of GRE flows Tunnel
+	local pptpd_enable fc_disable proto hndax
+	pptpd_enable=`nvram get pptpd_enable`
+	fc_disable=`nvram get fc_disable`
+	proto=`nvram get wan0_proto`
+	hndax=`nvram get rc_support | grep 11AX`
+	if [ -f /proc/nvram/boardid ] && [ "$fc_disable" == "0" ] && [ "$pptpd_enable" != "1" ];then
+		if [ "$proto" == "pppoe" -a -n "$hndax" ] || [ "$proto" == "pptp" ] || [ "$proto" == "l2tp" ];then
+			fc config --gre 0
+		fi
+	fi
 }
 
 # 开启服务
@@ -129,9 +144,12 @@ start_vpn() {
 	[ -L "$runDir/vpnserver" ] || ln -sf $binDir/vpnserver $runDir/
 	[ -L "$runDir/hamcore.se2" ] || ln -sf $binDir/hamcore.se2 $runDir/
 	[ -L "$runDir/lang.config" ] || ln -sf $binDir/lang.config $runDir/
-	
+	val=`grep DisableCoreDumpOnUnix $binDir/vpn_server.config |awk '{print $3}'`
+	[ -n "$val" ] && [ "$val" != "true" ] && sed -i "s/bool DisableCoreDumpOnUnix $val/bool DisableCoreDumpOnUnix true/g" $binDir/vpn_server.config
+	val=`grep DontBackupConfig $binDir/vpn_server.config |awk '{print $3}'`
+	[ -n "$val" ] && [ "$val" != "true" ] && sed -i "s/bool DontBackupConfig $val/bool DontBackupConfig true/g" $binDir/vpn_server.config
 	do_conf_tmp start
-
+	brcm_hnd_fix
 	if [ "$softether_foreground" != "1" ];then
 		$runDir/vpnserver start
 	else
@@ -165,13 +183,12 @@ start_vpn() {
 	logger "[软件中心]: 已启动softetherVPN"
 }
 stop_vpn(){
+	[ -f $runDir/vpnserver ] && $runDir/vpnserver stop
 	pid=`pidof vpnserver`
 	if [ -n "$pid" ];then
-		$runDir/vpnserver stop
-		[ "$?" != "0" ] && kill -9 $pid 2>/dev/null
-		logger "[软件中心]: 已停止softetherVPN进程"
+		kill -9 $pid 2>/dev/null
 	fi
-
+	logger "[软件中心]: 已停止softetherVPN进程"
 	if [ "$softether_enable" != "1" ]; then
 		rm -f /jffs/softcenter/init.d/?98softether.sh
 #		rm -f /etc/dnsmasq.user/softether.conf
