@@ -398,14 +398,14 @@
         }, 
         {
             "arch": "arm64", 
-            "build_date": "2025-12-10_18:27:48", 
+            "build_date": "2026-01-11_16:42:26", 
             "description": "解锁网易云灰色歌曲", 
             "home_url": "Module_unblockneteasemusic.asp", 
-            "md5": "3e6fa87f6cae5d3abbe82bd812ad690b", 
+            "md5": "46555af3662c56440fb88d75a75fb5dc", 
             "name": "unblockneteasemusic", 
             "tar_url": "unblockneteasemusic/unblockneteasemusic.tar.gz", 
             "title": "解锁网易云灰色歌曲(nodejs版)", 
-            "version": "1.0.0"
+            "version": "1.0.1"
         }, 
         {
             "arch": "arm64", 

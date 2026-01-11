@@ -1,9 +1,9 @@
 {
-"version":"1.0.0",
-"md5":"3e6fa87f6cae5d3abbe82bd812ad690b",
+"version":"1.0.1",
+"md5":"46555af3662c56440fb88d75a75fb5dc",
 "arch":"arm64",
 "home_url":"Module_unblockneteasemusic.asp",
 "title":"解锁网易云灰色歌曲(nodejs版)",
 "description":"解锁网易云灰色歌曲",
-"build_date":"2025-12-10_18:27:48"
+"build_date":"2026-01-11_16:42:26"
 }

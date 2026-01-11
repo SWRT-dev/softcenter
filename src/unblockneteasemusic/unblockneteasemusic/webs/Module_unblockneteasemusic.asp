@@ -431,6 +431,32 @@ function openssHint(itemNum) {
 			return overlib(helpcontent[hint_array_id][hint_show_id], HAUTO, VAUTO);
 	}
 }
+function mOver(obj, hint){
+	mouse_status = 1;
+	$("#overDiv").unbind();
+	$(obj).css({
+		"color": "#00ffe4",
+		"text-decoration": "underline"
+	});
+	openssHint(hint);
+}
+function mOut(obj){
+	if (mouse_status == 0) return;
+	if ($("#overDiv").is(":hover") == false){
+		E("overDiv").style.visibility = "hidden";
+	}else{
+		$("#overDiv").bind('mouseleave', function() {
+			E("overDiv").style.visibility = "hidden";
+		});
+	}
+}
+function RunmOut(obj){
+	$(obj).css({
+		"color": "#03a9f4",
+		"text-decoration": ""
+	});
+	mOut("' + obj + '");
+}
 function menu_hook(title, tab) {
 	tabtitle[tabtitle.length -1] = new Array("", dict["Software Center"], dict["Offline installation"], dict["UnblockNeteaseMusic"]);
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_unblockneteasemusic.asp");
@@ -511,7 +537,7 @@ function menu_hook(title, tab) {
 												</tr>
 												<tr id="unblockneteasemusic_musicapptype_tr">
 													<th>
-														<a class="hintstyle" href="javascript:void(0);" onclick="openssHint(1)"><label sclang>Music app type</label>
+														<a class="hintstyle" style="color:#03a9f4;" href="javascript:void(0);" onclick="openssHint(1)" onmouseover="mOver(this, 1)" onmouseout="RunmOut(this)"><label sclang>Music app type</label>
 													</th>
 													<td>
 														<div style="float:left; width:165px; height:25px">
@@ -529,7 +555,7 @@ function menu_hook(title, tab) {
 												</tr>
 												<tr id="unblockneteasemusic_cookie_tr" style="display: none;">
 													<th>
-														<a class="hintstyle" href="javascript:void(0);" onclick="openssHint(0)"><label>cookie</label>
+														<a class="hintstyle" style="color:#03a9f4;" href="javascript:void(0);" onclick="openssHint(0)" onmouseover="mOver(this, 0)" onmouseout="RunmOut(this)"><label>cookie</label>
 													</th>
 													<td>
 														<input type="text" class="input_ss_table" id="unblockneteasemusic_cookie" name="unblockneteasemusic_cookie" maxlength="50" value="" placeholder="" />
