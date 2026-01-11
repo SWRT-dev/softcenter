@@ -105,11 +105,11 @@ install_now(){
 
 	# set default value, incase in upgrade, newer script can't get latest key-value from web
 	if [ -z "$(dbus get tailscale_accept_routes)" ];then
-		dbus set tailscale_accept_routes="1"
+		dbus set tailscale_accept_routes="0"
 	fi
 
 	if [ -z "$(dbus get tailscale_advertise_routes)" ];then
-		dbus set tailscale_advertise_routes="1"
+		dbus set tailscale_advertise_routes="0"
 	fi
 
 	if [ -z "$(dbus get tailscale_exit_node)" ];then

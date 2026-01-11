@@ -60,20 +60,20 @@ tailscale_start(){
 			args=" --advertise-routes=${subnet}"
 			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Advertise routing is enabled"'`
 			echo_date "${msg}"
-		fi
-		if [ "$tailscale_accept_routes" == "1" ];then
-			args="${args} --accept-routes"
+		elif [ "$tailscale_accept_routes" == "1" ];then
+			args="${args} --accept-routes=true"
 			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Accept routing is enabled"'`
 			echo_date "${msg}"
 		fi
 		if [ "$tailscale_exit_node" == "1" ];then
 			args="${args} --advertise-exit-node"
+			args="${args} --exit-node-allow-lan-access=true"
 			msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Exit node is enabled"'`
 			echo_date "${msg}"
 		fi
-		if [ "$tailscale_lan_access" == "1" ];then
-			args="${args} --exit-node-allow-lan-access"
-		fi
+#		if [ "$tailscale_lan_access" == "1" ];then
+#			args="${args} --exit-node-allow-lan-access"
+#		fi
 		msg=`echo ${JSON_LANG} | /jffs/softcenter/bin/jq -r '."Start tailscale network connection"'`
 		echo_date "${msg}"
 		/jffs/softcenter/bin/tailscale up --accept-dns=false ${args} &
