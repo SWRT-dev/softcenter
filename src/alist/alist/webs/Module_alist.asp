@@ -98,6 +98,7 @@ String.prototype.myReplace = function(f, e){
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	register_event();
 	get_dbus_data();
 	check_status();
@@ -343,7 +344,7 @@ function show_hide_element(){
 	}
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "Alist文件列表");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_alist.asp");
 }
@@ -712,9 +713,15 @@ function mOut(obj){
 	});
 	E("overDiv").style.visibility = "hidden";
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body id="app" skin='<% nvram_get("sc_skin"); %>' onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >

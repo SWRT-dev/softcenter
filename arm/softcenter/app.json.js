@@ -368,14 +368,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:49",
+            "build_date": "2026-05-26_13:24:24",
             "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav，后端基于gin，前端使用react。",
             "home_url": "Module_alist.asp",
-            "md5": "747508384c7681e13b9134db393a23f8",
+            "md5": "ae9acf2c4092e6330231c540cae90b70",
             "name": "alist",
+            "rc_support": "",
             "tar_url": "alist/alist.tar.gz",
             "title": "Alist文件列表",
-            "version": "1.9.2"
+            "version": "1.9.3"
         },
         {
             "arch": "arm",

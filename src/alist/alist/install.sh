@@ -1,69 +1,126 @@
 #!/bin/sh
 source /jffs/softcenter/scripts/base.sh
-eval $(dbus export alist_)
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 DIR=$(cd $(dirname $0); pwd)
-MODEL=$(nvram get productid)
-if [ "${MODEL:0:3}" == "GT-" ] || [ "$(nvram get swrt_rog)" == "1" ];then
-	ROG=1
-elif [ "${MODEL:0:3}" == "TUF" ] || [ "$(nvram get swrt_tuf)" == "1" ];then
-	TUF=1
-fi
-MODULE=alist
+module=${DIR##*/}
 
-if [ "$alist_enable" == "1" ];then
-	echo_date 先关闭alist，保证文件更新成功!
-	[ -f "/jffs/softcenter/scripts/alist_config.sh" ] && sh /jffs/softcenter/scripts/alist_config.sh stop >/dev/null 2>&1 &
-fi
-echo_date "开始安装alist..."
-find /jffs/softcenter/init.d/ -name "*alist*" | xargs rm -rf
-mkdir -p /jffs/softcenter/alist
-rm -rf /jffs/softcenter/alist/alist.version >/dev/null 2>&1
-cp -rf /tmp/alist/bin/* /jffs/softcenter/bin/
-cp -rf /tmp/alist/scripts/* /jffs/softcenter/scripts/
-cp -rf /tmp/alist/webs/* /jffs/softcenter/webs/
-cp -rf /tmp/alist/res/* /jffs/softcenter/res/
-cp -rf /tmp/alist/uninstall.sh /jffs/softcenter/scripts/uninstall_alist.sh
-chmod +x /jffs/softcenter/scripts/*
-chmod +x /jffs/softcenter/bin/*
-if [ "$ROG" == "1" ];then
-	continue
-elif [ "$TUF" == "1" ];then
-	sed -i 's/3e030d/3e2902/g;s/91071f/92650F/g;s/680516/D0982C/g;s/cf0a2c/c58813/g;s/700618/74500b/g;s/530412/92650F/g' /jffs/softcenter/webs/Module_aslist.asp >/dev/null 2>&1
-else
-	sed -i '/rogcss/d' /jffs/softcenter/webs/Module_aslist.asp >/dev/null 2>&1
-fi
-[ ! -L "/jffs/softcenter/init.d/S99alist.sh" ] && ln -sf /jffs/softcenter/scripts/alist_config.sh /jffs/softcenter/init.d/S99alist.sh
-[ ! -L "/jffs/softcenter/init.d/N99alist.sh" ] && ln -sf /jffs/softcenter/scripts/alist_config.sh /jffs/softcenter/init.d/N99alist.sh
+set_skin(){
+	local UI_TYPE=ASUSWRT
+	local SC_SKIN=$(nvram get sc_skin)
+	local SWRT_SKIN=$(nvram get swrt_skin)
+	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "D0982C")
+	if [ -n "${SWRT_SKIN}" ];then
+		if [ "ts" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TS"
+		elif [ "rog" == "${SWRT_SKIN}" ];then
+			UI_TYPE="ROG"
+		elif [ "tuf" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TUF"
+		elif [ "swrt" == "${SWRT_SKIN}" ];then
+			UI_TYPE="SWRT"
+		fi
+	elif [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	elif [ -n "${ROG_FLAG}" ];then
+		UI_TYPE="ROG"
+	elif [ -n "${TUF_FLAG}" ];then
+		UI_TYPE="TUF"
+	fi
+	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
+		nvram set sc_skin="${UI_TYPE}"
+		nvram commit
+	fi
+}
 
-echo_date "设置插件默认参数..."
-dbus set alist_version="$(cat $DIR/version)"
-dbus set softcenter_module_alist_version="$(cat $DIR/version)"
-dbus set softcenter_module_alist_description="一款支持多种存储的目录文件列表程序，使用 Gin 和 Solidjs。"
-dbus set softcenter_module_alist_install=1
-dbus set softcenter_module_alist_name=alist
-dbus set softcenter_module_alist_title="Alist文件列表"
+exit_install(){
+	local state=$1
+	case $state in
+		1)
+			rm -rf /tmp/${module}* >/dev/null 2>&1
+			exit 1
+			;;
+		0|*)
+			rm -rf /tmp/${module}* >/dev/null 2>&1
+			exit 0
+			;;
+	esac
+}
 
-#default value
-if [ "$alist_port" == "" ];then
-	dbus set alist_port="5244"
-fi
-if [ "$alist_token_expires_in" == "" ];then
-	dbus set alist_assets="48"
-fi
-if [ "$alist_cert_file" == "" ];then
-	dbus set alist_cert_file="/etc/cert.pem"
-fi
-if [ "$alist_key_file" == "" ];then
-	dbus set alist_key_file="/etc/key.pem"
-fi
+install_now(){
+	# default value
+	local TITLE="Alist文件列表"
+	local DESCR="一款支持多种存储的目录文件列表程序，使用 Gin 和 Solidjs。"
+	local PLVER=$(cat ${DIR}/version)
 
-if [ "$alist_enable" == "1" ];then
-	echo_date "重新启动alist插件！"
-	sh /jffs/softcenter/scripts/alist_config.sh boot_up >/dev/null 2>&1 &
-fi
+	# stop before install
+	if [ "$(dbus get alist_enable)" == "1" -a -f "/jffs/softcenter/scripts/alist_config.sh" ];then
+		echo_date "安装前先关闭插件..."
+		/jffs/softcenter/scripts/alist_config.sh stop
+	fi
 
-echo_date "alist插件安装完毕！"
-rm -fr /tmp/alist* >/dev/null 2>&1
-exit 0
+	# remove before install
+	rm -rf /jffs/softcenter/alist >/dev/null 2>&1
+	rm -rf /jffs/softcenter/res/icon-alist.png >/dev/null 2>&1
+	rm -rf /jffs/softcenter/scripts/alist_* >/dev/null 2>&1
+	rm -rf /jffs/softcenter/scripts/uninstall_alist.sh >/dev/null 2>&1
+	rm -rf /jffs/softcenter/webs/Module_alist.asp >/dev/null 2>&1
+	find /jffs/softcenter/init.d -name "*alist*" | xargs rm -rf	
 
+	# install file
+	echo_date "安装插件相关文件..."
+	cd /tmp
+	mkdir -p /jffs/softcenter/alist
+	cp -rf /tmp/alist/bin/* /jffs/softcenter/bin/
+	cp -rf /tmp/alist/scripts/* /jffs/softcenter/scripts/
+	cp -rf /tmp/alist/webs/* /jffs/softcenter/webs/
+	cp -rf /tmp/alist/res/* /jffs/softcenter/res/
+	cp -rf /tmp/alist/uninstall.sh /jffs/softcenter/scripts/uninstall_alist.sh
+	[ ! -L "/jffs/softcenter/init.d/S99alist.sh" ] && ln -sf /jffs/softcenter/scripts/alist_config.sh /jffs/softcenter/init.d/S99alist.sh
+	[ ! -L "/jffs/softcenter/init.d/N99alist.sh" ] && ln -sf /jffs/softcenter/scripts/alist_config.sh /jffs/softcenter/init.d/N99alist.sh
+	# Permissions
+	chmod +x /jffs/softcenter/scripts/*
+	chmod +x /jffs/softcenter/bin/*
+
+	# intall different UI
+	set_skin
+
+	#default value
+	if [ "$(dbus get alist_port)" == "" ];then
+		dbus set alist_port="5244"
+	fi
+	if [ "$(dbus get alist_token_expires_in)" == "" ];then
+		dbus set alist_assets="48"
+	fi
+	if [ "$(dbus get alist_cert_file)" == "" ];then
+		dbus set alist_cert_file="/etc/cert.pem"
+	fi
+	if [ "$(dbus get alist_key_file)" == "" ];then
+		dbus set alist_key_file="/etc/key.pem"
+	fi
+
+	# dbus value
+	echo_date "设置插件默认参数..."
+	dbus set ${module}_version="${PLVER}"
+	dbus set softcenter_module_${module}_version="${PLVER}"
+	dbus set softcenter_module_${module}_install="1"
+	dbus set softcenter_module_${module}_name="${module}"
+	dbus set softcenter_module_${module}_title="${TITLE}"
+	dbus set softcenter_module_${module}_description="${DESCR}"
+	# start after install
+	if [ "$(dbus get alist_enable)" == "1" -a -f "/jffs/softcenter/scripts/alist_config.sh" ];then
+		echo_date "重新开启插件..."
+		/jffs/softcenter/scripts/alist_config.sh boot_up
+	fi
+
+	# finish
+	echo_date "${TITLE}插件安装完毕！"
+	exit_install
+}
+
+install(){
+	install_now
+}
+
+install
