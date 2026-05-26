@@ -393,14 +393,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:56",
+            "build_date": "2026-05-26_18:42:41",
             "description": "百度盘",
             "home_url": "Module_baidupcs.asp",
-            "md5": "84de8957f2c7539133e0bcf78ca262b3",
+            "md5": "9d69b8f152c5e12ee52d956a2f51747d",
             "name": "baidupcs",
+            "rc_support": "",
             "tar_url": "baidupcs/baidupcs.tar.gz",
             "title": "百度盘",
-            "version": "1.9"
+            "version": "2.0"
         },
         {
             "arch": "armng",

@@ -393,14 +393,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:58",
+            "build_date": "2026-05-26_18:42:43",
             "description": "百度盘",
             "home_url": "Module_baidupcs.asp",
-            "md5": "3aee0c65dfba57a76bdd0edf56442ec9",
+            "md5": "71f8ad57e43413cfc9594a7ba0ccd15c",
             "name": "baidupcs",
+            "rc_support": "",
             "tar_url": "baidupcs/baidupcs.tar.gz",
             "title": "百度盘",
-            "version": "1.9"
+            "version": "2.0"
         },
         {
             "arch": "mipsle",

@@ -9,12 +9,10 @@
 <title id="web_title">软件中心 -百度网盘下载</title>
 <link rel="shortcut icon" href="images/favicon.png">
 <link rel="icon" href="images/favicon.png">
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
 <link rel="stylesheet" type="text/css" href="index_style.css">
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="usp_style.css">
-<link rel="stylesheet" type="text/css" href="/calendar/fullcalendar.css">
-<link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -24,6 +22,7 @@
 <script type="text/javascript" src="/client_function.js"></script>
 <script type="text/javascript" src="/validator.js"></script>
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
+<script type="text/javascript" src="/res/softcenter.js"></script>
 <script type="text/javascript" src="/dbconf?p=baidupcs_&v=<% uptime(); %>"></script>
 <style>
 </style>
@@ -57,6 +56,7 @@ document.getElementById("usb_disk_id").innerHTML = code;
 }
 function initial(){
 show_menu(menu_hook);
+set_skin();
 show_footer();
 show_partition()
 }
@@ -69,7 +69,7 @@ return;
 showLoading(2);
 document.form.submit();
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "百度盘");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_baidupcs.asp");
 }
@@ -78,8 +78,14 @@ function reactive(){
 window.open("http://"+window.location.hostname+":5299");
 
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script></head>
-<body onload="initial();" onunload="unload_body();" onselectstart="return false;">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" width="0" height="0" frameborder="0"></iframe>
@@ -218,7 +224,7 @@ document.form.baidupcs_enable.value = 0;
 </tr>
 </thead>
 <tr><td colspan="2">
-<textarea cols="63" rows="25" wrap="off" readonly="readonly" id="textarea"style="width:99%;font-family:Courier New, Courier, mono; font-size:11px;" class="textarea_ssh_table">
+<textarea cols="63" rows="25" wrap="off" readonly="readonly" id="textarea"style="width:99%;font-family:Courier New, Courier, mono; font-size:11px;" class="soft_setting_log1">
 <% nvram_dump("baidupcs.log",""); %>
 </textarea>
 </td></tr>

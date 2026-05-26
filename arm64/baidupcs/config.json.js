@@ -1,9 +1,10 @@
 {
-"version":"1.9",
-"md5":"26a3d270863ae377921260fe7885c29c",
+"version":"2.0",
+"md5":"919b82cf73951bd0c9b85150538935e9",
 "arch":"arm64",
 "home_url":"Module_baidupcs.asp",
 "title":"百度盘",
 "description":"百度盘",
-"build_date":"2024-11-09_12:35:57"
+"rc_support":"",
+"build_date":"2026-05-26_18:42:42"
 }
