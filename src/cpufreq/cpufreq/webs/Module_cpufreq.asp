@@ -10,11 +10,8 @@
 <title>CPU频率设置</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -25,64 +22,8 @@
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
 <script type="text/javascript" src="/dbconf?p=cpufreq&v=<% uptime(); %>"></script>
 <script type="text/javascript" src="/client_function.js"></script>
+<script type="text/javascript" src="/res/softcenter.js"></script>
 <style>
-	.show-btn1, .show-btn2, .show-btn3 {
-		border: 1px solid #222;
-		background: linear-gradient(to bottom, #919fa4  0%, #67767d 100%); /* W3C */
-		/*background: linear-gradient(to bottom, #91071f  0%, #700618 100%);*/ /* W3C */
-		font-size:10pt;
-		color: #fff;
-		padding: 10px 3.75px;
-		border-radius: 5px 5px 0px 0px;
-		width:8.45601%;
-		/*border: 1px solid #91071f;*/
-		/*background: none;*/
-	}
-	.active {
-		background: #2f3a3e;
-		background: linear-gradient(to bottom, #61b5de  0%, #279fd9 100%); /* W3C */
-		/*background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);*/ /* W3C */
-		/*border: 1px solid #91071f;*/
-	}
-	.popup_bar_bg_ks{
-		position:fixed;	
-		margin: auto;
-		top: 0;
-		left: 0;
-		width:100%;
-		height:100%;
-		z-index:99;
-		filter:alpha(opacity=90);  /*IE5、IE5.5、IE6、IE7*/
-		background-repeat: repeat;
-		visibility:hidden;
-		overflow:hidden;
-		background-color: #444F53;*/
-		background:rgba(68, 79, 83, 0.9) none repeat scroll 0 0 !important;
-		/*background: url(/images/New_ui/login_bg.png);
-		background-position: 0 0;
-		background-size: cover;
-		opacity: .94;*/
-	}
-	.ss_btn {
-		border: 1px solid #222;
-		background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-		/*background: linear-gradient(to bottom, #91071f  0%, #700618 100%);*/ /* W3C */
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-	}
-	.ss_btn:hover {
-		border: 1px solid #222;
-		background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-		/*background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);*/ /* W3C */
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-	}
 	textarea{
 		width:99%;
 		font-family:'Lucida Console';
@@ -95,15 +36,26 @@
 	input[type=button]:focus {
 		outline: none;
 	}
+	#scapp[skin=TUF] textarea{
+		background:transparent;
+		border:1px solid #92650F;
+	}
+	#scapp[skin=ROG] textarea{
+		background:transparent;
+		border:1px solid #91071f;
+	}
+	#scapp[skin=SWRT] textarea{
+		background:transparent;
+		border:1px solid #006ce1 !important;
+		color: #262626 !important;
+	}
 </style>
 <script>
 var cpumax;
 var _responseLen;
-function E(e) {
-	return (typeof(e) == 'string') ? document.getElementById(e) : e;
-}
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	check_status();
 	get_log();
 	buildswitch();
@@ -200,19 +152,19 @@ function get_log() {
 	});
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "CPU频率设置");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_cpufreq.asp");
 }
-function reload_Soft_Center(){
-	location.href = "/Main_Soft_center.asp";
-}
-function done_validating(action) {
-	return true;
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
 }
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>

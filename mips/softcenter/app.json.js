@@ -305,14 +305,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:44",
+            "build_date": "2026-05-26_22:46:26",
             "description": "Intel CPU频率设置",
             "home_url": "Module_cpufreq.asp",
-            "md5": "0b45ed069ad44ff494d375314104748f",
+            "md5": "b1a41a43f8dfd653b4ee647f7fca295a",
             "name": "cpufreq",
+            "rc_support": "amas",
             "tar_url": "cpufreq/cpufreq.tar.gz",
             "title": "CPU频率设置",
-            "version": "1.1"
+            "version": "1.3"
         },
         {
             "arch": "mips",

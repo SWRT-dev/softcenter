@@ -2,11 +2,12 @@
 
 
 MODULE=cpufreq
-VERSION=1.1
+VERSION=1.3
 TITLE=CPU频率设置
 DESCRIPTION='Intel CPU频率设置'
 HOME_URL=Module_cpufreq.asp
 ARCH_LIST="mips"
+RC_SUPPORT="amas"
 
 # Check and include base
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
