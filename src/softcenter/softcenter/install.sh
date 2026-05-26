@@ -114,7 +114,11 @@ install_now() {
 		# set softcenter tcode
 		/jffs/softcenter/bin/sc_auth tcode
 		# set softcenter arch
-		/jffs/softcenter/bin/sc_auth arch
+		if [ "$(nvram get sc_arch)" != "" ];then
+			dbus set softcenter_arch=`nvram get sc_arch`
+		else
+			/jffs/softcenter/bin/sc_auth arch
+		fi
 		# creat wan-start nat-start post-mount
 		if [ ! -f "/jffs/scripts/wan-start" ];then
 			cat > /jffs/scripts/wan-start <<-EOF
