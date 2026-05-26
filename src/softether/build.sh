@@ -3,6 +3,7 @@
 MODULE="softether"
 VERSION="2.7"
 TITLE="SoftEther_VPN_Server"
+HOME_URL=Module_softether.asp
 DESCRIPTION="VPN全家桶, ver 4.44 build 9807"
 ARCH_LIST="arm armng arm64 mips mipsle"
 FILE_LIST="vpnserver hamcore.se2"

@@ -64,40 +64,37 @@
 	font-size:13px;
 	font-family: Lucida Console;
 	background-image:none;
-	border: 1px solid #4c4c4c;
-	background-color: #373737;
+	background-color: #3e030d;
+	border:1px solid #91071f;
 	color:#FFFFFF;
 }
 .splitLine{
-	background: #CEC1C7;
-	background: -webkit-linear-gradient(#CEC1C7 0%, #CEC1C7 20%, #766D71 80%, #766D71 100%);
-	background: -o-linear-gradient(#CEC1C7 0%, #CEC1C7 20%, #766D71 80%, #766D71 100%);
-	background: linear-gradient(#CEC1C7 0%, #CEC1C7 20%, #766D71 80%,#766D71 100%);
+	margin: 4px 0;
+	width: 100%;
 	height: 2px;
-	width: 740px;
-	margin: 1px 0;
 }
 .show-install-btn, .show-uninstall-btn {
-	border: 1px solid #D0982C;
+	border: 1px solid #006ce1;
 	background: none;
-	color: #fff;
+	color: #262626 !important;
 	padding: 10px 20px;
 	border-radius: 5px 5px 0px 0px;
 }
 .active {
-	background: #D0982C;
-	border: 1px solid #D0982C;
+	background: #006ce1;
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
 }
 #soft_log {
 	width:99%;
 	font-family:'Lucida Console';
 	font-size:12px;
 	background:transparent;
-	border:1px solid #92650F;
-	color:#FFFFFF;
+	color:#fefefe;
+	border:1px solid #006ce1;
 }
 #IconContainer {
-	border: 1px solid #D0982C;
+	border: 1px solid #006ce1;
 }
 .ks_btn {
 	border: 1px solid #222;
@@ -107,7 +104,7 @@
 	border-radius: 5px 5px 5px 5px;
 	width:14%;
 	vertical-align: middle;
-	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+	background: none;
 }
 .ks_btn:hover {
 	border: 1px solid #222;
@@ -117,14 +114,13 @@
 	border-radius: 5px 5px 5px 5px;
 	width:14%;
 	vertical-align: middle;
-	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+	background: #006ce1;
 }
 .soft_setting_log{
 	margin-top:10px;
 	display:block;
 	overflow:hidden;
-	outline: 1px solid #222;
-	outline: 1px solid #92650F;
+	outline: 1px solid #006ce1;
 }
 .soft_setting_log1{
 	width:97%;
@@ -141,18 +137,15 @@
 	margin-top:1px;
 	border:0px solid #222;
 	background:#475A5F;
-	background:transparent;
 }
 [bgcolor="#4D595D"]{
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(225, 225, 225, 0.3);
 }
 [bgcolor="#444f53"]{
-	background: rgba(0, 0, 0, 0.5);
+	background: transparent;
 }
 .submenuBlock{
-	width:735px;
-	margin-top:-140px;
-	margin-bottom: -3px;
+	margin: 0;
 }
 /*ASUSWRT*/
 #scapp[skin=ASUSWRT] .input_ss_table{
@@ -679,3 +672,4 @@
 #scapp[skin=SWRT] .icon:hover .icon-desc {
 	opacity: .9;
 }
+

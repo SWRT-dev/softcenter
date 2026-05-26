@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2021-2025 SWRTdev
+# Copyright (C) 2021-2026 SWRTdev
 eval $(dbus export softcenter_firmware_version)
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 get_model(){
@@ -16,23 +16,26 @@ get_model(){
 set_skin(){
 	local UI_TYPE=ASUSWRT
 	local SC_SKIN=$(nvram get sc_skin)
+	local SWRT_SKIN=$(nvram get swrt_skin)
 	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
-	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "2071044")
-	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "D0982C")
-	local WRT_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|sed 's/,//g'|grep -o "4F5B5F")
-
-	if [ -n "${TS_FLAG}" ];then
-		UI_TYPE="TS"
-	else
-		if [ -n "${TUF_FLAG}" ];then
-			UI_TYPE="TUF"
-		fi
-		if [ -n "${ROG_FLAG}" ];then
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "D0982C")
+	if [ -n "${SWRT_SKIN}" ];then
+		if [ "ts" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TS"
+		elif [ "rog" == "${SWRT_SKIN}" ];then
 			UI_TYPE="ROG"
+		elif [ "tuf" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TUF"
+		elif [ "swrt" == "${SWRT_SKIN}" ];then
+			UI_TYPE="SWRT"
 		fi
-		if [ -n "${WRT_FLAG}" ];then
-			UI_TYPE="ASUSWRT"
-		fi
+	elif [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	elif [ -n "${ROG_FLAG}" ];then
+		UI_TYPE="ROG"
+	elif [ -n "${TUF_FLAG}" ];then
+		UI_TYPE="TUF"
 	fi
 	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
 		nvram set sc_skin="${UI_TYPE}"
@@ -48,6 +51,8 @@ set_skin(){
 		ln -sf /jffs/softcenter/res/softcenter_tuf.css /jffs/softcenter/res/softcenter.css
 	elif [ "${UI_TYPE}" == "TS" ];then
 		ln -sf /jffs/softcenter/res/softcenter_ts.css /jffs/softcenter/res/softcenter.css
+	elif [ "${UI_TYPE}" == "SWRT" ];then
+		ln -sf /jffs/softcenter/res/softcenter_swrt.css /jffs/softcenter/res/softcenter.css
 	fi
 }
 

@@ -457,8 +457,11 @@ function _mergeData(remoteData) {
 		var name = app.name;
 		var oldApp = localData[name] || {};
 		var install = (parseInt(oldApp.install, 10) === 1 && app.version !== oldApp.version) ? 2 : oldApp.install || "0";
-		result[name] = $.extend(oldApp, app);
-		result[name].install = install;
+		//检测app依赖然后进行过滤屏蔽
+		if(!app.rc_support || isSupport(app.rc_support)){
+			result[name] = $.extend(oldApp, app);
+			result[name].install = install;
+		}
 	});
 	$.map(localData, function(app, name) {
 		if (!result[name]) {
@@ -633,7 +636,7 @@ function init() {
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("",dict["Software Center"], dict["Offline installation"]);
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp");
 }
@@ -869,7 +872,7 @@ function set_skin(){
 			<div style="margin: 10px 10px 10px 10px;width:98%;text-align:center;overflow:hidden;">
 				<textarea cols="63" rows="25" wrap="on" readonly="readonly" id="log_content" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 			</div>
-			<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+			<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 				<input sclang class="button_gen" type="button" style="visibility:hidden;min-width:88px;" id="download_log" value="Save log">
 				<input sclang class="button_gen" type="button" style="visibility:hidden;min-width:88px;margin-left: 10px;" id="close_log" value="Close log window">
 				<input sclang class="button_gen" type="button" style="visibility:hidden;min-width:88px;margin-left: 10px;" id="clean_log" value="Clean log">
