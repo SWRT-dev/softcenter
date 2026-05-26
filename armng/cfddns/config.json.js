@@ -1,9 +1,10 @@
 {
-"version":"1.9",
-"md5":"143ada260fb0e1039980cb05aa8fbf74",
+"version":"2.0",
+"md5":"b921589e1377389efb48c4680b960232",
 "arch":"armng",
 "home_url":"Module_cfddns.asp",
 "title":"Cloudflare DDNS",
 "description":"Cloudflare解析自动更新IP",
-"build_date":"2024-11-09_12:35:38"
+"rc_support":"",
+"build_date":"2026-05-26_21:19:00"
 }

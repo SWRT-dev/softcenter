@@ -8,82 +8,140 @@
 <link rel="shortcut icon" href="images/favicon.png"/>
 <link rel="icon" href="images/favicon.png"/>
 <title>CloudFlare DDNS</title>
-<link rel="stylesheet" type="text/css" href="index_style.css"/>
+<link rel="stylesheet" type="text/css" href="index_style.css"/> 
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css"/>
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css"/>
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
-<script type="text/javascript" src="/state.js"></script>
-<script type="text/javascript" src="/popup.js"></script>
-<script type="text/javascript" src="/help.js"></script>
-<script type="text/javascript" src="/validator.js"></script>
-<script type="text/javascript" src="/general.js"></script>
+<script language="JavaScript" type="text/javascript" src="/state.js"></script>
+<script language="JavaScript" type="text/javascript" src="/help.js"></script>
+<script language="JavaScript" type="text/javascript" src="/general.js"></script>
+<script language="JavaScript" type="text/javascript" src="/popup.js"></script>
+<script language="JavaScript" type="text/javascript" src="/client_function.js"></script>
+<script language="JavaScript" type="text/javascript" src="/validator.js"></script>
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
 <script type="text/javascript" src="/res/softcenter.js"></script>
-<script src="/state.js"></script>
-<script src="/help.js"></script>
 <style>
-	.show-btn1, .show-btn2, .show-btn3 {
-		font-size:10pt;
-		color: #fff;
-		padding: 10px 3.75px;
-		border-radius: 5px 5px 0px 0px;
-		width:8.42%;
-		border-left: 1px solid #67767d;
-		border-top: 1px solid #67767d;
-		border-right: 1px solid #67767d;
-		border-bottom: none;
-		background: #67767d;
-		border: 1px solid #91071f;  /* W3C rogcss */
-		background: none;  /* W3C rogcss */
-	}
-	.active {
-		border: 1px solid #2f3a3e;
-		background: #2f3a3e;
-		border: 1px solid #91071f; /* W3C rogcss */
-		background: #91071f; /* W3C rogcss */
-	}
-	.ss_btn {
-		border: 1px solid #222;
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-		background: linear-gradient(to bottom, #003333  0%, #000000 100%);
-		background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
-	}
-	.ss_btn:hover, .active3 {
-		border: 1px solid #222;
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-		background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
-		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
-	}
-	#log_content1{
-		width:97%;
-		padding-left:4px;
-		padding-right:37px;
-		font-family:'Lucida Console';
-		font-size:11px;
-		line-height:1.5;
-		color:#FFFFFF;
-		outline:none;
-		overflow-x:hidden;
-		border:0px solid #222;
-		background:#475A5F;
-		background:transparent; /* W3C rogcss */
-	}
-	#cfddns_switch, #cfddns_status, #cfddns_settings, #cfddns_log, #cfddns_help { border:1px solid #91071f; } /* W3C rogcss */
-	#log_content{ outline: 1px solid #222;width:748px; }
-	input[type=button]:focus {
-		outline: none;
-	}
+.show-btn1, .show-btn2, .show-btn3 {
+	font-size:10pt;
+	color: #fff;
+	padding: 10px 3.75px;
+	border-radius: 5px 5px 0px 0px;
+	width:8.42%;
+	border-left: 1px solid #67767d;
+	border-top: 1px solid #67767d;
+	border-right: 1px solid #67767d;
+	border-bottom: none;
+	background: #67767d;
+}
+.active {
+	border: 1px solid #2f3a3e;
+	background: #2f3a3e;
+	border: 1px solid #91071f; /* W3C rogcss */
+	background: #91071f; /* W3C rogcss */
+}
+.ss_btn {
+	border: 1px solid #222;
+	font-size:10pt;
+	color: #fff;
+	padding: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	width:14%;
+	background: linear-gradient(to bottom, #003333  0%, #000000 100%);
+}
+.ss_btn:hover, .active3 {
+	border: 1px solid #222;
+	font-size:10pt;
+	color: #fff;
+	padding: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	width:14%;
+	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
+}
+#log_content1{
+	width:97%;
+	padding-left:4px;
+	padding-right:37px;
+	font-family:'Lucida Console';
+	font-size:11px;
+	line-height:1.5;
+	color:#FFFFFF;
+	outline:none;
+	overflow-x:hidden;
+	border:0px solid #222;
+	background:#475A5F;
+}
+input[type=button]:focus {
+	outline: none;
+}
+#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2, #scapp[skin=TUF] .show-btn3 {
+	border: 1px solid #92650F;
+	background: none;
+}
+#scapp[skin=TUF] .active {
+	border: 1px solid #92650F;
+	background: #92650F;
+}
+#scapp[skin=TUF] .ss_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .ss_btn:hover, #scapp[skin=TUF] .active3 {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=TUF] #log_content1{
+	background:transparent;
+}
+#scapp[skin=TUF] #cfddns_switch, #scapp[skin=TUF] #cfddns_status, #scapp[skin=TUF] #cfddns_settings, #scapp[skin=TUF] #cfddns_log, #scapp[skin=TUF] #cfddns_help { border:1px solid #92650F; }
+#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2, #scapp[skin=ROG] .show-btn3 {
+	border: 1px solid #91071f;
+	background: none;
+}
+#scapp[skin=ROG] .active {
+	border: 1px solid #91071f;
+	background: #91071f;
+}
+#scapp[skin=ROG] .ss_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .ss_btn:hover, #scapp[skin=ROG] .active3 {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=ROG] #log_content1{
+	background:transparent;
+}
+#scapp[skin=ROG] #cfddns_switch, #scapp[skin=ROG] #cfddns_status, #scapp[skin=ROG] #cfddns_settings, #scapp[skin=ROG] #cfddns_log, #scapp[skin=ROG] #cfddns_help { border:1px solid #91071f; }
+#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2, #scapp[skin=SWRT] .show-btn3 {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .active {
+	background: #006ce1;
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+}
+#scapp[skin=SWRT] .ss_btn {
+	border: 1px solid #006ce1;
+	color: #000 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .ss_btn:hover, #scapp[skin=SWRT] .active3 {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] #log_content1 {
+	background:transparent;
+	border: 1px solid #006ce1;
+}
+#scapp[skin=SWRT] #cfddns_switch, #scapp[skin=SWRT] #cfddns_status, #scapp[skin=SWRT] #cfddns_settings, #scapp[skin=SWRT] #cfddns_log, #scapp[skin=SWRT] #cfddns_help { border:1px solid #006ce1; }
 </style>
 <script>
 var dbus = {};
@@ -95,6 +153,7 @@ var params_chk = ['cfddns_enable', 'cfddns_proxied', 'cfddns_ipv6'];
 
 function init(){
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	conf2obj();
 	toggle_func();
@@ -293,9 +352,15 @@ function menu_hook(){
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "CloudFlare DDNS");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_cfddns.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>

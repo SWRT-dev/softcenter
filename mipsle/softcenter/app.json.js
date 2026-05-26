@@ -157,14 +157,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:39",
+            "build_date": "2026-05-26_21:19:00",
             "description": "Cloudflare解析自动更新IP",
             "home_url": "Module_cfddns.asp",
-            "md5": "239e81e2afd4c45f4764912225bacff6",
+            "md5": "bfc4007266c1290215f30e98ab735113",
             "name": "cfddns",
+            "rc_support": "",
             "tar_url": "cfddns/cfddns.tar.gz",
             "title": "Cloudflare DDNS",
-            "version": "1.9"
+            "version": "2.0"
         },
         {
             "arch": "mipsle",

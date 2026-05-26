@@ -157,14 +157,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:38",
+            "build_date": "2026-05-26_21:19:00",
             "description": "Cloudflare解析自动更新IP",
             "home_url": "Module_cfddns.asp",
-            "md5": "143ada260fb0e1039980cb05aa8fbf74",
+            "md5": "b921589e1377389efb48c4680b960232",
             "name": "cfddns",
+            "rc_support": "",
             "tar_url": "cfddns/cfddns.tar.gz",
             "title": "Cloudflare DDNS",
-            "version": "1.9"
+            "version": "2.0"
         },
         {
             "arch": "armng",
