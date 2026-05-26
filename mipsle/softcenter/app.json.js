@@ -233,14 +233,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:41",
+            "build_date": "2026-05-26_10:23:56",
             "description": "自动部署SSL证书",
             "home_url": "Module_acme.asp",
-            "md5": "ca3391aa35b9d9020c8fb928fc49440d",
+            "md5": "6ff958c93c88c79890267d1334b1d8e9",
             "name": "acme",
+            "rc_support": "",
             "tar_url": "acme/acme.tar.gz",
             "title": "Let's Encrypt",
-            "version": "3.5"
+            "version": "3.6"
         },
         {
             "arch": "mipsle",

@@ -233,14 +233,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:41",
+            "build_date": "2026-05-26_10:23:56",
             "description": "自动部署SSL证书",
             "home_url": "Module_acme.asp",
-            "md5": "024f57ac3f8600bfd1db8f869d73fded",
+            "md5": "36c8bc85ec0148bacfcae9015bef88cb",
             "name": "acme",
+            "rc_support": "",
             "tar_url": "acme/acme.tar.gz",
             "title": "Let's Encrypt",
-            "version": "3.5"
+            "version": "3.6"
         },
         {
             "arch": "armng",
