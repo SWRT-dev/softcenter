@@ -544,9 +544,9 @@
 	font-size:13px;
 	font-family: Lucida Console;
 	background-image:none;
-	background-color: #3e030d;
-	border:1px solid #91071f;
-	color:#fefefe;
+	background-color: #FFF;
+	border:1px solid #cccccc;
+	color:##262626;
 }
 #scapp[skin=SWRT] .splitLine{
 	margin: 4px 0;
