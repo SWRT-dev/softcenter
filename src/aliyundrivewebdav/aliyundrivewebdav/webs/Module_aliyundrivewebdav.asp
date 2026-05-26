@@ -16,8 +16,8 @@
         <link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
         <link rel="stylesheet" type="text/css" href="/js/table/table.css">
         <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
-        <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
         <link rel="stylesheet" type="text/css" href="/res/aliyundrivewebdav.css">
+        <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
         <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
         <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
         <script type="text/javascript" src="/state.js"></script>
@@ -40,6 +40,7 @@
             var params_check = ['aliyundrivewebdav_enable', 'aliyundrivewebdav_public'];
             function init() {
                 show_menu(menu_hook);
+				set_skin()
                 get_dbus_data();
                 buildswitch();
                 update_visibility();
@@ -226,13 +227,19 @@
                     --x;
                 setTimeout("count_down_close1();", 1000);
             }
-			function menu_hook(title, tab) {
+			function menu_hook() {
 				tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "阿里云盘WebDAV");
 				tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_aliyundrivewebdav.asp");
 			}
+			function set_skin(){
+				var SKN = '<% nvram_get("sc_skin"); %>';
+				if(SKN){
+					$("#scapp").attr("skin", SKN);
+				}
+			}
         </script>
     </head>
-    <body onload="init();">
+    <body onload="init();" id="scapp" skin="ASUSWRT">
         <div id="TopBanner"></div>
         <div id="Loading" class="popup_bg"></div>
         <div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >

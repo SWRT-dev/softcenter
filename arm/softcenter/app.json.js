@@ -90,14 +90,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:35",
+            "build_date": "2026-05-26_15:22:22",
             "description": "阿里云盘 WebDAV 服务器",
             "home_url": "Module_aliyundrivewebdav.asp",
-            "md5": "b6144864688df8b763319d98147cf65d",
+            "md5": "eb715a6860818c3730feb904712b9cff",
             "name": "aliyundrivewebdav",
+            "rc_support": "",
             "tar_url": "aliyundrivewebdav/aliyundrivewebdav.tar.gz",
             "title": "阿里云盘WebDAV",
-            "version": "1.8.2"
+            "version": "1.8.3"
         },
         {
             "arch": "arm",

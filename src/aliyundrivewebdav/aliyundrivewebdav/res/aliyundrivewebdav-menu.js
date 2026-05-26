@@ -150,22 +150,6 @@ function createFormFields(data, settings) {
 	});
 	return form;
 }
-function compare(val1,val2){
-	return val1-val2;
-}
-function compfilter(a, b){
-	var c = {};
-	for (var key in b) {
-		if(a[key] && b[key] && a[key] == b[key]){
-			continue;
-		}else if(a[key] == undefined && (b[key] == "")){
-			continue;
-		}else{
-			c[key] = b[key];
-		}
-	}
-	return c;
-}
 function autoTextarea(elem, extra, maxHeight) {
 	extra = extra || 0;
 	var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
@@ -241,46 +225,6 @@ function getNowFormatDate(s) {
 	}
 	var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + date.getHours() + seperator2 + date.getMinutes() + seperator2 + date.getSeconds() + seperator1 + date.getMilliseconds();
 	console.log(s, currentdate);
-}
-function menu_hook(title, tab) {
-	tabtitle[tabtitle.length -1] = new Array("", "阿里云盘 WebDAV");
-	tablink[tablink.length -1] = new Array("", "Module_Softcenter.asp");
-}
-function versionCompare(v1, v2, options) {
-	var lexicographical = options && options.lexicographical,
-		zeroExtend = options && options.zeroExtend,
-		v1parts = v1.split('.'),
-		v2parts = v2.split('.');
-	function isValidPart(x) {
-		return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
-	}
-	if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
-		return NaN;
-	}
-	if (zeroExtend) {
-		while (v1parts.length < v2parts.length) v1parts.push("0");
-		while (v2parts.length < v1parts.length) v2parts.push("0");
-	}
-	if (!lexicographical) {
-		v1parts = v1parts.map(Number);
-		v2parts = v2parts.map(Number);
-	}
-	for (var i = 0; i < v1parts.length; ++i) {
-		if (v2parts.length == i) {
-			return true;
-		}
-		if (v1parts[i] == v2parts[i]) {
-			continue;
-		} else if (v1parts[i] > v2parts[i]) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	if (v1parts.length != v2parts.length) {
-		return false;
-	}
-	return false;
 }
 function isJSON(str) {
 	if (typeof str == 'string' && str) {
