@@ -10,12 +10,9 @@
 <title> Cloudflared 内网穿透</title>
 <link rel="stylesheet" type="text/css" href="index_style.css" />
 <link rel="stylesheet" type="text/css" href="form_style.css" />
-<link rel="stylesheet" type="text/css" href="usp_style.css" />
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -28,8 +25,6 @@
 <style type="text/css">
 .active {
     background: #807e79;
-    background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
-    border: 1px solid #91071f; /* W3C rogcss*/
 }
 .close {
     background: red;
@@ -73,8 +68,7 @@
 }
 .info_btn {
     border: 1px solid #222;
-    background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
+    background: linear-gradient(to bottom, #003333  0%, #000000 100%);
     font-size:10pt;
     color: #fff;
     padding: 5px 5px;
@@ -83,15 +77,13 @@
 }
 .info_btn:hover {
     border: 1px solid #222;
-    background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
+    background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
     font-size:10pt;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px 5px 5px 5px;
     width:16%;
 }
-
 .formbottomdesc {
     margin-top:10px;
     margin-left:10px;
@@ -102,17 +94,86 @@ input[type=button]:focus {
 .cfd_custom_btn {
     border: 1px solid #222;
     background: linear-gradient(to bottom, #003333 0%, #000000 100%);
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
     font-size: 10pt;
     color: #fff;
     padding: 5px 5px;
     border-radius: 5px;
     width: auto;
 }
-
 .cfd_custom_btn:hover {
     background: linear-gradient(to bottom, #27c9c9 0%, #279fd9 100%);
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
+}
+.cf_table {
+	box-shadow: 3px 3px 10px #000;
+	margin-top: 0px;
+}
+#scapp[skin=TUF] .active {
+	border: 1px solid #92650F;
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=TUF] .info_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .info_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=TUF] .cfd_custom_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .cfd_custom_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=ROG] .active {
+	border: 1px solid #91071f;
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=ROG] .info_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .info_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=ROG] .cfd_custom_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .cfd_custom_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=SWRT] .active {
+	background: #006ce1;
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+}
+#scapp[skin=SWRT] .info_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .info_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .cfd_custom_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .cfd_custom_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .cf_table {
+	box-shadow: 3px 3px 10px #006ce1;
 }
 </style>
 <script>
@@ -121,6 +182,7 @@ var params_input = ["cloudflared_cron_time", "cloudflared_cron_hour_min", "cloud
 var params_check = ["cloudflared_enable"]
 function initial() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_status();
 	toggle_func();
@@ -255,7 +317,7 @@ function clear_log() {
 	});
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "cloudflared");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_cloudflared.asp");
 }
@@ -432,10 +494,15 @@ function openssHint(itemNum) {
 			return overlib(helpcontent[hint_array_id][hint_show_id], HAUTO, VAUTO);
 	}
 }
-
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="initial();">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -471,7 +538,7 @@ function openssHint(itemNum) {
                                     <div style="margin:30px 0 10px 5px;" class="splitLine"></div>
                                     <div class="formfontdesc">Cloudflare Tunnel 客户端(以前称为 Argo Tunnel)。【项目地址：<a href="https://github.com/cloudflare/cloudflared" target="_blank"><em><u>Github</u></em></a>】【使用文档：<a href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/#2-authenticate-cloudflared" target="_blank"><em><u>创建隧道</u></em></a>】<br/><i>  点击下方参数设置的文字，可查看帮助信息  </i></div>
                                     <div>
-                                    <table width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable" style="box-shadow: 3px 3px 10px #000;margin-top: 0px;">
+                                    <table width="100%" border="1" align="center" cellpadding="4" cellspacing="0" bordercolor="#6b8fa3" class="FormTable cf_table">
                                        <tr>
                                             <th>
                                                 <label><a class="hintstyle" href="javascript:void(0);" onclick="openssHint(0)">开启</a></label>

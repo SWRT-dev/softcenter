@@ -305,14 +305,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-12-04_18:20:21",
+            "build_date": "2026-05-26_21:48:46",
             "description": "Cloudflare Tunnel 客户端(以前称为 Argo Tunnel)",
             "home_url": "Module_cloudflared.asp",
-            "md5": "c9ad90dd626a4f38aa70f58134709ed7",
+            "md5": "ce923dc7e448e45ddb4cccef5360d997",
             "name": "cloudflared",
+            "rc_support": "",
             "tar_url": "cloudflared/cloudflared.tar.gz",
             "title": "cloudflared",
-            "version": "1.2"
+            "version": "1.3"
         },
         {
             "arch": "mipsle",
