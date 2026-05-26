@@ -256,21 +256,22 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:42",
+            "build_date": "2026-05-26_13:02:18",
             "description": "aliddns",
             "home_url": "Module_aliddns.asp",
-            "md5": "4623b9e93e403df9db696840b5c57717",
+            "md5": "84a623a7b063448fb2f049cdc3ecb1b6",
             "name": "aliddns",
+            "rc_support": "",
             "tar_url": "aliddns/aliddns.tar.gz",
             "title": "阿里DDNS",
-            "version": "2.6"
+            "version": "2.7"
         },
         {
             "arch": "arm64",
-            "build_date": "2026-05-26_12:25:55",
+            "build_date": "2026-05-26_12:30:10",
             "description": "广告屏蔽大师 Plus 可以全面过滤各种横幅、弹窗、视频广告，同时阻止跟踪、隐私窃取及各种恶意网站",
             "home_url": "Module_adbyby.asp",
-            "md5": "85a74a6cb99a6b2b76f645e7497d9edb",
+            "md5": "a5db2aedbdb9c9a324d4b47d61f50f0a",
             "name": "adbyby",
             "rc_support": "",
             "tar_url": "adbyby/adbyby.tar.gz",

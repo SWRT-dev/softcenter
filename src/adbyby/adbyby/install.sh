@@ -72,6 +72,7 @@ install_now(){
 	cp -rf /tmp/adbyby/webs/* /jffs/softcenter/webs/
 	cp -rf /tmp/adbyby/res/* /jffs/softcenter/res/
 	cp -rf /tmp/adbyby/scripts/* /jffs/softcenter/scripts/
+	cp -rf /tmp/adbyby/uninstall.sh /jffs/softcenter/scripts/uninstall_adbyby.sh
 	[ ! -L "/jffs/softcenter/init.d/S98adbyby.sh" ] && ln -sf /jffs/softcenter/scripts/adbyby_config.sh /jffs/softcenter/init.d/S98adbyby.sh
 	# Permissions
 	chmod 755 /jffs/softcenter/adbyby/*

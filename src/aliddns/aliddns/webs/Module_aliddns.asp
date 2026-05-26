@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
 <link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -34,14 +34,10 @@
 		border-right: 1px solid #67767d;
 		border-bottom: none;
 		background: #67767d;
-		border: 1px solid #91071f; /* W3C rogcss */
-		background: none; /* W3C rogcss */
 	}
 	.show-btn1:hover, .show-btn2:hover, .show-btn3:hover, .active {
 		border: 1px solid #2f3a3e;
 		background: #2f3a3e;
-		border: 1px solid #91071f; /* W3C rogcss */
-		background: #91071f; /* W3C rogcss */
 	}
 	#log_content{
 		outline: 1px solid #222;
@@ -59,35 +55,58 @@
 		overflow-x:hidden;
 		border:0px solid #222;
 		background:#475A5F;
-		background:transparent; /* W3C rogcss */
 	}
-	.ks_btn {
-		border: 1px solid #222;
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-		background: linear-gradient(to bottom, #003333  0%, #000000 100%);
-		background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
-	}
-	.ks_btn:hover, {
-		border: 1px solid #222;
-		font-size:10pt;
-		color: #fff;
-		padding: 5px 5px 5px 5px;
-		border-radius: 5px 5px 5px 5px;
-		width:14%;
-		background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
-		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
-	}
-	#aliddns_switch, #tablet_1, #tablet_2, #aliddns_log, #tablet_3 { border:1px solid #91071f; } /* W3C rogcss */
 	.input_option{
 		vertical-align:middle;
 		font-size:12px;
 	}
 	input[type=button]:focus {
 		outline: none;
+	}
+	#scapp[skin=TUF] #aliddns_switch, #scapp[skin=TUF] #tablet_1, #scapp[skin=TUF] #tablet_2, #scapp[skin=TUF] #aliddns_log, #scapp[skin=TUF] #tablet_3 { border:1px solid #92650F; }
+	#scapp[skin=TUF] #log_content_text{
+		background:transparent;
+	}
+	#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2, #scapp[skin=TUF] .show-btn3 {
+		border: 1px solid #92650F !important;
+		background: none !important;
+	}
+	#scapp[skin=TUF] .show-btn1:hover, #scapp[skin=TUF] .show-btn2:hover, #scapp[skin=TUF] .show-btn3:hover, #scapp[skin=TUF] .active {
+		border: 1px solid #92650F !important;
+		background: #92650F !important;
+	}
+	#scapp[skin=ROG] #aliddns_switch, #scapp[skin=ROG] #tablet_1, #scapp[skin=ROG] #tablet_2, #scapp[skin=ROG] #aliddns_log, #scapp[skin=ROG] #tablet_3 { border:1px solid #91071f; }
+	#scapp[skin=ROG] #log_content_text{
+		background:transparent;
+	}
+	#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2, #scapp[skin=ROG] .show-btn3 {
+		border: 1px solid #91071f !important;
+		background: none !important;
+	}
+	#scapp[skin=ROG] .show-btn1:hover, #scapp[skin=ROG] .show-btn2:hover, #scapp[skin=ROG] .show-btn3:hover, #scapp[skin=ROG] .active {
+		border: 1px solid #91071f !important;
+		background: #91071f !important;
+	}
+	#scapp[skin=SWRT] #aliddns_switch, #scapp[skin=SWRT] #tablet_1, #scapp[skin=SWRT] #tablet_2, #scapp[skin=SWRT] #aliddns_log, #scapp[skin=SWRT] #tablet_3 { border:1px solid #006ce1; }
+	#scapp[skin=SWRT] #log_content_text{
+		background:transparent;
+		border:0px solid #006ce1;
+	}
+	#scapp[skin=SWRT] #log_content{
+		outline: 1px solid #006ce1;
+	}
+	#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2, #scapp[skin=SWRT] .show-btn3 {
+		border: 1px solid #006ce1 !important;
+		background: none !important;
+		color: #000 !important;
+		border-left: 1px solid #006ce1 !important;
+		border-top: 1px solid #006ce1 !important;
+		border-right: 1px solid #006ce1 !important;
+	}
+	#scapp[skin=SWRT] .show-btn1:hover, #scapp[skin=SWRT] .show-btn2:hover, #scapp[skin=SWRT] .show-btn3:hover, #scapp[skin=SWRT] .active {
+		border: 1px solid #006ce1 !important;
+		background: #006ce1 !important;
+		color: #fefefe !important;
 	}
 </style>
 <script>
@@ -99,6 +118,7 @@ var params_inp = ['aliddns_ak', 'aliddns_sk', 'aliddns_name', 'aliddns_domain', 
 var params_chk = ['aliddns_enable'];
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	generate_options();
 	get_dbus_data();
 	get_run_status();
@@ -354,14 +374,19 @@ function update_visibility(){
 			break;
 	}
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "Aliddns");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_aliddns.asp");
 }
-
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <table class="content" align="center" cellpadding="0" cellspacing="0">
@@ -411,7 +436,7 @@ function menu_hook(title, tab) {
 															</label>
 														</div>
 														<div style="display:table-cell;float: left;margin-left:270px;margin-top:-32px;position: absolute;padding: 5.5px 0px;">
-															<a type="button" class="ks_btn" target="_blank" href="https://github.com/koolshare/rogsoft/blob/master/aliddns/Changelog.txt">更新日志</a>
+															<!-- <a type="button" class="ks_btn" target="_blank" href="https://github.com/koolshare/rogsoft/blob/master/aliddns/Changelog.txt">更新日志</a> -->
 														</div>
 														<div id="aliddns_version" style="padding-top:5px;margin-right:50px;margin-top:-30px;float: right;"></div>	
 													</td>
@@ -522,10 +547,10 @@ function menu_hook(title, tab) {
 											<input id="apply_button-1" class="button_gen" type="button" onclick="save(1)" value="提交">
 											<input id="apply_button-2" class="button_gen" type="button" onclick="save(2)" value="清除" style="display: none;">
 										</div>
-										<div class="KoolshareBottom" style="margin-top:50px;">
-											论坛技术支持: <a href="https://koolshare.cn" target="_blank"> <i><u>https://koolshare.cn</u></i></a><br />
-											GitHub: <a href="https://github.com/koolshare/rogsoft" target="_blank"><i><u>https://github.com/koolshare</u></i></a><br />
-											Shell & Web by: <a href="mailto:sadoneli@gmail.com"><i>kyrios</i></a>, <i>sadog</i>
+										<div class="SCBottom">
+											论坛技术支持: <a href="https://www.right.com.cn" target="_blank"> <i><u>https://www.right.com.cn</u></i></a><br />
+											GitHub: <a href="https://github.com/SWRT-dev/softcenter" target="_blank"><i><u>https://github.com/SWRT-dev</u></i></a><br />
+											Shell & Web by: <i>SWRTdev</i>
 										</div>
 									</td>
 								</tr>
