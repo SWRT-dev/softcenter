@@ -85,6 +85,7 @@ var params_check = ['adbyby_enable'];
 var params_input = ['adbyby_mode', 'adbyby_block_cnshort'];
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_status();
 }
@@ -289,13 +290,19 @@ function count_down_close() {
 	setTimeout("count_down_close();", 1000);
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "广告屏蔽大师 Plus");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_adbyby.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg">

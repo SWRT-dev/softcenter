@@ -267,14 +267,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:42",
+            "build_date": "2026-05-26_12:25:55",
             "description": "广告屏蔽大师 Plus 可以全面过滤各种横幅、弹窗、视频广告，同时阻止跟踪、隐私窃取及各种恶意网站",
             "home_url": "Module_adbyby.asp",
-            "md5": "b3bda5c09686e1cac365125aa96bd8eb",
+            "md5": "15352796ab47b8563f2874d1674ad7db",
             "name": "adbyby",
+            "rc_support": "",
             "tar_url": "adbyby/adbyby.tar.gz",
             "title": "广告屏蔽大师 Plus",
-            "version": "1.4"
+            "version": "1.5"
         },
         {
             "arch": "mips",
