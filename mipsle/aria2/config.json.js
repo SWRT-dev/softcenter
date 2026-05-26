@@ -1,9 +1,10 @@
 {
-"version":"3.2",
-"md5":"0ae22ad5d6ae7fb01b9a06f2fa601432",
+"version":"3.3",
+"md5":"03e1f81d0160f300479f65ad2c88ffb0",
 "arch":"mipsle",
 "home_url":"Module_aria2.asp",
 "title":"Aria2",
 "description":"linux下载利器",
-"build_date":"2024-11-09_12:35:44"
+"rc_support":"",
+"build_date":"2026-05-26_17:11:01"
 }

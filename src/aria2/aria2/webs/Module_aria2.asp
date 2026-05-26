@@ -12,9 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="form_style.css" />
 	<link rel="stylesheet" type="text/css" href="usp_style.css" />
 	<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-	<link rel="stylesheet" type="text/css" href="css/icon.css">
-	<link rel="stylesheet" type="text/css" href="css/element.css">
-	<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+	<link rel="stylesheet" type="text/css" href="/css/icon.css">
+	<link rel="stylesheet" type="text/css" href="/css/element.css">
+	<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 	<script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 	<script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 	<script type="text/javascript" src="/state.js"></script>
@@ -78,15 +78,10 @@
 			border-radius: 5px 5px 0px 0px;
 			width:8.45601%;
 			background: linear-gradient(to bottom, #919fa4  0%, #67767d 100%);
-			background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
-			border: 1px solid #91071f; /* W3C rogcss */
-			background: none; /* W3C rogcss */
 		}
 		.active {
 			background: #2f3a3e;
 			background: linear-gradient(to bottom, #61b5de  0%, #279fd9 100%);
-			background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
-			border: 1px solid #91071f; /* W3C rogcss */
 		}
 		input[type=button]:focus {
 			outline: none;
@@ -97,8 +92,6 @@
 			font-size:12px;
 			color:#FFFFFF;
 			background:#475A5F;
-			background:transparent; /* W3C rogcss */
-			border:1px solid #91071f; /* W3C rogcss */
 		}
 		.popup_bar_bg_ks{
 			position:fixed;	
@@ -114,17 +107,73 @@
 			overflow:hidden;
 			background-color: #444F53;
 			background:rgba(68, 79, 83, 0.9) none repeat scroll 0 0 !important;
-			background: url(/images/New_ui/login_bg.png); /* W3C rogcss */
-			background-position: 0 0; /* W3C rogcss */
-			background-size: cover; /* W3C rogcss */
-			opacity: .94; /* W3C rogcss */
 		}
 		#log_content3, #loading_block2, #log_content1 {
 			line-height:1.5
 		}
 		em {
-		    color: #00ffe4;
-		    font-style: normal;
+			color: #00ffe4;
+			font-style: normal;
+		}
+		#scapp[skin=TUF] .active {
+			background: linear-gradient(to bottom, #cf0a2c  0%, #c58813 100%);
+			border: 1px solid #92650F;
+		}
+		#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2, #scapp[skin=TUF] .show-btn3, #scapp[skin=TUF] .show-btn4, #scapp[skin=TUF] .show-btn5, #scapp[skin=TUF] .show-btn6 {
+			background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+			border: 1px solid #92650F;
+			background: none;
+		}
+		#scapp[skin=TUF] textarea{
+			background:transparent;
+			border:1px solid #92650F;
+		}
+		#scapp[skin=TUF] .popup_bar_bg_ks{
+			background: url(/images/New_ui/login_bg.png);
+			background-position: 0 0;
+			background-size: cover;
+			opacity: .94;
+		}
+		#scapp[skin=ROG] .active {
+			background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+			border: 1px solid #91071f;
+		}
+		#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2, #scapp[skin=ROG] .show-btn3, #scapp[skin=ROG] .show-btn4, #scapp[skin=ROG] .show-btn5, #scapp[skin=ROG] .show-btn6 {
+			background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+			border: 1px solid #91071f;
+			background: none;
+		}
+		#scapp[skin=ROG] textarea{
+			background:transparent;
+			border:1px solid #91071f;
+		}
+		#scapp[skin=ROG] .popup_bar_bg_ks{
+			background: url(/images/New_ui/login_bg.png);
+			background-position: 0 0;
+			background-size: cover;
+			opacity: .94;
+		}
+		#scapp[skin=SWRT] .active {
+			border: 1px solid #006ce1 !important;
+			font-size:12pt;
+			color: #fefefe !important;
+			background: #006ce1 !important;
+		}
+		#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2, #scapp[skin=SWRT] .show-btn3, #scapp[skin=SWRT] .show-btn4, #scapp[skin=SWRT] .show-btn5, #scapp[skin=SWRT] .show-btn6 {
+			border: 1px solid #006ce1;
+			background: none;
+			color: #262626;
+		}
+		#scapp[skin=SWRT] textarea{
+			background:transparent;
+			border:1px solid #006ce1 !important;
+			color: #262626 !important;
+		}
+		#scapp[skin=SWRT] [style="background-image:url(images/Tree/bg_02.png);background-repeat:no-repeat;height:90px;"] {
+			background: transparent !important;
+		}
+		#scapp[skin=SWRT] [color="#ffffff"] {
+			color: #262626;
 		}
 	</style>
 	<script>
@@ -197,6 +246,7 @@
 			var params_all = ["aria2_cpulimit_value", "aria2_dir", "aria2_max_tries", "aria2_retry_wait", "aria2_referer", "aria2_disk_cache", "aria2_file_allocation", "aria2_rpc_listen_port", "aria2_event_poll", "aria2_rpc_secret", "aria2_max_concurrent_downloads", "aria2_max_connection_per_server", "aria2_min_split_size", "aria2_split", "aria2_max_overall_download_limit", "aria2_max_download_limit", "aria2_max_overall_upload_limit", "aria2_max_upload_limit", "aria2_lowest_speed_limit", "aria2_dht_listen_port", "aria2_bt_max_peers", "aria2_listen_port", "aria2_user_agent", "aria2_peer_id_prefix", "aria2_seed_ratio", "aria2_save_session_interval", "aria2_input_file", "aria2_save_session", "aria2_enable", "aria2_cpulimit_enable", "aria2_ddnsto", "aria2_disable_ipv6", "aria2_continue", "aria2_enable_mmap", "aria2_enable_rpc", "aria2_rpc_allow_origin_all", "aria2_rpc_listen_all", "aria2_bt_enable_lpd", "aria2_enable_dht", "aria2_bt_require_crypto", "aria2_follow_torrent", "aria2_enable_peer_exchange", "aria2_force_save", "aria2_bt_hash_check_seed", "aria2_bt_seed_unverified", "aria2_bt_save_metadata", "aria2_custom", "aria2_bt_tracker"];
 			function init() {
 				show_menu(menu_hook);
+				set_skin();
 				get_dbus_data();
 			}
 			function get_dbus_data() {
@@ -275,7 +325,7 @@
 				}
 				return str;
 			}
-			function menu_hook(title, tab) {
+			function menu_hook() {
 				tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "aria2");
 				tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_aria2.asp");
 			}
@@ -947,7 +997,7 @@
 			function initial_dir_status(data) {
 				if (data != "" && data.length != 2) {
 					get_layer_items("0");
-					eval("var default_dir=" + data);
+					//eval("var default_dir=" + data);
 				} else {
 					//E("EditExports").style.display = "none";
 					disk_flag = 1;
@@ -1313,9 +1363,15 @@
 				document.execCommand("Copy", "false",null);
 				alert("已复制好，可贴粘。"); 
 			}
+			function set_skin(){
+				var SKN = '<% nvram_get("sc_skin"); %>';
+				if(SKN){
+					$("#scapp").attr("skin", SKN);
+				}
+			}
 	</script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<!-- floder tree-->
 	<div id="DM_mask" class="mask_bg"></div>
@@ -1345,8 +1401,8 @@
 				</tr>
 		</table>
 		<div id="e0" class="folder_tree"></div>
-		<div style="background-image:url(images/Tree/bg_02.png);background-repeat:no-repeat;height:90px;">
-			<input class="button_gen" type="button" style="margin-left:27%;margin-top:18px;" onclick="cancel_folderTree();" value="取消">
+		<div class="apply_gen" style="background-image:url(images/Tree/bg_02.png);background-repeat:no-repeat;height:90px;">
+			<input class="button_gen" type="button" onclick="cancel_folderTree();" value="取消">
 			<input class="button_gen" type="button" onclick="confirm_folderTree();" value="确认">
 		</div>
 	</div>

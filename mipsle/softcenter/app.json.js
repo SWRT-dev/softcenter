@@ -292,14 +292,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:44",
+            "build_date": "2026-05-26_17:11:01",
             "description": "linux下载利器",
             "home_url": "Module_aria2.asp",
-            "md5": "0ae22ad5d6ae7fb01b9a06f2fa601432",
+            "md5": "03e1f81d0160f300479f65ad2c88ffb0",
             "name": "aria2",
+            "rc_support": "",
             "tar_url": "aria2/aria2.tar.gz",
             "title": "Aria2",
-            "version": "3.2"
+            "version": "3.3"
         },
         {
             "arch": "mipsle",

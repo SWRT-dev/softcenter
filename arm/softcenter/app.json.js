@@ -281,14 +281,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:43",
+            "build_date": "2026-05-26_17:11:00",
             "description": "linux下载利器",
             "home_url": "Module_aria2.asp",
-            "md5": "a7b7fc2b5be338e087c8bd837c91c82e",
+            "md5": "d6503a8d82da3b9ae1dc28008fc74551",
             "name": "aria2",
+            "rc_support": "",
             "tar_url": "aria2/aria2.tar.gz",
             "title": "Aria2",
-            "version": "3.2"
+            "version": "3.3"
         },
         {
             "arch": "arm",

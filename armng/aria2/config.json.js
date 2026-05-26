@@ -1,9 +1,10 @@
 {
-"version":"3.2",
-"md5":"709121df960b6d230fcefec8aa8a8149",
+"version":"3.3",
+"md5":"f0dace1e185b5cfb74e7ce33290b9267",
 "arch":"armng",
 "home_url":"Module_aria2.asp",
 "title":"Aria2",
 "description":"linux下载利器",
-"build_date":"2024-11-09_12:35:43"
+"rc_support":"",
+"build_date":"2026-05-26_17:11:00"
 }
