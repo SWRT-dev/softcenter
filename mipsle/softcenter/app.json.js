@@ -409,14 +409,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:59",
+            "build_date": "2026-05-28_07:34:15",
             "description": "DDNSTO远程控制",
             "home_url": "Module_ddnsto.asp",
-            "md5": "67d7612dbe6cc0d2eb5dea16819fb66b",
+            "md5": "e07c207360919135ef746cc152f45442",
             "name": "ddnsto",
+            "rc_support": "",
             "tar_url": "ddnsto/ddnsto.tar.gz",
             "title": "DDNSTO远程控制",
-            "version": "3.0.3"
+            "version": "3.0.4"
         },
         {
             "arch": "mipsle",

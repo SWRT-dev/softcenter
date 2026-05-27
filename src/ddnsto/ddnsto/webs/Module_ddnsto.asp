@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
 <link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
@@ -45,11 +45,9 @@
 	height:21px;
 	background:#C0D1D3 url(/res/proceding.gif);
 }
-
 .rog_btn {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	background: linear-gradient(to bottom, #91071f 0%, #700618 100%); /* W3C rogcss */
+	background: linear-gradient(to bottom, #003333  0%, #000000 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
@@ -58,25 +56,49 @@
 }
 .rog_btn:hover {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	background: linear-gradient(to bottom, #cf0a2c 0%, #91071f 100%); /* W3C rogcss */
+	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
 	border-radius: 5px 5px 5px 5px;
 	width:14%;
 }
-
 input[type=button]:focus {
-    outline: none;
+	outline: none;
 }
-
+#scapp[skin=TUF] .rog_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .rog_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=ROG] .rog_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .rog_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=SWRT] .rog_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .rog_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
 </style>
 <script>
 var noChange_status=0;
 var _responseLen;
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_run_status();
 }
@@ -153,7 +175,7 @@ function onSubmitCtrl() {
 	});
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线下载", "ddnsto 远程控制");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_ddnsto.asp");
 }
@@ -237,10 +259,15 @@ function version_show() {
 		}
 	});
 }
-
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg">

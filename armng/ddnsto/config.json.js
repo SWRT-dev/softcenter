@@ -1,9 +1,10 @@
 {
-"version":"3.0.3",
-"md5":"7930ae1e6eb501927838b22dc62f9faa",
+"version":"3.0.4",
+"md5":"13ee0f30d3b27f963c799a97456f9432",
 "arch":"armng",
 "home_url":"Module_ddnsto.asp",
 "title":"DDNSTO远程控制",
 "description":"DDNSTO远程控制",
-"build_date":"2024-11-09_12:35:58"
+"rc_support":"",
+"build_date":"2026-05-28_07:34:15"
 }

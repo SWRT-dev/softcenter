@@ -420,14 +420,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:58",
+            "build_date": "2026-05-28_07:34:15",
             "description": "DDNSTO远程控制",
             "home_url": "Module_ddnsto.asp",
-            "md5": "d7cdcd912b90464b9f4d4030baca2df4",
+            "md5": "2a53b63e5af2c6e74f38fc3ec25953e2",
             "name": "ddnsto",
+            "rc_support": "",
             "tar_url": "ddnsto/ddnsto.tar.gz",
             "title": "DDNSTO远程控制",
-            "version": "3.0.3"
+            "version": "3.0.4"
         },
         {
             "arch": "arm64",
