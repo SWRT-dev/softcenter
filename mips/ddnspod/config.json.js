@@ -1,9 +1,10 @@
 {
-"version":"2.0",
-"md5":"ee8718ee6a072505872acce6dcd23fcf",
+"version":"2.1",
+"md5":"6bf0493fff5a7a97f000c2e4eed1b45a",
 "arch":"mips",
 "home_url":"Module_ddnspod.asp",
 "title":"DDnspod",
 "description":"使用Dnspod的ddns服务",
-"build_date":"2024-11-09_12:35:48"
+"rc_support":"",
+"build_date":"2026-05-28_07:23:16"
 }

@@ -373,14 +373,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:48",
+            "build_date": "2026-05-28_07:23:16",
             "description": "使用Dnspod的ddns服务",
             "home_url": "Module_ddnspod.asp",
-            "md5": "6e28094ff8e79b10b076ac7cb7fa16c1",
+            "md5": "fcd4aa41c57230466954d6e4885a9e37",
             "name": "ddnspod",
+            "rc_support": "",
             "tar_url": "ddnspod/ddnspod.tar.gz",
             "title": "DDnspod",
-            "version": "2.0"
+            "version": "2.1"
         },
         {
             "arch": "arm64",
