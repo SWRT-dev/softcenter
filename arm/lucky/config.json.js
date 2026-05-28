@@ -1,9 +1,10 @@
 {
-"version":"1.4.3",
-"md5":"f072f93ae90d2f49e9b45561c7d7fea5",
+"version":"1.4.4",
+"md5":"b3aa970833fc85b6642098e95d8bf6e5",
 "arch":"arm",
 "home_url":"Module_lucky.asp",
 "title":"lucky",
 "description":"lucky",
-"build_date":"2025-03-23_14:29:51"
+"rc_support":"",
+"build_date":"2026-05-28_12:53:00"
 }

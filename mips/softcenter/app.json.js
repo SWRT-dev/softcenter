@@ -184,14 +184,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2025-03-23_14:29:52",
+            "build_date": "2026-05-28_12:53:01",
             "description": "lucky",
             "home_url": "Module_lucky.asp",
-            "md5": "0a5a1705b806347efac7bbdd7594a28c",
+            "md5": "70bea08ea765e01f212ba3aa92193694",
             "name": "lucky",
+            "rc_support": "",
             "tar_url": "lucky/lucky.tar.gz",
             "title": "lucky",
-            "version": "1.4.3"
+            "version": "1.4.4"
         },
         {
             "arch": "mips",

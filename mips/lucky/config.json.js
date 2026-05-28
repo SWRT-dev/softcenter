@@ -1,9 +1,10 @@
 {
-"version":"1.4.3",
-"md5":"0a5a1705b806347efac7bbdd7594a28c",
+"version":"1.4.4",
+"md5":"70bea08ea765e01f212ba3aa92193694",
 "arch":"mips",
 "home_url":"Module_lucky.asp",
 "title":"lucky",
 "description":"lucky",
-"build_date":"2025-03-23_14:29:52"
+"rc_support":"",
+"build_date":"2026-05-28_12:53:01"
 }
