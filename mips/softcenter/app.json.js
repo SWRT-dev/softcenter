@@ -2,14 +2,15 @@
     "apps": [
         {
             "arch": "mips",
-            "build_date": "2025-09-05_14:32:45",
+            "build_date": "2026-05-28_09:18:09",
             "description": "内网穿透利器，谁用谁知道。",
             "home_url": "Module_frps.asp",
-            "md5": "2ac87fe93d617035b0de5c79a8ae02bc",
+            "md5": "aa50c78bb4cad9997a974aee7626b0fa",
             "name": "frps",
+            "rc_support": "",
             "tar_url": "frps/frps.tar.gz",
             "title": "frps穿透服务器",
-            "version": "2.2"
+            "version": "2.3"
         },
         {
             "arch": "mips",
@@ -249,10 +250,10 @@
         },
         {
             "arch": "mips",
-            "build_date": "2026-05-28_08:56:58",
+            "build_date": "2026-05-28_09:07:42",
             "description": "内网穿透利器，谁用谁知道。",
             "home_url": "Module_frpc.asp",
-            "md5": "2786722736ffe7d76e5028f2100848f7",
+            "md5": "b72a087f138fe54f7246a1130d7c5582",
             "name": "frpc",
             "rc_support": "",
             "tar_url": "frpc/frpc.tar.gz",

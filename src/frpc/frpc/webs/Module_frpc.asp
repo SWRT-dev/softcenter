@@ -110,7 +110,7 @@
 input[type=button]:focus {
 	outline: none;
 }
-#scapp[skin=SWRT] #frpc_config, #scapp[skin=SWRT] #logtxt{
+#scapp[skin=TUF] #frpc_config, #scapp[skin=TUF] #logtxt{
 	background:transparent;
 	border:1px solid #92650F;
 }
@@ -128,7 +128,7 @@ input[type=button]:focus {
 #scapp[skin=TUF] .frpc_btn:hover {
 	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
 }
-#scapp[skin=SWRT] #frpc_config, #scapp[skin=SWRT] #logtxt{
+#scapp[skin=ROG] #frpc_config, #scapp[skin=ROG] #logtxt{
 	background:transparent;
 	border:1px solid #91071f;
 }

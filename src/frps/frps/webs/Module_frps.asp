@@ -10,9 +10,8 @@
 <title>软件中心 - frps 服务器</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/> 
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css"> 	
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -69,6 +68,27 @@ input[type=button]:focus {
 	background: rgba(0,0,0,0.85);
 	display:none;
 }
+#scapp[skin=SWRT] .contentM_qis {
+	background:#F5F5F5 !important;
+	border:1px solid #006ce1 !important;
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	color:#fefefe;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: transparent !important;
+}
+#scapp[skin=SWRT] #logfiletxt, #scapp[skin=SWRT] #log_content, #scapp[skin=SWRT] .loadingBarBlock, #scapp[skin=SWRT] #frps_extra_options{
+	background:#F5F5F5 !important;
+	color:#006ce1 !important;
+	border:1px solid #006ce1 !important;
+}
+#scapp[skin=SWRT] #ok_button{
+	background:#F5F5F5 !important;
+}
+#scapp[skin=SWRT] #Conftxt{
+	background:#F5F5F5 !important;
+	border:1px solid #006ce1 !important;
+}
 </style>
 <script>
 var db_frps = {};
@@ -83,6 +103,7 @@ String.prototype.myReplace = function(f, e){
 }
 function init(){
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_status();
 	conf2obj();
@@ -244,7 +265,7 @@ function clear_log() {
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "Frps服务器");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_frps.asp");
 }
@@ -559,9 +580,15 @@ function openssHint(itemNum){
 			return overlib(helpcontent[hint_array_id][hint_show_id], HAUTO, VAUTO);
 	}
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >
@@ -601,7 +628,7 @@ function openssHint(itemNum){
 								<div style="margin-left:15px;margin-right:15px;margin-top:10px;overflow:hidden">
 									<textarea cols="50" rows="26" wrap="off" readonly="readonly" id="logfiletxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #000;font-family:'Courier New', Courier, mono; font-size:11px;background:#000000;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 								</div>
-								<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+								<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 										<input id="edit_node1" class="button_gen" type="button" onclick="close_file('frpslogfile');" value="返回主界面">&nbsp;&nbsp;
 										<input class="button_gen" type="button" onclick="close_file('frpslogfile');clear_log();" value="清空日志">
 								</div>
@@ -613,7 +640,7 @@ function openssHint(itemNum){
 								<div style="margin-left:15px;margin-right:15px;margin-top:10px;overflow:hidden">
 									<textarea cols="50" rows="26" wrap="off" readonly="readonly" id="Conftxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #000;font-family:'Courier New', Courier, mono; font-size:11px;background:#000000;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 								</div>
-								<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+								<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 											<input id="edit_node2" class="button_gen" type="button" onclick="close_file('frpsConf');" value="返回主界面">
 								</div>
 							</div>
