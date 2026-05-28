@@ -572,7 +572,7 @@
 #scapp[skin=SWRT] .ks_btn {
 	border: 1px solid #006ce1;
 	font-size:12pt;
-	color: #000 !important;
+	color: #006ce1 !important;
 	padding: 5px 5px 5px 5px;
 	border-radius: 5px 5px 5px 5px;
 	width:14%;
