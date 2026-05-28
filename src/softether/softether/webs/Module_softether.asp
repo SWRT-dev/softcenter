@@ -10,11 +10,8 @@
 <title>软件中心-Softether VPN server</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -24,7 +21,6 @@
 <script type="text/javascript" src="/general.js"></script>
 <script type="text/javascript" src="/res/softcenter.js"></script>
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
-
 <style type="text/css">
 .contentM_qis {
 	position: fixed;
@@ -48,11 +44,19 @@
 	padding:10px;
 	font-weight:bold;
 }
+#scapp[skin=SWRT] .contentM_qis {
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	background: #F5F5F5;
+}
+#scapp[skin=SWRT] textarea {
+	border: 1px solid #006ce1 !important;
+}
 </style>
 <script>
 var db_softether = {}
 function init() {
-	show_menu();
+	show_menu(menu_hook);
+	set_skin()
 	get_dbus_data();
 	get_status();
 	dataPost("log_lnk");
@@ -384,9 +388,15 @@ function mOut(obj){
 	});
 	E("overDiv").style.visibility = "hidden";
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -586,7 +596,7 @@ function mOut(obj){
 								<div id="log_view" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
 									<textarea cols="50" rows="20" wrap="off" id="logtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 								</div>
-								<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+								<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 									<input id="close_file" class="button_gen" type="button" onclick="close_file('log');" value="返回主界面">
 								</div>
 							</div>

@@ -60,14 +60,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2025-12-31_08:55:20",
+            "build_date": "2026-05-28_20:19:56",
             "description": "VPN全家桶, ver 4.44 build 9807",
-            "home_url": "",
-            "md5": "872abd4561faa45000e189997f0c1ce3",
+            "home_url": "Module_softether.asp",
+            "md5": "2d7a41d035ffe6a0a909963c2eda4a91",
             "name": "softether",
+            "rc_support": "",
             "tar_url": "softether/softether.tar.gz",
             "title": "SoftEther_VPN_Server",
-            "version": "2.7"
+            "version": "2.8"
         },
         {
             "arch": "mipsle",

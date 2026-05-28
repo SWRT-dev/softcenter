@@ -1,7 +1,7 @@
 #!/bin/sh
 
 MODULE="softether"
-VERSION="2.7"
+VERSION="2.8"
 TITLE="SoftEther_VPN_Server"
 HOME_URL=Module_softether.asp
 DESCRIPTION="VPN全家桶, ver 4.44 build 9807"
