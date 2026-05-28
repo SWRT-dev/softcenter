@@ -358,14 +358,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:47",
+            "build_date": "2026-05-28_12:35:11",
             "description": "光猫助手: 快速设置，通过路由直接访问猫后台",
             "home_url": "Module_lookcat.asp",
-            "md5": "2fa19012d15ba5bb6bf37bb4b18eaebb",
+            "md5": "e6e88138b90fe3b8b37793db5edbbb86",
             "name": "lookcat",
+            "rc_support": "",
             "tar_url": "lookcat/lookcat.tar.gz",
             "title": "光猫助手",
-            "version": "1.2"
+            "version": "1.3"
         },
         {
             "arch": "mips",

@@ -335,14 +335,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:47",
+            "build_date": "2026-05-28_12:35:11",
             "description": "光猫助手: 快速设置，通过路由直接访问猫后台",
             "home_url": "Module_lookcat.asp",
-            "md5": "fd5f2e6691d6eac0679b1f4b002ca97f",
+            "md5": "0792aaa012002aa9a1b06d691ca1089c",
             "name": "lookcat",
+            "rc_support": "",
             "tar_url": "lookcat/lookcat.tar.gz",
             "title": "光猫助手",
-            "version": "1.2"
+            "version": "1.3"
         },
         {
             "arch": "arm",

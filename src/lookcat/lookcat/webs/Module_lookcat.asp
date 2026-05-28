@@ -10,11 +10,7 @@
 <title>软件中心 - 光猫助手 LookCat</title>
 <link rel="stylesheet" type="text/css" href="index_style.css">
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="usp_style.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
-<link rel="stylesheet" type="text/css" href="/js/table/table.css">
-<link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
@@ -78,55 +74,30 @@ i {
 	font-size: 14px;
 	font-family: Roboto-Light, "Microsoft JhengHei";
 }
-.content_status {
-	position: absolute;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius:10px;
-	z-index: 10;
-	margin-left: -215px;
-	top: 0;
-	left: 0;
-	height:auto;
-	box-shadow: 3px 3px 10px #000;
-	background: rgba(0,0,0,0.88);
-	width:748px;
-	/*display:none;*/
-	visibility:hidden;
+.logtable {
+	outline: 1px solid #3c3c3c;
 }
-.user_title{
-	text-align:center;
-	font-size:18px;
-	color:#99FF00;
-	padding:10px;
-	font-weight:bold;
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: transparent !important;
+	border:0px solid #006ce1;
 }
-.contentM_qis {
-	position: absolute;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	z-index: 200;
-	background-color:#2B373B;
-	margin-left: 10px;
-	top: 250px;
-	width:730px;
-	height:auto;
-	box-shadow: 3px 3px 10px #000;
-	/*display:none;*/
-	line-height:1.8;
-	visibility:hidden;
+#scapp[skin=SWRT] .loadingBarBlock{
+	background: #fefefe !important;
 }
-.pop_div_bg{
-	background-color: #2B373B; /* W3C asuscss */
+#scapp[skin=SWRT] #log_content{
+	width: 98%;
+	padding-left: 13px;
+	padding-right: 33px;
+	border: 0px solid #006ce1 !important;
+	font-family:'Lucida Console';
+	background: transparent;
+	color: #006ce1 !important;
+	font-size: 12px;
+	outline: none;
+	overflow-x: hidden;
 }
-.QISform_wireless {
-	width:690px;
-	font-size:14px;
-	color:#FFFFFF;
-}
-#ddnsgo_db_settings_div{
-	border: none; /* W3C asuscss */
+#scapp[skin=SWRT] .logtable {
+	outline: 1px solid #006ce1;
 }
 </style>
 <script type="text/javascript">
@@ -147,6 +118,7 @@ String.prototype.myReplace = function(f, e){
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	register_event();
 	get_dbus_data();
 }
@@ -188,7 +160,7 @@ function show_hide_element(){
 	}
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "光猫助手");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_lookcat.asp");
 }
@@ -374,10 +346,16 @@ function validateInput(input, minValue, maxValue) {
 	// 更新文本框显示的值
 	input.value = value;
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 
 </head>
-<body id="app" skin='<% nvram_get("sc_skin"); %>' onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 201;" >
@@ -389,7 +367,7 @@ function validateInput(input, minValue, maxValue) {
 						<li><font color="#ffcc00">请等待日志显示完毕，并出现自动关闭按钮！</font></li>
 						<li><font color="#ffcc00">在此期间请不要刷新本页面，不然可能导致问题！</font></li>
 					</div>
-					<div style="margin-left:15px;margin-right:15px;margin-top:10px;outline: 1px solid #3c3c3c;overflow:hidden">
+					<div class="logtable" style="margin-left:15px;margin-right:15px;margin-top:10px;overflow:hidden">
 						<textarea cols="50" rows="25" wrap="off" readonly="readonly" id="log_content" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="border:1px solid #000;width:99%; font-family:'Lucida Console'; font-size:11px;background:transparent;color:#FFFFFF;outline: none;padding-left:5px;padding-right:22px;overflow-x:hidden"></textarea>
 					</div>
 					<div id="ok_button" class="apply_gen" style="background:#000;visibility:hidden;">
