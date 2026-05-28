@@ -172,14 +172,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:39",
+            "build_date": "2026-05-28_12:11:20",
             "description": "灵缇游戏加速插件",
             "home_url": "Module_lingti.asp",
-            "md5": "ff34bffba3e2ebc36a5a883df9c31cf7",
+            "md5": "249ce28946c91d6d04bce234bc0a43c4",
             "name": "lingti",
+            "rc_support": "",
             "tar_url": "lingti/lingti.tar.gz",
             "title": "灵缇游戏加速插件",
-            "version": "1.0.3"
+            "version": "1.0.4"
         },
         {
             "arch": "mipsle",
