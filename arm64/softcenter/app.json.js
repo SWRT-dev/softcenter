@@ -25,14 +25,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:21",
+            "build_date": "2026-05-28_14:07:44",
             "description": "node.js",
             "home_url": "Module_node.asp",
-            "md5": "bdea08b9c9cbaa7026773fbbe60426f1",
+            "md5": "dcd9bbc2e589cc08d084828c498167f9",
             "name": "node",
+            "rc_support": "",
             "tar_url": "node/node.tar.gz",
             "title": "node.js",
-            "version": "0.0.6"
+            "version": "0.0.7"
         },
         {
             "arch": "arm64",

@@ -25,14 +25,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:22",
+            "build_date": "2026-05-28_14:07:45",
             "description": "node.js",
             "home_url": "Module_node.asp",
-            "md5": "af3f58860faa62f26f735ff030850a6d",
+            "md5": "3f3f10c128d202a7f0ecdfb4c13ba65f",
             "name": "node",
+            "rc_support": "",
             "tar_url": "node/node.tar.gz",
             "title": "node.js",
-            "version": "0.0.6"
+            "version": "0.0.7"
         },
         {
             "arch": "mips",

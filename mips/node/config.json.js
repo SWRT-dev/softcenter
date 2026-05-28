@@ -1,9 +1,10 @@
 {
-"version":"0.0.6",
-"md5":"af3f58860faa62f26f735ff030850a6d",
+"version":"0.0.7",
+"md5":"3f3f10c128d202a7f0ecdfb4c13ba65f",
 "arch":"mips",
 "home_url":"Module_node.asp",
 "title":"node.js",
 "description":"node.js",
-"build_date":"2024-11-09_12:35:22"
+"rc_support":"",
+"build_date":"2026-05-28_14:07:45"
 }

@@ -25,14 +25,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:21",
+            "build_date": "2026-05-28_14:07:44",
             "description": "node.js",
             "home_url": "Module_node.asp",
-            "md5": "5c4b4ece845e4d58eb2e5443b3d412cc",
+            "md5": "07d82873989115e41ad719b8f8065017",
             "name": "node",
+            "rc_support": "",
             "tar_url": "node/node.tar.gz",
             "title": "node.js",
-            "version": "0.0.6"
+            "version": "0.0.7"
         },
         {
             "arch": "armng",
