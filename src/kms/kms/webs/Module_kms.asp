@@ -10,11 +10,8 @@
 <title>软件中心 - 系统工具</title>
 <link rel="stylesheet" type="text/css" href="index_style.css" />
 <link rel="stylesheet" type="text/css" href="form_style.css" />
-<link rel="stylesheet" type="text/css" href="usp_style.css" />
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -30,6 +27,7 @@ var db_kms = {}
 	
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 }
 function get_dbus_data() {
@@ -64,13 +62,19 @@ function save() {
 		data: JSON.stringify(postData)
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "KMS");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_kms.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>

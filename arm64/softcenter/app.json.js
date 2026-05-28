@@ -193,14 +193,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:39",
+            "build_date": "2026-05-28_09:27:31",
             "description": "kms",
             "home_url": "Module_kms.asp",
-            "md5": "26d6d01032ffdf9a86e447fd387c63c5",
+            "md5": "1a12390a0160a3f4cb36d78b96294ac3",
             "name": "kms",
+            "rc_support": "",
             "tar_url": "kms/kms.tar.gz",
             "title": "系统工具",
-            "version": "2.0"
+            "version": "2.1"
         },
         {
             "arch": "arm64",

@@ -193,14 +193,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:39",
+            "build_date": "2026-05-28_09:27:32",
             "description": "kms",
             "home_url": "Module_kms.asp",
-            "md5": "e9e1334f302dccbc526f5ff3b371a2fd",
+            "md5": "4f14e44f23e221929f646bba154553d3",
             "name": "kms",
+            "rc_support": "",
             "tar_url": "kms/kms.tar.gz",
             "title": "系统工具",
-            "version": "2.0"
+            "version": "2.1"
         },
         {
             "arch": "mips",
