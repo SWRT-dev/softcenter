@@ -92,14 +92,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:34",
+            "build_date": "2026-05-28_10:23:29",
             "description": "去广告，没烦恼",
             "home_url": "Module_koolproxy.asp",
-            "md5": "8e434c4b638c77d12645ed05a47bdca1",
+            "md5": "c38da3986ffd9a57a40fec9ddd3fd40e",
             "name": "koolproxy",
+            "rc_support": "",
             "tar_url": "koolproxy/koolproxy.tar.gz",
             "title": "koolproxy",
-            "version": "3.8.5.6"
+            "version": "3.8.5.7"
         },
         {
             "arch": "arm64",

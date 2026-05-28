@@ -1,9 +1,10 @@
 {
-"version":"3.8.5.6",
-"md5":"ecd94b306b81fab40cc62d070f616eb4",
+"version":"3.8.5.7",
+"md5":"1ba7dc044400ed2b3f26b28ad2871098",
 "arch":"mipsle",
 "home_url":"Module_koolproxy.asp",
 "title":"koolproxy",
 "description":"去广告，没烦恼",
-"build_date":"2024-11-09_12:35:34"
+"rc_support":"",
+"build_date":"2026-05-28_10:23:29"
 }

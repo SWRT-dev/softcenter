@@ -1,9 +1,10 @@
 {
-"version":"3.8.5.6",
-"md5":"2be61cb8d3d304cba8c6c10b17eb6836",
+"version":"3.8.5.7",
+"md5":"559650fb865da1d75207d034ecd1d852",
 "arch":"armng",
 "home_url":"Module_koolproxy.asp",
 "title":"koolproxy",
 "description":"去广告，没烦恼",
-"build_date":"2024-11-09_12:35:34"
+"rc_support":"",
+"build_date":"2026-05-28_10:23:29"
 }

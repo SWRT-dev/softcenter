@@ -10,9 +10,7 @@
 <title>软件中心 - koolproxy</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
@@ -27,8 +25,7 @@
 <style>
 .kp_btn {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
+	background: linear-gradient(to bottom, #003333  0%, #000000 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
@@ -37,8 +34,7 @@
 }
 .kp_btn:hover {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
+	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
@@ -62,7 +58,6 @@
 	border-radius:10px;
 	z-index: 10;
 	background-color:#2B373B;
-	background-color:none; /* W3C rogcss */
 	margin-left: -215px;
 	top: 240px;
 	width:980px;
@@ -85,20 +80,16 @@
 	color:#FFFFFF;
 	font-family: Lucida Console;
 	font-size:12px;
-	border:1px solid #91071f; /* W3C rogcss */
-	background-color: #3e030d; /* W3C rogcss */
 }
 .FormTable1{
 	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
 	border: 1px solid #000000;
-	border: none; /* W3C rogcss */
 	border-collapse: collapse;
 }
 .FormTable1 th{
 	font-family:Arial, Helvetica, sans-serif;
 	background-color:#1F2D35;
-	background-color:none; /* W3C rogcss */
 	color:#FFFFFF;	/*Viz add*/
 	/*font-weight:normal;*/
 	line-height:15px;
@@ -108,8 +99,6 @@
 	width:35%;	/*Viz add*/
 	padding-left: 10px;
 	border-collapse: collapse;
-	background:#2F3A3E; /* W3C rogcss */
-	border: 1px solid #000000; /* W3C rogcss */
 }
 .FormTable1 thead td{
 	color: #FFF;
@@ -129,28 +118,19 @@
 	background: linear-gradient(to bottom, #92A0A5  0%, #66757C 100%); /* W3C */
 	border: 1px solid #222;
 	background: none;
-	background: #91071f; /* W3C rogcss */
 }
 .FormTable1 td{
 	/*padding-left: 10px;*/
 	background-color:#475A5F;
-	background-color:none; /* W3C rogcss */
 	border: 1px solid #000000;
-	border: 1px solid #91071f; /* W3C rogcss */
 	border-collapse: collapse;
 	word-break: break-word;
-	background:transparent; /* W3C rogcss */
-}
-.input_ss_table {
-	font-size: 12px;
-	font-family: Arial, Helvetica, sans-serif;
 }
 input[type=button]:focus {
 	outline: none;
 }
 #basic_settings, #rule_table_div, #ACL_table_div{
 	border:none;
-	border:1px solid #91071f; /* W3C rogcss */
 }
 textarea{
 	width:97%;
@@ -162,8 +142,144 @@ textarea{
 	outline: none;
 	background:#475A5F;
 	border:1px solid #222;
-	background:transparent; /* W3C rogcss */
-	border:1px solid #91071f; /* W3C rogcss */
+	background:transparent;
+	border:1px solid #91071f;
+}
+#scapp[skin=TUF] .kp_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .kp_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=TUF] .contentM_qis {
+	background-color:none;
+}
+#scapp[skin=TUF] .input_option{
+	border:1px solid #92650F;
+	background-color: #3e2902 !important;
+}
+#scapp[skin=TUF] .FormTable1{
+	border: none;
+}
+#scapp[skin=TUF] .FormTable1 th{
+	background-color:none;
+	background:#2F3A3E;
+	border: 1px solid #000000;
+}
+#scapp[skin=TUF] .FormTable1 thead td{
+	background: #92650F;
+}
+#scapp[skin=TUF] .FormTable1 td{
+	background-color:none;
+	border: 1px solid #92650F;
+	background:transparent;
+}
+#scapp[skin=TUF] #basic_settings, #scapp[skin=TUF] #rule_table_div, #scapp[skin=TUF] #ACL_table_div{
+	border:1px solid #92650F;
+}
+#scapp[skin=TUF] textarea{
+	background:transparent;
+	border:1px solid #92650F;
+}
+#scapp[skin=ROG] .kp_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .kp_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=ROG] .contentM_qis {
+	background-color:none;
+}
+#scapp[skin=ROG] .input_option{
+	border:1px solid #91071f;
+	background-color: #3e030d !important;
+}
+#scapp[skin=ROG] .FormTable1{
+	border: none;
+}
+#scapp[skin=ROG] .FormTable1 th{
+	background-color:none;
+	background:#2F3A3E;
+	border: 1px solid #000000;
+}
+#scapp[skin=ROG] .FormTable1 thead td{
+	background: #91071f;
+}
+#scapp[skin=ROG] .FormTable1 td{
+	background-color:none;
+	border: 1px solid #91071f;
+	background:transparent;
+}
+#scapp[skin=ROG] #basic_settings, #scapp[skin=ROG] #rule_table_div, #scapp[skin=ROG] #ACL_table_div{
+	border:1px solid #91071f;
+}
+#scapp[skin=ROG] textarea{
+	background:transparent;
+	border:1px solid #91071f;
+}
+#scapp[skin=SWRT] .kp_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .kp_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .contentM_qis {
+	background:#F5F5F5 !important;
+	border:1px solid #006ce1 !important;
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	color:#fefefe;
+	background-color:none;
+}
+#scapp[skin=SWRT] .input_option{
+	height:35px;
+	border:1px solid #006ce1;
+	background-color: none !important;
+	color:#fefefe;
+}
+#scapp[skin=SWRT] .FormTable1{
+	border: none;
+}
+#scapp[skin=SWRT] .FormTable1 th{
+	background-color:none;
+	background:none;
+	border: 1px solid #006ce1;
+	color: #000 !important;
+	font-weight: normal !important;
+}
+#scapp[skin=SWRT] .FormTable1 thead td{
+	background: none;
+	border: 1px solid #006ce1;
+	color: #000 !important;
+}
+#scapp[skin=SWRT] .FormTable1 td{
+	background-color:none;
+	border: 1px solid #006ce1;
+	background:transparent;
+}
+#scapp[skin=SWRT] #basic_settings, #scapp[skin=SWRT] #rule_table_div, #scapp[skin=SWRT] #ACL_table_div{
+	border:1px solid #006ce1;
+}
+#scapp[skin=SWRT] textarea{
+	background:transparent;
+	border:1px solid #006ce1;
+	color:#000;
+}
+#scapp[skin=SWRT] #koolproxy_acl_default{
+	background:transparent;
+	color:#006ce1;
+}
+#scapp[skin=SWRT] .loadingBarBlock, #scapp[skin=SWRT] #log_content3{
+	background:#F5F5F5 !important;
+	color:#006ce1 !important;
+	border:1px solid #006ce1 !important;
 }
 </style>
 <script>
@@ -177,6 +293,7 @@ var x = 6;
 var edit_falg;
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 }
 function get_dbus_data(){
@@ -295,7 +412,7 @@ function get_user_rule() {
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "koolproxy");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_koolproxy.asp");
 }
@@ -1112,9 +1229,15 @@ function openkpHint(itemNum) {
 			return overlib(helpcontent[hint_array_id][hint_show_id], HAUTO, VAUTO);
 	}
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg">
