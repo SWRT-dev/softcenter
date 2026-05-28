@@ -10,9 +10,8 @@
 <title>软件中心 - ServerChan(微信通知)</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/> 
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -23,107 +22,9 @@
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
 <script type="text/javascript" src="/res/softcenter.js"></script>
 <style>
-.Bar_container {
-    width:85%;
-    height:20px;
-    border:1px inset #999;
-    margin:0 auto;
-    margin-top:20px \9;
-    background-color:#FFFFFF;
-    z-index:100;
-}
-#proceeding_img_text {
-    position:absolute;
-    z-index:101;
-    font-size:11px;
-    color:#000000;
-    line-height:21px;
-    width: 83%;
-}
-#proceeding_img {
-    height:21px;
-    background:#C0D1D3 url(/images/ss_proceding.gif);
-}
-#ClientList_Block_PC{
-    border:1px outset #999;
-    background-color:#576D73;
-    position:absolute;
-    *margin-top:26px;
-    margin-left:2px;
-    *margin-left:-353px;
-    width:346px;
-    text-align:left;
-    height:auto;
-    overflow-y:auto;
-    z-index:200;
-    padding: 1px;
-    display:none;
-}
-#ClientList_Block_PC div{
-    background-color:#576D73;
-    height:auto;
-    *height:20px;
-    line-height:20px;
-    text-decoration:none;
-    font-family: Lucida Console;
-    padding-left:2px;
-}
-#ClientList_Block_PC a{
-    background-color:#EFEFEF;
-    color:#FFF;
-    font-size:12px;
-    font-family:Arial, Helvetica, sans-serif;
-    text-decoration:none;
-}
-#ClientList_Block_PC div:hover, #ClientList_Block a:hover {
-    background-color:#3366FF;
-    color:#FFFFFF;
-    cursor:default;
-}
-.close {
-    background: red;
-    color: black;
-    border-radius: 12px;
-    line-height: 18px;
-    text-align: center;
-    height: 18px;
-    width: 18px;
-    font-size: 16px;
-    padding: 1px;
-    top: -10px;
-    right: -10px;
-    position: absolute;
-}
-/* use cross as close button */
-.close::before {
-    content: "\2716";
-}
-.contentM_qis {
-    position: fixed;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius:10px;
-    z-index: 10;
-    background-color:#2B373B;
-    margin-left: -100px;
-    top: 10px;
-    width:720px;
-    height:auto;
-    box-shadow: 3px 3px 10px #000;
-    background: rgba(0,0,0,0.85);
-    display:none;
-}
-.user_title{
-    text-align:center;
-    font-size:18px;
-    color:#99FF00;
-    padding:10px;
-    font-weight:bold;
-}
 .serverchan_btn {
     border: 1px solid #222;
-    background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
+    background: linear-gradient(to bottom, #003333  0%, #000000 100%);
     font-size:10pt;
     color: #fff;
     padding: 5px 5px;
@@ -132,8 +33,7 @@
 }
 .serverchan_btn:hover {
     border: 1px solid #222;
-    background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
+    background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
     font-size:10pt;
     color: #fff;
     padding: 5px 5px;
@@ -148,18 +48,55 @@
 	margin-top:5px;
 	color:#FFFFFF;
 	background:#475A5F;
-	background:transparent; /* W3C rogcss */
-	border:1px solid #91071f; /* W3C rogcss */
 }
 input[type=button]:focus {
     outline: none;
+}
+#scapp[skin=TUF] .serverchan_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .serverchan_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=TUF] #serverchan_trigger_dhcp_white {
+	background:transparent;
+	border:1px solid #92650F;
+}
+#scapp[skin=ROG] .serverchan_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .serverchan_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=ROG] #serverchan_trigger_dhcp_white {
+	background:transparent;
+	border:1px solid #91071f;
+}
+#scapp[skin=SWRT] .serverchan_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .serverchan_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] #serverchan_trigger_dhcp_white {
+	background:transparent;
+	border:1px solid #006ce1;
 }
 </style>
 <script>
 var db_serverchan = {}
 var productid='<% nvram_get("productid"); %>';
 function initial() {
-	show_menu();
+	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	refresh_table();
 }
@@ -321,9 +258,9 @@ function manual_push(){
 		}
 	});
 }
-function menu_hook(title, tab) {
-    tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "ServerChan微信通知");
-    tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_serverchan.asp");
+function menu_hook() {
+	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "ServerChan微信通知");
+	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_serverchan.asp");
 }
 function addTr(o) { //添加配置行操作
 	var _form_addTr = document.form;
@@ -496,9 +433,15 @@ function oncheckclick(obj) {
 		}
 	}
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="initial();">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>

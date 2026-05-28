@@ -376,14 +376,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:47",
+            "build_date": "2026-05-28_16:25:06",
             "description": "从路由器推送状态及通知的工具",
             "home_url": "Module_serverchan.asp",
-            "md5": "df3ff4cf34dcbf711334982b2f1ca183",
+            "md5": "f23a155238f3f21028487baa292fa32b",
             "name": "serverchan",
+            "rc_support": "",
             "tar_url": "serverchan/serverchan.tar.gz",
             "title": "ServerChan微信推送",
-            "version": "2.7"
+            "version": "2.8"
         },
         {
             "arch": "mips",
