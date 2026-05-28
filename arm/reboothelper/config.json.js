@@ -1,9 +1,10 @@
 {
-"version":"0.5",
-"md5":"cdae23d4bbdc98f9e2043e2f2416b147",
+"version":"0.6",
+"md5":"f33396bf8937ba44de1877c63cbf5c05",
 "arch":"arm",
 "home_url":"Module_reboothelper.asp",
 "title":"重启助手",
 "description":"解决重启Bug",
-"build_date":"2024-11-09_12:35:40"
+"rc_support":"",
+"build_date":"2026-05-28_15:24:06"
 }

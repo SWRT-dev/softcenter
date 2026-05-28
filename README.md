@@ -62,6 +62,68 @@ sc_load_lang("插件名");
 然后在需要翻译处添加属性`sclang`
 
 
+## 多皮肤支持
+
+web页面支持：
+添加如下
+
+````
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
+````
+
+init()处添加
+
+````
+set_skin();
+````
+
+</script>处添加
+
+````
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
+````
+
+<body>处添加
+
+````
+<body onload="init();" id="scapp" skin="ASUSWRT">
+````
+
+自定义css举例,skin可用值ASUSWRT/ROG/TUF/SWRT/TS
+
+````
+#scapp[skin=TS] [bgcolor="#4D595D"]{
+	background: rgba(0, 0, 0, 0.3);
+}
+#scapp[skin=SWRT] a { 
+	color: #0284c7 !important; 
+	text-decoration: none !important; 
+}
+#scapp[skin=SWRT] a:hover { 
+	color: #0369a1 !important; 
+	text-decoration: underline !important; 
+}
+#scapp[skin=SWRT] [bgcolor="#4D595D"]{
+	background: rgba(225, 225, 225, 0.3);
+}
+#scapp[skin=SWRT] .content_status {
+	background: #fefefe !important;
+	box-shadow: 3px 3px 10px #006ce1;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: transparent !important;
+}
+#scapp[skin=SWRT] #log_content {
+	color: #006ce1 !important;
+	font-size: 12px;
+}
+````
+
 
 ## 开发须知：
 

@@ -210,14 +210,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:40",
+            "build_date": "2026-05-28_15:24:06",
             "description": "解决重启Bug",
             "home_url": "Module_reboothelper.asp",
-            "md5": "dec0cd8367ccb0d2ffce0d7aa0c9b0c5",
+            "md5": "b1d373fb46157a39eded7a4649907d0e",
             "name": "reboothelper",
+            "rc_support": "",
             "tar_url": "reboothelper/reboothelper.tar.gz",
             "title": "重启助手",
-            "version": "0.5"
+            "version": "0.6"
         },
         {
             "arch": "mips",
@@ -337,17 +338,6 @@
             "tar_url": "cloudflared/cloudflared.tar.gz",
             "title": "cloudflared",
             "version": "1.3"
-        },
-        {
-            "arch": "mips",
-            "build_date": "2024-11-09_12:35:46",
-            "description": "这是一只自动帮你签到的dog",
-            "home_url": "Module_qiandao.asp",
-            "md5": "35e7a6b1cc4d675caf572415d19220f4",
-            "name": "qiandao",
-            "tar_url": "qiandao/qiandao.tar.gz",
-            "title": "签到dog",
-            "version": "1.8"
         },
         {
             "arch": "mips",

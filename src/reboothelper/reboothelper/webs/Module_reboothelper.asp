@@ -11,8 +11,8 @@
     <title>软件中心 - 重启助手</title>
     <link rel="stylesheet" type="text/css" href="index_style.css" />
     <link rel="stylesheet" type="text/css" href="form_style.css" />
-    <link rel="stylesheet" type="text/css" href="css/element.css">
-    <link rel="stylesheet" type="text/css" href="res/softcenter.css">
+    <link rel="stylesheet" type="text/css" href="/css/element.css">
+    <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
     <script language="JavaScript" type="text/javascript" src="/state.js"></script>
@@ -64,6 +64,35 @@
         #ram_bar {
             background-color: #0096FF;
         }
+#scapp[skin=TUF] .rog_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .rog_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=ROG] .rog_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .rog_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=SWRT] .rog_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .rog_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .input_3_table {
+	background: none !important;
+}
     </style>
     <script type="text/javascript">
         var dbus = {}
@@ -143,6 +172,7 @@
         }
         function init() {
             show_menu(menu_hook);
+			set_skin();
         }
 
         function CleanReboot_date() {
@@ -150,7 +180,7 @@
             $(':text').val('');
         }
 
-        function menu_hook(title, tab) {
+        function menu_hook() {
             tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "Reboot Helper");
             tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_reboothelper.asp");
         }
@@ -214,9 +244,15 @@
 
             get_dbus_data();
         });
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
     </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
     <div id="TopBanner"></div>
     <div id="Loading" class="popup_bg"></div>
     <div id="LoadingBar" class="popup_bar_bg">

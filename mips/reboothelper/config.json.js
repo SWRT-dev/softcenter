@@ -1,9 +1,10 @@
 {
-"version":"0.5",
-"md5":"dec0cd8367ccb0d2ffce0d7aa0c9b0c5",
+"version":"0.6",
+"md5":"b1d373fb46157a39eded7a4649907d0e",
 "arch":"mips",
 "home_url":"Module_reboothelper.asp",
 "title":"重启助手",
 "description":"解决重启Bug",
-"build_date":"2024-11-09_12:35:40"
+"rc_support":"",
+"build_date":"2026-05-28_15:24:06"
 }
