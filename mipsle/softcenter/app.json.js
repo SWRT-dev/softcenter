@@ -338,14 +338,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2025-09-08_09:14:22",
+            "build_date": "2026-05-28_14:24:58",
             "description": "一款支持多种存储的目录文件列表程序，支持 web 浏览与 webdav。",
             "home_url": "Module_openlist.asp",
-            "md5": "86e65010fe3f1868cfe3977e00eef0cc",
+            "md5": "0ae63727d83de2dc431d1939997ec1bb",
             "name": "openlist",
+            "rc_support": "",
             "tar_url": "openlist/openlist.tar.gz",
             "title": "OpenList文件列表",
-            "version": "1.1"
+            "version": "1.2"
         },
         {
             "arch": "mipsle",

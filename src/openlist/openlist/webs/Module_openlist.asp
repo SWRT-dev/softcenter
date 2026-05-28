@@ -10,8 +10,7 @@
 <title>软件中心 - OpenList文件列表</title>
 <link rel="stylesheet" type="text/css" href="index_style.css">
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="usp_style.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/device-map/device-map.css">
 <link rel="stylesheet" type="text/css" href="/js/table/table.css">
 <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
@@ -79,6 +78,26 @@ i {
 	font-size: 14px;
 	font-family: Roboto-Light, "Microsoft JhengHei";
 }
+.logtable {
+	outline: 1px solid #3c3c3c;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks, #scapp[skin=SWRT] #ok_button {
+	background: transparent !important;
+	border:0px solid #006ce1;
+}
+#scapp[skin=SWRT] .loadingBarBlock, #scapp[skin=SWRT] #ok_button_openlist{
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #logtitle{
+	color: #006ce1 !important;
+}
+#scapp[skin=SWRT] textarea{
+	border:0px solid #006ce1 !important;
+	color: #006ce1;
+}
+#scapp[skin=SWRT] .logtable {
+	outline: 1px solid #006ce1;
+}
 </style>
 <script type="text/javascript">
 var db_openlist = {};
@@ -97,6 +116,7 @@ String.prototype.myReplace = function(f, e){
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	register_event();
 	get_dbus_data();
 	check_status();
@@ -234,7 +254,7 @@ function show_hide_element_2(){
 	}
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "OpenList文件列表");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_openlist.asp");
 }
@@ -641,9 +661,15 @@ function mOut(obj){
 	});
 // 	E("overDiv").style.visibility = "hidden";
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body id="app" skin='<% nvram_get("sc_skin"); %>' onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >
@@ -655,7 +681,7 @@ function mOut(obj){
 						<li><font color="#ffcc00">请等待日志显示完毕，并出现自动关闭按钮！</font></li>
 						<li><font color="#ffcc00">在此期间请不要刷新本页面，不然可能导致问题！</font></li>
 					</div>
-					<div style="margin-left:15px;margin-right:15px;margin-top:10px;outline: 1px solid #3c3c3c;overflow:hidden">
+					<div class="logtable" style="margin-left:15px;margin-right:15px;margin-top:10px;overflow:hidden">
 						<textarea cols="50" rows="25" wrap="off" readonly="readonly" id="log_content" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="border:1px solid #000;width:99%; font-family:'Lucida Console'; font-size:11px;background:transparent;color:#FFFFFF;outline: none;padding-left:5px;padding-right:22px;overflow-x:hidden;white-space:break-spaces;"></textarea>
 					</div>
 					<div id="ok_button" class="apply_gen" style="background:#000;visibility:hidden;">
@@ -669,9 +695,9 @@ function mOut(obj){
 		<table cellpadding="5" cellspacing="0" id="log_pannel_table" class="loadingBarBlock" style="width:960px" align="center">
 			<tr>
 				<td height="100">
-					<div style="text-align: center;font-size: 18px;color: #99FF00;padding: 10px;font-weight: bold;">openlist日志信息</div>
+					<div id="logtitle" style="text-align: center;font-size: 18px;color: #99FF00;padding: 10px;font-weight: bold;">openlist日志信息</div>
 					<div style="margin-left:15px"><i>🗒️此处展示openlist程序的运行日志... 【可能某些系统内，日志时间显示比上海时间慢8小时】</i></div>
-					<div style="margin-left:15px;margin-right:15px;margin-top:10px;outline: 1px solid #3c3c3c;overflow:hidden">
+					<div class="logtable" style="margin-left:15px;margin-right:15px;margin-top:10px;overflow:hidden">
 						<textarea cols="50" rows="32" wrap="off" readonly="readonly" id="log_content_openlist" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="border:1px solid #000;width:99%; font-family:'Lucida Console'; font-size:11px;background:transparent;color:#FFFFFF;outline: none;padding-left:5px;padding-right:22px;line-height:1.3;overflow-x:hidden;white-space:break-spaces;"></textarea>
 					</div>
 					<div id="ok_button_openlist" class="apply_gen" style="background:#000;">
