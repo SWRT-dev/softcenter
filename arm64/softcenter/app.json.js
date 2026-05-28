@@ -249,14 +249,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2025-09-05_14:30:20",
+            "build_date": "2026-05-28_08:56:58",
             "description": "内网穿透利器，谁用谁知道。",
             "home_url": "Module_frpc.asp",
-            "md5": "1e089ce7b86772e2af77dcabd2aaef9a",
+            "md5": "6067e28e6e70aafe67fcea4885770a67",
             "name": "frpc",
+            "rc_support": "",
             "tar_url": "frpc/frpc.tar.gz",
             "title": "frpc穿透",
-            "version": "2.6"
+            "version": "2.7"
         },
         {
             "arch": "arm64",

@@ -11,12 +11,9 @@
 <title>软件中心 - Frp内网穿透</title>
 <link rel="stylesheet" type="text/css" href="index_style.css" />
 <link rel="stylesheet" type="text/css" href="form_style.css" />
-<link rel="stylesheet" type="text/css" href="usp_style.css" />
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -30,7 +27,6 @@
 .show-btn1, .show-btn2 {
 	border: 1px solid #222;
 	background: #576d73;
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
 	font-size:10pt;
 	color: #fff;
 	padding: 10px 3.75px;
@@ -39,8 +35,6 @@
 	}
 .active {
 	background: #2f3a3e;
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
-	border: 1px solid #91071f; /* W3C rogcss*/
 }
 .close {
 	background: red;
@@ -84,8 +78,7 @@
 }
 .frpc_btn {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
+	background: linear-gradient(to bottom, #003333  0%, #000000 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
@@ -94,8 +87,7 @@
 }
 .frpc_btn:hover {
 	border: 1px solid #222;
-	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
+	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
 	font-size:10pt;
 	color: #fff;
 	padding: 5px 5px;
@@ -110,8 +102,6 @@
 	text-transform:none;
 	margin-top:5px;
 	overflow:scroll;
-	background:transparent; /* W3C rogcss*/
-	border:1px solid #91071f; /* W3C rogcss*/
 }
 .formbottomdesc {
 	margin-top:10px;
@@ -119,6 +109,76 @@
 }
 input[type=button]:focus {
 	outline: none;
+}
+#scapp[skin=SWRT] #frpc_config, #scapp[skin=SWRT] #logtxt{
+	background:transparent;
+	border:1px solid #92650F;
+}
+#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2 {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+	border: 1px solid #92650F !important;
+}
+#scapp[skin=TUF] .active {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+	border: 1px solid #92650F;
+}
+#scapp[skin=TUF] .frpc_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .frpc_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=SWRT] #frpc_config, #scapp[skin=SWRT] #logtxt{
+	background:transparent;
+	border:1px solid #91071f;
+}
+#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2 {
+	border: 1px solid #91071f !important;
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .active {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+	border: 1px solid #91071f;
+}
+#scapp[skin=ROG] .frpc_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .frpc_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=SWRT] #frpc_config, #scapp[skin=SWRT] #logtxt{
+	background:transparent;
+	border:0px solid #006ce1;
+}
+#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2 {
+	border: 1px solid #006ce1 !important;
+	background: none !important;
+	color: #000 !important;
+	border-left: 1px solid #006ce1 !important;
+	border-top: 1px solid #006ce1 !important;
+	border-right: 1px solid #006ce1 !important;
+}
+#scapp[skin=SWRT] .active {
+	border: 1px solid #006ce1 !important;
+	background: #006ce1 !important;
+	color: #fefefe !important;
+}
+#scapp[skin=SWRT] .contentM_qis {
+	box-shadow: 3px 3px 10px #006ce1;
+	background: rgba(245,245,245,0.85);
+}
+#scapp[skin=SWRT] .frpc_btn {
+	border: 1px solid #006ce1 !important;
+	background: none !important;
+	color: #006ce1 !important;
+}
+#scapp[skin=SWRT] .frpc_btn:hover {
+	border: 1px solid #006ce1 !important;
+	background: #006ce1 !important;
+	color: #fefefe !important;
+}
+#scapp[skin=SWRT] .FormTable_table, #scapp[skin=SWRT] .FormTable {
+	box-shadow: 3px 3px 10px #006ce1 !important;
 }
 </style>
 <script>
@@ -130,6 +190,7 @@ var params_check = ["frpc_enable", "frpc_customize_conf"]
 var params_base64 = ["frpc_config"]
 function initial() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_status();
 	toggle_func();
@@ -287,7 +348,7 @@ function clear_log() {
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "Frpc 内网穿透");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_frpc.asp");
 }
@@ -800,9 +861,15 @@ function openssHint(itemNum) {
 			return overlib(helpcontent[hint_array_id][hint_show_id], HAUTO, VAUTO);
 	}
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="initial();">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -1151,7 +1218,7 @@ function openssHint(itemNum) {
 										<div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
 											<textarea cols="50" rows="20" wrap="off" id="frpctxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 										</div>
-										<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+										<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 											<input id="edit_node1" class="button_gen" type="button" onclick="close_conf('frpc_settings');" value="返回主界面">
 										</div>
 									</div>
@@ -1173,7 +1240,7 @@ function openssHint(itemNum) {
 										<div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
 											<textarea cols="50" rows="20" wrap="off" id="logtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 										</div>
-										<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+										<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 											<input id="edit_node3" class="button_gen" type="button" onclick="close_conf('frpc_log');" value="返回主界面">
 											&nbsp;&nbsp;<input class="button_gen" type="button" onclick="close_conf('frpc_log');clear_log();" value="清空日志">
 										</div>
