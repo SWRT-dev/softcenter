@@ -79,14 +79,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2025-09-06_12:18:22",
+            "build_date": "2026-05-28_08:07:48",
             "description": "FileBrowser：您的可视化路由文件管理系统",
             "home_url": "Module_filebrowser.asp",
-            "md5": "20325eabb7ca4a94d47d850314c17c91",
+            "md5": "135d89a9aa86c86e0b1326655fe87fad",
             "name": "filebrowser",
+            "rc_support": "",
             "tar_url": "filebrowser/filebrowser.tar.gz",
             "title": "filebrowser",
-            "version": "1.0.8"
+            "version": "1.0.9"
         },
         {
             "arch": "arm64",

@@ -10,9 +10,8 @@
 <title>软件中心 - FileBrowser</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/> 
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -48,6 +47,20 @@
 }
 input[type=button]:focus {
 	outline: none;
+}
+#scapp[skin=SWRT] .contentM_qis {
+	background:#F5F5F5 !important;
+	border:1px solid #006ce1 !important;
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	color:#fefefe;
+}
+#scapp[skin=SWRT] #logtxt {
+	width:99%;
+	font-family:'Lucida Console';
+	font-size:12px;
+	background:transparent;
+	border:1px solid #006ce1 !important;;
+	color:#fefefe;
 }
 </style>
 <script type="text/javascript">
@@ -255,13 +268,14 @@ if (confirm('确定要删除数据库吗？配置将被重置。若服务已启�
 }
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	conf2obj();
 	check_status();
 	get_url();
 }
 
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "FileBrowser");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_filebrowser.asp");
 }
@@ -342,10 +356,15 @@ function open_file(open_file) {
 function close_file(close_file) {
 	$("#" + close_file).fadeOut(200);
 }
-
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<iframe name="hidden_frame" id="hidden_frame" width="0" height="0" frameborder="0"></iframe>

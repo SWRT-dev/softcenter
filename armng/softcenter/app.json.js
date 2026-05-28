@@ -79,14 +79,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2025-09-06_12:18:22",
+            "build_date": "2026-05-28_08:07:47",
             "description": "FileBrowser：您的可视化路由文件管理系统",
             "home_url": "Module_filebrowser.asp",
-            "md5": "673a747574f4fe56ae13944e4cb27954",
+            "md5": "551a15b87f6dc7032a643554c8429cdf",
             "name": "filebrowser",
+            "rc_support": "",
             "tar_url": "filebrowser/filebrowser.tar.gz",
             "title": "filebrowser",
-            "version": "1.0.8"
+            "version": "1.0.9"
         },
         {
             "arch": "armng",

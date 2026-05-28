@@ -79,14 +79,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2025-09-06_12:18:23",
+            "build_date": "2026-05-28_08:07:48",
             "description": "FileBrowser：您的可视化路由文件管理系统",
             "home_url": "Module_filebrowser.asp",
-            "md5": "92f948635d9649f176f72bd42924a85c",
+            "md5": "b2a6ee45218b15e1d0123bff27faab67",
             "name": "filebrowser",
+            "rc_support": "",
             "tar_url": "filebrowser/filebrowser.tar.gz",
             "title": "filebrowser",
-            "version": "1.0.8"
+            "version": "1.0.9"
         },
         {
             "arch": "mipsle",
