@@ -116,14 +116,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:36",
+            "build_date": "2026-05-28_14:40:11",
             "description": "花生壳内网穿透",
             "home_url": "Module_phddns.asp",
-            "md5": "95309d09d45600c553cfc9dbf18b11c4",
+            "md5": "a392ca306f54e200d8ec529647b9a04f",
             "name": "phddns",
+            "rc_support": "",
             "tar_url": "phddns/phddns.tar.gz",
             "title": "花生壳内网穿透",
-            "version": "3.0.6"
+            "version": "3.0.7"
         },
         {
             "arch": "arm",

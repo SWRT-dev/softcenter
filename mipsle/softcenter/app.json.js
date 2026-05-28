@@ -128,14 +128,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:36",
+            "build_date": "2026-05-28_14:40:12",
             "description": "花生壳内网穿透",
             "home_url": "Module_phddns.asp",
-            "md5": "6e76bdda6a6a562f20fdc5090495a16d",
+            "md5": "a9e0c824dc10cec12e68f63bcdfb9275",
             "name": "phddns",
+            "rc_support": "",
             "tar_url": "phddns/phddns.tar.gz",
             "title": "花生壳内网穿透",
-            "version": "3.0.6"
+            "version": "3.0.7"
         },
         {
             "arch": "mipsle",
