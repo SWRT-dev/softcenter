@@ -10,9 +10,8 @@
 <title>单线多拨</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -25,21 +24,16 @@
 <style>
 	.show-btn1, .show-btn2, .show-btn3 {
 		border: 1px solid #222;
-		background: linear-gradient(to bottom, #919fa4  0%, #67767d 100%); /* W3C */
-		background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
+		background: linear-gradient(to bottom, #919fa4  0%, #67767d 100%);
 		font-size:10pt;
 		color: #fff;
 		padding: 10px 3.75px;
 		border-radius: 5px 5px 0px 0px;
 		width:8.45601%;
-		border: 1px solid #91071f; /* W3C rogcss*/
-		background: none; /* W3C rogcss*/
 	}
 	.active {
 		background: #2f3a3e;
-		background: linear-gradient(to bottom, #61b5de  0%, #279fd9 100%); /* W3C */
-		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
-		border: 1px solid #91071f; /* W3C rogcss*/
+		background: linear-gradient(to bottom, #61b5de  0%, #279fd9 100%);
 	}
 	.popup_bar_bg_ks{
 		position:fixed;	
@@ -55,15 +49,10 @@
 		overflow:hidden;
 		background-color: #444F53;*/
 		background:rgba(68, 79, 83, 0.9) none repeat scroll 0 0 !important;
-		background: url(/images/New_ui/login_bg.png); /* W3C rogcss*/
-		background-position: 0 0; /* W3C rogcss*/
-		background-size: cover; /* W3C rogcss*/
-		opacity: .94; /* W3C rogcss*/
 	}
 	.ss_btn {
 		border: 1px solid #222;
-		background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-		background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
+		background: linear-gradient(to bottom, #003333  0%, #000000 100%);
 		font-size:10pt;
 		color: #fff;
 		padding: 5px 5px;
@@ -72,8 +61,7 @@
 	}
 	.ss_btn:hover {
 		border: 1px solid #222;
-		background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
+		background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
 		font-size:10pt;
 		color: #fff;
 		padding: 5px 5px;
@@ -86,12 +74,103 @@
 		font-size:12px;
 		color:#FFFFFF;
 		background:#475A5F;
-		background:transparent; /* W3C rogcss*/
-		border:1px solid #91071f; /* W3C rogcss*/
 	}
-	#mdial_switch, #mdial_status, #mdial_settings, #mdial_log, #mdial_help {border:1px solid #91071f;} /* W3C rogcss*/
 	input[type=button]:focus {
 		outline: none;
+	}
+	#scapp[skin=TUF] #mdial_switch, #scapp[skin=TUF] #mdial_status, #scapp[skin=TUF] #mdial_settings, #scapp[skin=TUF] #mdial_log, #scapp[skin=TUF] #mdial_help { border:1px solid #92650F; }
+	#scapp[skin=TUF] #log_content_text{
+		background:transparent;
+	}
+	#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2, #scapp[skin=TUF] .show-btn3 {
+		border: 1px solid #92650F !important;
+		background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+	}
+	#scapp[skin=TUF] .show-btn1:hover, #scapp[skin=TUF] .show-btn2:hover, #scapp[skin=TUF] .show-btn3:hover, #scapp[skin=TUF] .active {
+		border: 1px solid #92650F !important;
+		background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+	}
+	#scapp[skin=TUF] .popup_bar_bg_ks {
+		background: url(/images/New_ui/login_bg.png);
+		background-position: 0 0;
+		background-size: cover;
+		opacity: .94;
+	}
+	#scapp[skin=TUF] .ss_btn {
+		background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+	}
+	#scapp[skin=TUF] .ss_btn:hover {
+		background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+	}
+	#scapp[skin=TUF] textarea{
+		background:transparent;
+		border:1px solid #92650F;
+	}
+	#scapp[skin=ROG] #mdial_switch, #scapp[skin=ROG] #mdial_status, #scapp[skin=ROG] #mdial_settings, #scapp[skin=ROG] #mdial_log, #scapp[skin=ROG] #mdial_help  { border:1px solid #91071f; }
+	#scapp[skin=ROG] #log_content_text{
+		background:transparent;
+	}
+	#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2, #scapp[skin=ROG] .show-btn3 {
+		border: 1px solid #91071f !important;
+		background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+	}
+	#scapp[skin=ROG] .show-btn1:hover, #scapp[skin=ROG] .show-btn2:hover, #scapp[skin=ROG] .show-btn3:hover, #scapp[skin=ROG] .active {
+		border: 1px solid #91071f !important;
+		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+	}
+	#scapp[skin=ROG] .popup_bar_bg_ks {
+		background: url(/images/New_ui/login_bg.png);
+		background-position: 0 0;
+		background-size: cover;
+		opacity: .94;
+	}
+	#scapp[skin=ROG] .ss_btn {
+		background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+	}
+	#scapp[skin=ROG] .ss_btn:hover {
+		background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+	}
+	#scapp[skin=ROG] textarea{
+		background:transparent;
+		border:1px solid #91071f;
+	}
+	#scapp[skin=SWRT] #mdial_switch, #scapp[skin=SWRT] #mdial_status, #scapp[skin=SWRT] #mdial_settings, #scapp[skin=SWRT] #mdial_log, #scapp[skin=SWRT] #mdial_help  { border:1px solid #006ce1; }
+	#scapp[skin=SWRT] #log_content_text{
+		background:transparent;
+		border:0px solid #006ce1;
+	}
+	#scapp[skin=SWRT] #log_content{
+		outline: 1px solid #006ce1;
+	}
+	#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2, #scapp[skin=SWRT] .show-btn3 {
+		border: 1px solid #006ce1 !important;
+		background: none !important;
+		color: #000 !important;
+		border-left: 1px solid #006ce1 !important;
+		border-top: 1px solid #006ce1 !important;
+		border-right: 1px solid #006ce1 !important;
+	}
+	#scapp[skin=SWRT] .show-btn1:hover, #scapp[skin=SWRT] .show-btn2:hover, #scapp[skin=SWRT] .show-btn3:hover, #scapp[skin=SWRT] .active {
+		border: 1px solid #006ce1 !important;
+		background: #006ce1 !important;
+		color: #fefefe !important;
+	}
+	#scapp[skin=SWRT] .popup_bar_bg_ks {
+		background: transparent !important;
+	}
+	#scapp[skin=SWRT] .ss_btn {
+		border: 1px solid #006ce1 !important;
+		background: none !important;
+		color: #006ce1 !important;
+	}
+	#scapp[skin=SWRT] .ss_btn:hover {
+		border: 1px solid #006ce1 !important;
+		background: #006ce1 !important;
+		color: #fefefe !important;
+	}
+	#scapp[skin=SWRT] textarea{
+		background:transparent;
+		border:1px solid #006ce1;
 	}
 </style>
 <script>
@@ -104,6 +183,7 @@ var params_chk = ['mdial_enable'];
 var wans_mode = '<% nvram_get("wans_mode"); %>'
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	generate_options();
 	get_dbus_data();
 }
@@ -402,13 +482,19 @@ function update_visibility(){
 		E('cmdBtn1').style.display = "none";
 	}
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "单线多拨");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_mdial.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >

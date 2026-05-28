@@ -2,49 +2,107 @@
 source /jffs/softcenter/scripts/base.sh
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 DIR=$(cd $(dirname $0); pwd)
-MODEL=$(nvram get productid)
-if [ "$MODEL" == "GT-AC5300" ] || [ "$MODEL" == "GT-AX11000" ] || [ "$MODEL" == "GT-AC2900" ] || [ "$(nvram get merlinr_rog)" == "1" ];then
-	ROG=1
-elif [ "$MODEL" == "TUF-AX3000" ] || [ "$(nvram get merlinr_tuf)" == "1" ] ;then
-	TUF=1
-fi
-# stop mdial first
-enable=`dbus get mdial_enable`
-if [ "$enable" == "1" ] && [ -f "/jffs/softcenter/scripts/mdial_config.sh" ];then
-	sh /jffs/softcenter/scripts/mdial_config.sh stop
-fi
+module=${DIR##*/}
 
-# 安装插件
-find /jffs/softcenter/init.d/ -name "*mdial*" | xargs rm -rf
-cp -rf /tmp/mdial/scripts/* /jffs/softcenter/scripts/
-cp -rf /tmp/mdial/webs/* /jffs/softcenter/webs/
-cp -rf /tmp/mdial/res/* /jffs/softcenter/res/
-cp -rf /tmp/mdial/uninstall.sh /jffs/softcenter/scripts/uninstall_mdial.sh
-if [ "$ROG" == "1" ];then
-	continue
-elif [ "$TUF" == "1" ];then
-	sed -i 's/3e030d/3e2902/g;s/91071f/92650F/g;s/680516/D0982C/g;s/cf0a2c/c58813/g;s/700618/74500b/g;s/530412/92650F/g' /jffs/softcenter/webs/Module_mdial.asp >/dev/null 2>&1
-else
-	sed -i '/rogcss/d' /jffs/softcenter/webs/Module_mdial.asp >/dev/null 2>&1
-fi
-chmod +x /jffs/softcenter/scripts/mdial*.sh
-chmod +x /jffs/softcenter/scripts/uninstall_mdial.sh
-[ ! -L "/jffs/softcenter/init.d/S10mdial.sh" ] && ln -sf /jffs/softcenter/scripts/mdial_config.sh /jffs/softcenter/init.d/S10mdial.sh
+set_skin(){
+	local UI_TYPE=ASUSWRT
+	local SC_SKIN=$(nvram get sc_skin)
+	local SWRT_SKIN=$(nvram get swrt_skin)
+	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "D0982C")
+	if [ -n "${SWRT_SKIN}" ];then
+		if [ "ts" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TS"
+		elif [ "rog" == "${SWRT_SKIN}" ];then
+			UI_TYPE="ROG"
+		elif [ "tuf" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TUF"
+		elif [ "swrt" == "${SWRT_SKIN}" ];then
+			UI_TYPE="SWRT"
+		fi
+	elif [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	elif [ -n "${ROG_FLAG}" ];then
+		UI_TYPE="ROG"
+	elif [ -n "${TUF_FLAG}" ];then
+		UI_TYPE="TUF"
+	fi
+	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
+		nvram set sc_skin="${UI_TYPE}"
+		nvram commit
+	fi
+}
 
-# 离线安装用
-dbus set mdial_version="$(cat $DIR/version)"
-dbus set softcenter_module_mdial_version="$(cat $DIR/version)"
-dbus set softcenter_module_mdial_description="pppoe单线多拨，带宽提升神器！"
-dbus set softcenter_module_mdial_install="1"
-dbus set softcenter_module_mdial_name="mdial"
-dbus set softcenter_module_mdial_title="单线多拨"
+exit_install(){
+	local state=$1
+	case $state in
+		1)
+			rm -rf /tmp/${module}* >/dev/null 2>&1
+			exit 1
+			;;
+		0|*)
+			rm -rf /tmp/${module}* >/dev/null 2>&1
+			exit 0
+			;;
+	esac
+}
 
-# re-enable mdial
-if [ "$enable" == "1" ] && [ -f "/jffs/softcenter/scripts/mdial_config.sh" ];then
-	[ -f "/jffs/softcenter/scripts/mdial_config.sh" ] && sh /jffs/softcenter/scripts/mdial_config.sh start
-fi
+install_now(){
+	# default value
+	local TITLE="单线多拨"
+	local DESCR="pppoe单线多拨，带宽提升神器！"
+	local PLVER=$(cat ${DIR}/version)
 
-# 完成
-echo_date "frpc内网穿透插件安装完毕！"
-rm -rf /tmp/mdial* >/dev/null 2>&1
-exit 0
+	# stop before install
+	if [ "$(dbus get mdial_enable)" == "1" -a -f "/jffs/softcenter/scripts/mdial_config.sh" ];then
+		echo_date "安装前先关闭插件..."
+		/jffs/softcenter/scripts/mdial_config.sh stop
+	fi
+
+	# remove before install
+	rm -rf /jffs/softcenter/res/icon-mdial.png >/dev/null 2>&1
+	rm -rf /jffs/softcenter/scripts/mdial_* >/dev/null 2>&1
+	rm -rf /jffs/softcenter/scripts/uninstall_mdial.sh >/dev/null 2>&1
+	rm -rf /jffs/softcenter/webs/Module_mdial.asp >/dev/null 2>&1
+	find /jffs/softcenter/init.d -name "*mdial*" | xargs rm -rf
+
+	# install file
+	echo_date "安装插件相关文件..."
+	cd /tmp
+	cp -rf /tmp/mdial/scripts/* /jffs/softcenter/scripts/
+	cp -rf /tmp/mdial/webs/* /jffs/softcenter/webs/
+	cp -rf /tmp/mdial/res/* /jffs/softcenter/res/
+	cp -rf /tmp/mdial/uninstall.sh /jffs/softcenter/scripts/uninstall_mdial.sh
+	[ ! -L "/jffs/softcenter/init.d/S10mdial.sh" ] && ln -sf /jffs/softcenter/scripts/mdial_config.sh /jffs/softcenter/init.d/S10mdial.sh
+	# Permissions
+	chmod +x /jffs/softcenter/scripts/mdial*.sh
+	chmod +x /jffs/softcenter/scripts/uninstall_mdial.sh
+
+	# intall different UI
+	set_skin
+
+	# dbus value
+	echo_date "设置插件默认参数..."
+	dbus set ${module}_version="${PLVER}"
+	dbus set softcenter_module_${module}_version="${PLVER}"
+	dbus set softcenter_module_${module}_install="1"
+	dbus set softcenter_module_${module}_name="${module}"
+	dbus set softcenter_module_${module}_title="${TITLE}"
+	dbus set softcenter_module_${module}_description="${DESCR}"
+	# start after install
+	if [ "$(dbus get mdial_enable)" == "1" -a -f "/jffs/softcenter/scripts/mdial_config.sh" ];then
+		echo_date "重新开启插件..."
+		/jffs/softcenter/scripts/mdial_config.sh start
+	fi
+
+	# finish
+	echo_date "${TITLE}插件安装完毕！"
+	exit_install
+}
+
+install(){
+	install_now
+}
+
+install

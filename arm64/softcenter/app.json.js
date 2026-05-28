@@ -290,14 +290,15 @@
         },
         {
             "arch": "arm64",
-            "build_date": "2024-11-09_12:35:43",
+            "build_date": "2026-05-28_13:57:00",
             "description": "pppoe单线多拨，带宽提升神器！",
             "home_url": "Module_mdial.asp",
-            "md5": "43b1c7ca2ccdeb50845bceddc69e9024",
+            "md5": "5ec1d305c351acac0e09dee62639a3a0",
             "name": "mdial",
+            "rc_support": "",
             "tar_url": "mdial/mdial.tar.gz",
             "title": "单线多拨",
-            "version": "1.7"
+            "version": "1.8"
         },
         {
             "arch": "arm64",
