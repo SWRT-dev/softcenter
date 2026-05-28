@@ -72,14 +72,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:32",
+            "build_date": "2026-05-28_21:59:05",
             "description": "局域网网速测试工具",
             "home_url": "Module_speedtest.asp",
-            "md5": "61067750d50422119a7976abab0bdad9",
+            "md5": "d7a8bdb37e40c162b65de1c7d0b58a5a",
             "name": "speedtest",
+            "rc_support": "",
             "tar_url": "speedtest/speedtest.tar.gz",
             "title": "局域网测速",
-            "version": "0.0.4"
+            "version": "0.0.5"
         },
         {
             "arch": "armng",

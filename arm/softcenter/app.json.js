@@ -60,14 +60,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:31",
+            "build_date": "2026-05-28_21:59:05",
             "description": "局域网网速测试工具",
             "home_url": "Module_speedtest.asp",
-            "md5": "baf829737f22066e7896fb6868c88011",
+            "md5": "6a3fb509b5be354d30d80b4aab913f59",
             "name": "speedtest",
+            "rc_support": "",
             "tar_url": "speedtest/speedtest.tar.gz",
             "title": "局域网测速",
-            "version": "0.0.4"
+            "version": "0.0.5"
         },
         {
             "arch": "arm",

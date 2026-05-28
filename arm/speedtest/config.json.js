@@ -1,9 +1,10 @@
 {
-"version":"0.0.4",
-"md5":"baf829737f22066e7896fb6868c88011",
+"version":"0.0.5",
+"md5":"6a3fb509b5be354d30d80b4aab913f59",
 "arch":"arm",
 "home_url":"Module_speedtest.asp",
 "title":"局域网测速",
 "description":"局域网网速测试工具",
-"build_date":"2024-11-09_12:35:31"
+"rc_support":"",
+"build_date":"2026-05-28_21:59:05"
 }

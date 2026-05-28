@@ -72,14 +72,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:32",
+            "build_date": "2026-05-28_21:59:06",
             "description": "局域网网速测试工具",
             "home_url": "Module_speedtest.asp",
-            "md5": "eb30a643c9c1f53b5c756ae914f56d22",
+            "md5": "7696338eb42df37521a4a32614951a42",
             "name": "speedtest",
+            "rc_support": "",
             "tar_url": "speedtest/speedtest.tar.gz",
             "title": "局域网测速",
-            "version": "0.0.4"
+            "version": "0.0.5"
         },
         {
             "arch": "mipsle",

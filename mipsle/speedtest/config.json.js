@@ -1,9 +1,10 @@
 {
-"version":"0.0.4",
-"md5":"eb30a643c9c1f53b5c756ae914f56d22",
+"version":"0.0.5",
+"md5":"7696338eb42df37521a4a32614951a42",
 "arch":"mipsle",
 "home_url":"Module_speedtest.asp",
 "title":"局域网测速",
 "description":"局域网网速测试工具",
-"build_date":"2024-11-09_12:35:32"
+"rc_support":"",
+"build_date":"2026-05-28_21:59:06"
 }
