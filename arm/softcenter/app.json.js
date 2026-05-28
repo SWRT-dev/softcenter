@@ -2,10 +2,10 @@
     "apps": [
         {
             "arch": "arm",
-            "build_date": "2026-05-28_09:18:08",
+            "build_date": "2026-05-28_09:20:14",
             "description": "内网穿透利器，谁用谁知道。",
             "home_url": "Module_frps.asp",
-            "md5": "e3c25e5915a721761dde1cc200135ab7",
+            "md5": "281171638d605a84e524e897766c67b3",
             "name": "frps",
             "rc_support": "",
             "tar_url": "frps/frps.tar.gz",

@@ -107,7 +107,6 @@ function init(){
 	get_dbus_data();
 	get_status();
 	conf2obj();
-	version_show();
 	hook_event();
 }
 function get_dbus_data() {

@@ -1,10 +1,10 @@
 {
 "version":"2.3",
-"md5":"8b886cc84d5cb8f4c3358abdbb2cd8fd",
+"md5":"6aa0f7f8f88164438ed142725e1f1867",
 "arch":"mipsle",
 "home_url":"Module_frps.asp",
 "title":"frps穿透服务器",
 "description":"内网穿透利器，谁用谁知道。",
 "rc_support":"",
-"build_date":"2026-05-28_09:18:10"
+"build_date":"2026-05-28_09:20:14"
 }

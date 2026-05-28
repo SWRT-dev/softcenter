@@ -2,10 +2,10 @@
     "apps": [
         {
             "arch": "mips",
-            "build_date": "2026-05-28_09:18:09",
+            "build_date": "2026-05-28_09:20:14",
             "description": "内网穿透利器，谁用谁知道。",
             "home_url": "Module_frps.asp",
-            "md5": "aa50c78bb4cad9997a974aee7626b0fa",
+            "md5": "c3a335e310b86074d8ed28b40c68dc69",
             "name": "frps",
             "rc_support": "",
             "tar_url": "frps/frps.tar.gz",
