@@ -365,14 +365,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2025-09-04_22:51:58",
+            "build_date": "2026-05-28_17:09:31",
             "description": "超强的SSH网页客户端~",
             "home_url": "Module_shellinabox.asp",
-            "md5": "400db704e641b710e5ae042f738e1a07",
+            "md5": "3fc957ca8421745c06c6aff78410ac70",
             "name": "shellinabox",
+            "rc_support": "",
             "tar_url": "shellinabox/shellinabox.tar.gz",
             "title": "shellinabox",
-            "version": "2.5"
+            "version": "2.6"
         },
         {
             "arch": "mips",

@@ -11,7 +11,7 @@
 <title>软件中心 - shellinabox</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"> 
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/js/table/table.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
@@ -48,8 +48,7 @@
 	background-repeat: repeat;
 	visibility:hidden;
 	overflow:hidden;
-	background:rgba(68, 79, 83, 0.85) none repeat scroll 0 0 !important; /* W3C asuscss */
-	background: url(/images/New_ui/login_bg.png); /* W3C rogcss */
+	background:rgba(68, 79, 83, 0.85) none repeat scroll 0 0;
 	background-position: 0 0;
 	background-size: cover;
 	opacity: .94;
@@ -75,6 +74,20 @@
 	overflow-x:hidden;
 	line-height:1.5;
 }
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: transparent;
+}
+#scapp[skin=SWRT] #log_content {
+	border:1px solid #006ce1;
+}
+#scapp[skin=SWRT] .loadingBarBlock{
+	background:rgba(245,245,245, 0.85) none repeat scroll 0 0;
+	border:1px solid #006ce1;
+	box-shadow: 3px 3px 10px #006ce1;
+}
+#scapp[skin=SWRT] #ok_button {
+	background: transparent !important;
+}
 </style>
 <script>
 var count_down;
@@ -82,6 +95,7 @@ var	refresh_flag;
 var params_chk = ['shellinabox_enable'];
 function init(){
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_status();
 }
@@ -211,13 +225,19 @@ function get_log(){
 		}
 	});
 }
-function menu_hook(title, tab){
+function menu_hook(){
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线安装", "shellinabox");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_shellinabox.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >

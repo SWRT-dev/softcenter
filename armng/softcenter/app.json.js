@@ -353,14 +353,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2025-09-04_22:51:58",
+            "build_date": "2026-05-28_17:09:30",
             "description": "超强的SSH网页客户端~",
             "home_url": "Module_shellinabox.asp",
-            "md5": "aa83cc40c167d95bf7fdb5aeebbff20f",
+            "md5": "7bf828ed3263a86234924403f3a3c43f",
             "name": "shellinabox",
+            "rc_support": "",
             "tar_url": "shellinabox/shellinabox.tar.gz",
             "title": "shellinabox",
-            "version": "2.5"
+            "version": "2.6"
         },
         {
             "arch": "armng",
