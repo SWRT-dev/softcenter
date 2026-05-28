@@ -48,14 +48,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2025-09-04_22:50:38",
+            "build_date": "2026-05-28_17:44:00",
             "description": "Socat 端口转发",
             "home_url": "Module_socat.asp",
-            "md5": "2f47fd58cfb54dca49b65b53a9e935e1",
+            "md5": "194e27ad8f4448b14e9fecdf86dfcd66",
             "name": "socat",
+            "rc_support": "",
             "tar_url": "socat/socat.tar.gz",
             "title": "Socat端口转发",
-            "version": "1.2"
+            "version": "1.3"
         },
         {
             "arch": "mipsle",

@@ -11,12 +11,8 @@
 <title>软件中心 - socat端口转发</title>
 <link rel="stylesheet" type="text/css" href="index_style.css" />
 <link rel="stylesheet" type="text/css" href="form_style.css" />
-<link rel="stylesheet" type="text/css" href="usp_style.css" />
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -27,30 +23,15 @@
 <script type="text/javascript" src="/switcherplugin/jquery.iphone-switch.js"></script>
 <script type="text/javascript" src="/res/softcenter.js"></script>
 <style type="text/css">
-.socat_btn {
-	border: 1px solid #222;
-	background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-	font-size:10pt;
-	color: #fff;
-	padding: 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	width:16%;
-}
-.socat_btn:hover {
-	border: 1px solid #222;
-	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-	font-size:10pt;
-	color: #fff;
-	padding: 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	width:16%;
-}
 .formbottomdesc {
 	margin-top:10px;
 	margin-left:10px;
 }
 input[type=button]:focus {
 	outline: none;
+}
+#scapp[skin=SWRT] .FormTable_table {
+	box-shadow: 3px 3px 10px #006ce1 !important;
 }
 </style>
 <script>
@@ -59,6 +40,7 @@ var db_socat = {};
 var node_max = 0;
 function initial() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	conf2obj();
 	get_status();
@@ -151,7 +133,7 @@ function save() {
 
 	refreshpage(2);
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "Socat 端口转发");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_socat.asp");
 }
@@ -346,9 +328,15 @@ function update_visibility(){
 		E("socat_cron_time_hour").style.display = "";
 	}
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="initial();">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -525,7 +513,7 @@ function update_visibility(){
 									</div>
 									<div style="margin:30px 0 10px 5px;" class="splitLine"></div>
 									<div class="apply_gen">
-										<span><input class="socat_btn" style="cursor:pointer" id="cmdBtn" onclick="save()" type="button" value="提交"/></span>
+										<span><input class="button_gen" id="cmdBtn" onclick="save()" type="button" value="提交"/></span>
 									</div>
 								</td>
 							</tr>

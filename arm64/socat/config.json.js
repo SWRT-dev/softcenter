@@ -1,9 +1,10 @@
 {
-"version":"1.2",
-"md5":"052a63b2b79b869582ca6d77bfdf500e",
+"version":"1.3",
+"md5":"ff584d7f9e99885140545d71ff372f20",
 "arch":"arm64",
 "home_url":"Module_socat.asp",
 "title":"Socat端口转发",
 "description":"Socat 端口转发",
-"build_date":"2025-09-04_22:50:38"
+"rc_support":"",
+"build_date":"2026-05-28_17:44:00"
 }

@@ -1,9 +1,10 @@
 {
-"version":"1.2",
-"md5":"2f47fd58cfb54dca49b65b53a9e935e1",
+"version":"1.3",
+"md5":"194e27ad8f4448b14e9fecdf86dfcd66",
 "arch":"mipsle",
 "home_url":"Module_socat.asp",
 "title":"Socat端口转发",
 "description":"Socat 端口转发",
-"build_date":"2025-09-04_22:50:38"
+"rc_support":"",
+"build_date":"2026-05-28_17:44:00"
 }
