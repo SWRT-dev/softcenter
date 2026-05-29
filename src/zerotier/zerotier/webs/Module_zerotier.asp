@@ -55,8 +55,7 @@ i {
 	background-repeat: repeat;
 	visibility:hidden;
 	overflow:hidden;
-	background:rgba(68, 79, 83, 0.85) none repeat scroll 0 0 !important; /* W3C asuscss */
-	background: url(/images/New_ui/login_bg.png); /* W3C rogcss */
+	background:rgba(68, 79, 83, 0.85) none repeat scroll 0 0 !important;
 	background-position: 0 0;
 	background-size: cover;
 	opacity: .94;
@@ -121,10 +120,6 @@ i {
 	line-height:1.8;
 	visibility:hidden;
 }
-.pop_div_bg{
-	background-color: #2B373B; /* W3C asuscss */
-	background-color: #030102; /* W3C rogcss */
-}
 .QISform_wireless {
 	width:690px;
 	font-size:14px;
@@ -139,57 +134,8 @@ i {
 .add_btn{
 	background: transparent url(/res/zt_add.png) no-repeat scroll center top;
 }
-.ks_btn {
-	border:none;
-	font-size:10pt;
-	color: #fff;
-	padding: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	width:14%;
-	cursor: pointer;
-	vertical-align: middle;
-	background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C asuscss */
-	background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss */
-}
-.ks_btn:hover {
-	border:none;
-	font-size:10pt;
-	color: #fff;
-	padding: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	width:14%;
-	cursor: pointer;
-	vertical-align: middle;
-	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C asuscss */
-	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss */
-}
 input[type=button]:focus {
 	outline: none;
-}
-.show-btn0, .show-btn1, .show-btn2, .show-btn3, .show-btn4, .show-btn5 {
-	font-family: Roboto-Light, "Microsoft JhengHei";
-	font-size:10pt;
-	color: #fff;
-	padding: 10px 4px;
-	border-radius: 5px 5px 0px 0px;
-	width:12%;
-	border-left: 1px solid #67767d; /* W3C asuscss */
-	border-top: 1px solid #67767d; /* W3C asuscss */
-	border-right: 1px solid #67767d; /* W3C asuscss */
-	border-bottom: none; /* W3C asuscss */
-	background: #67767d; /* W3C asuscss */
-	border: 1px solid #91071f; /* W3C rogcss */
-	background: none; /* W3C rogcss */
-	margin-right: 6px;
-	cursor:pointer
-}
-.show-btn0:hover, .show-btn1:hover, .show-btn2:hover, .show-btn3:hover, .show-btn4:hover, .show-btn5:hover, .active {
-	cursor:pointer
-	font-family: Roboto-Light, "Microsoft JhengHei";
-	border: 1px solid #2f3a3e; /* W3C asuscss */
-	background: #2f3a3e; /* W3C asuscss */
-	border: 1px solid #91071f; /* W3C rogcss */
-	background: #91071f; /* W3C rogcss */
 }
 #log_content {
 	border:1px solid #000;
@@ -255,6 +201,10 @@ input[type=button]:focus {
 }
 #scapp[skin=SWRT] .popup_bar_bg_ks {
 	background: #fefefe !important;
+}
+#scapp[skin=SWRT] .contentM_qis {
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	background: #F5F5F5;
 }
 </style>
 <script>
@@ -1132,7 +1082,7 @@ function set_skin(){
 	</div>
 	<!--===================================Ending of zerotier peers status===========================================-->
 	<!--============================this is the popup area for zerotier moons========================================-->
-	<div id="zt_moons_settings" class="contentM_qis pop_div_bg">
+	<div id="zt_moons_settings" class="contentM_qis">
 		<table class="QISform_wireless" border="0" align="center" cellpadding="5" cellspacing="0">
 			<tr>
 				<td>
