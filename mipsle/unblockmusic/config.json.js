@@ -1,9 +1,10 @@
 {
-"version":"1.2.1",
-"md5":"3d9778e3b26588bbafdbd2325b31da79",
+"version":"1.2.2",
+"md5":"a858f5307fe1eb54f90054ec4578d37d",
 "arch":"mipsle",
 "home_url":"Module_unblockmusic.asp",
-"title":"解锁网易云灰色歌曲",
+"title":"解锁网易云灰色歌曲(go版)",
 "description":"解锁网易云灰色歌曲",
-"build_date":"2024-11-09_12:35:38"
+"rc_support":"",
+"build_date":"2026-05-29_09:17:12"
 }

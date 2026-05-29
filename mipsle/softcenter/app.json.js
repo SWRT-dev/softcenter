@@ -156,14 +156,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:38",
+            "build_date": "2026-05-29_09:17:12",
             "description": "解锁网易云灰色歌曲",
             "home_url": "Module_unblockmusic.asp",
-            "md5": "3d9778e3b26588bbafdbd2325b31da79",
+            "md5": "a858f5307fe1eb54f90054ec4578d37d",
             "name": "unblockmusic",
+            "rc_support": "",
             "tar_url": "unblockmusic/unblockmusic.tar.gz",
-            "title": "解锁网易云灰色歌曲",
-            "version": "1.2.1"
+            "title": "解锁网易云灰色歌曲(go版)",
+            "version": "1.2.2"
         },
         {
             "arch": "mipsle",
