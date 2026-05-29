@@ -37,14 +37,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2026-01-10_15:26:19",
+            "build_date": "2026-05-29_09:03:23",
             "description": "tailscale",
             "home_url": "Module_tailscale.asp",
-            "md5": "e3186706a9d41726ef64fbf2107686c4",
+            "md5": "3b222c53e812e546845eec05de5fbab1",
             "name": "tailscale",
+            "rc_support": "",
             "tar_url": "tailscale/tailscale.tar.gz",
             "title": "tailscale",
-            "version": "0.1.2"
+            "version": "0.1.3"
         },
         {
             "arch": "armng",

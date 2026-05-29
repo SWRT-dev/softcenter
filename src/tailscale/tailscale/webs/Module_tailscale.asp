@@ -12,7 +12,6 @@
 <link rel="stylesheet" type="text/css" href="index_style.css"> 
 <link rel="stylesheet" type="text/css" href="form_style.css">
 <link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/js/table/table.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
@@ -79,6 +78,7 @@ i {
 	width:948px;
 	/*display:none;*/
 	visibility:hidden;
+	outline: none;
 }
 .user_title{
 	text-align:center;
@@ -139,45 +139,62 @@ input[type=button]:focus {
 .FormTable th {
     width: 35%;
 }
-#app[skin=ASUSWRT] #tailscale_main, #app[skin=ASUSWRT] #tailscale_tcnets {
+#tailscale_main, #tailscale_tcnets {
 	outline: none;
 }
-#app[skin=ASUSWRT] .loadingBarBlock{
+.loadingBarBlock{
 	width:770px;
 	outline: none;
 }
-#app[skin=ASUSWRT] .content_status{
-	outline: none;
-}
-#app[skin=ROG] #tailscale_main, #app[skin=ROG] #tailscale_tcnets {
+#scapp[skin=ROG] #tailscale_main, #scapp[skin=ROG] #tailscale_tcnets {
 	outline: 1px solid #91071f;
 }
-#app[skin=ROG] .loadingBarBlock{
+#scapp[skin=ROG] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #91071f;
 }
-#app[skin=ROG] .content_status{
+#scapp[skin=ROG] .content_status{
 	outline: 1px solid #91071f;
 }
-#app[skin=TUF] #tailscale_main, #app[skin=TUF] #tailscale_tcnets {
+#scapp[skin=TUF] #tailscale_main, #scapp[skin=TUF] #tailscale_tcnets {
 	outline: 1px solid #ffa523;
 }
-#app[skin=TUF] .loadingBarBlock{
+#scapp[skin=TUF] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #ffa523;
 }
-#app[skin=TUF] .content_status{
+#scapp[skin=TUF] .content_status{
 	outline: 1px solid #ffa523;
 }
-#app[skin=TS] #tailscale_main, #app[skin=TS] #tailscale_tcnets {
+#scapp[skin=TS] #tailscale_main, #scapp[skin=TS] #tailscale_tcnets {
 	outline: 1px solid #2ed9c3;
 }
-#app[skin=TS] .loadingBarBlock{
+#scapp[skin=TS] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #2ed9c3;
 }
-#app[skin=TS] .content_status{
+#scapp[skin=TS] .content_status{
 	outline: 1px solid #2ed9c3;
+}
+#scapp[skin=SWRT] #tailscale_main, #scapp[skin=SWRT] #tailscale_tcnets {
+	outline: 1px solid #006ce1;
+}
+#scapp[skin=SWRT] .loadingBarBlock{
+	width:770px;
+	outline: 1px solid #006ce1;
+	background: transparent !important;
+}
+#scapp[skin=SWRT] .content_status{
+	outline: 1px solid #006ce1;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #ok_button {
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #log_content{
+	border:1px solid #006ce1;
 }
 </style>
 <script>
@@ -199,6 +216,7 @@ String.prototype.myReplace = function(f, e){
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	sc_load_lang("tailscale");
 	set_skin();
 	get_dbus_data();
@@ -514,7 +532,7 @@ function get_log(flag){
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", dict["Software Center"], dict["Offline installation"], "Tailscale");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_tailscale.asp");
 }
@@ -683,9 +701,15 @@ function mOut(obj){
 	});
 	E("overDiv").style.visibility = "hidden";
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body id="app" skin="ASUSWRT" onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >
@@ -711,7 +735,7 @@ function mOut(obj){
 		<div style="margin: 10px 10px 10px 15px;width:918px;text-align:center;overflow:hidden;border-top:1px solid #818181;padding-top:10px">
 			<textarea cols="63" rows="18" wrap="off" id="ts_status" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 		</div>
-		<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+		<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 			<input sclang class="button_gen" type="button" onclick="close_status();" value="Close this window">
 		</div>
 	</div>
@@ -722,7 +746,7 @@ function mOut(obj){
 		<div style="margin: 10px 10px 10px 15px;width:918px;text-align:center;overflow:hidden;border-top:1px solid #818181;padding-top:10px">
 			<textarea cols="63" rows="30" wrap="off" id="ts_check" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 		</div>
-		<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+		<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 			<input sclang class="button_gen" type="button" onclick="close_netcheck();" value="Close this window">
 		</div>
 	</div>
