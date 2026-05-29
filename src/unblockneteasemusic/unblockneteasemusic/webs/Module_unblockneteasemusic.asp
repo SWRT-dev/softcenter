@@ -11,8 +11,7 @@
 <title sclang>UnblockNeteaseMusic</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"> 
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/js/table/table.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
@@ -80,26 +79,6 @@ i {
 	/*display:none;*/
 	visibility:hidden;
 }
-.user_title{
-	text-align:center;
-	font-size:18px;
-	color:#99FF00;
-	padding:10px;
-	font-weight:bold;
-}
-#ts_status, #ts_check{
-	border:0px solid #222;
-	width:98%;
-	font-family:'Lucida Console';
-	font-size:12px;
-	padding-left:13px;
-	padding-right:33px;
-	background: transparent;
-	color:#FFFFFF;
-	outline:none;
-	overflow-x:hidden;
-	line-height:1.5;
-}
 input[type=button]:focus {
 	outline: none;
 }
@@ -139,45 +118,50 @@ input[type=button]:focus {
 .FormTable th {
     width: 35%;
 }
-#app[skin=ASUSWRT] #tailscale_main, #app[skin=ASUSWRT] #tailscale_tcnets {
-	outline: none;
-}
-#app[skin=ASUSWRT] .loadingBarBlock{
+#scapp[skin=ASUSWRT] .loadingBarBlock{
 	width:770px;
 	outline: none;
 }
-#app[skin=ASUSWRT] .content_status{
+#scapp[skin=ASUSWRT] .content_status{
 	outline: none;
 }
-#app[skin=ROG] #tailscale_main, #app[skin=ROG] #tailscale_tcnets {
-	outline: 1px solid #91071f;
-}
-#app[skin=ROG] .loadingBarBlock{
+#scapp[skin=ROG] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #91071f;
 }
-#app[skin=ROG] .content_status{
+#scapp[skin=ROG] .content_status{
 	outline: 1px solid #91071f;
 }
-#app[skin=TUF] #tailscale_main, #app[skin=TUF] #tailscale_tcnets {
-	outline: 1px solid #ffa523;
-}
-#app[skin=TUF] .loadingBarBlock{
+#scapp[skin=TUF] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #ffa523;
 }
-#app[skin=TUF] .content_status{
+#scapp[skin=TUF] .content_status{
 	outline: 1px solid #ffa523;
 }
-#app[skin=TS] #tailscale_main, #app[skin=TS] #tailscale_tcnets {
-	outline: 1px solid #2ed9c3;
-}
-#app[skin=TS] .loadingBarBlock{
+#scapp[skin=TS] .loadingBarBlock{
 	width:770px;
 	outline: 1px solid #2ed9c3;
 }
-#app[skin=TS] .content_status{
+#scapp[skin=TS] .content_status{
 	outline: 1px solid #2ed9c3;
+}
+#scapp[skin=SWRT] .loadingBarBlock{
+	width:770px;
+	outline: 1px solid #006ce1;
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] .content_status{
+	outline: 1px solid #006ce1;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #ok_button {
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #log_content{
+	border:1px solid #006ce1;
 }
 </style>
 <script>
@@ -194,6 +178,7 @@ String.prototype.myReplace = function(f, e){
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	sc_load_lang("music");
 	set_skin();
 	get_dbus_data();
@@ -457,13 +442,19 @@ function RunmOut(obj){
 	});
 	mOut("' + obj + '");
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", dict["Software Center"], dict["Offline installation"], dict["UnblockNeteaseMusic"]);
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_unblockneteasemusic.asp");
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body id="app" skin="ASUSWRT" onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >

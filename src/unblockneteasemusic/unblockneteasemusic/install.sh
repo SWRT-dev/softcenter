@@ -21,19 +21,27 @@ platform_test(){
 set_skin(){
 	local UI_TYPE=ASUSWRT
 	local SC_SKIN=$(nvram get sc_skin)
-	local ROG_FLAG=$(grep -o "680516" /www/form_style.css 2>/dev/null|head -n1)
-	local TUF_FLAG=$(grep -o "D0982C" /www/form_style.css 2>/dev/null|head -n1)
+	local SWRT_SKIN=$(nvram get swrt_skin)
 	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
-	if [ -n "${ROG_FLAG}" ];then
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "D0982C")
+	if [ -n "${SWRT_SKIN}" ];then
+		if [ "ts" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TS"
+		elif [ "rog" == "${SWRT_SKIN}" ];then
+			UI_TYPE="ROG"
+		elif [ "tuf" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TUF"
+		elif [ "swrt" == "${SWRT_SKIN}" ];then
+			UI_TYPE="SWRT"
+		fi
+	elif [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	elif [ -n "${ROG_FLAG}" ];then
 		UI_TYPE="ROG"
-	fi
-	if [ -n "${TUF_FLAG}" ];then
+	elif [ -n "${TUF_FLAG}" ];then
 		UI_TYPE="TUF"
 	fi
-	if [ -n "${TS_FLAG}" ];then
-		UI_TYPE="TS"
-	fi
-
 	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
 		nvram set sc_skin="${UI_TYPE}"
 		nvram commit
@@ -65,7 +73,7 @@ get_model(){
 install_now(){
 	# default value
 	local TITLE="解锁网易云灰色歌曲"
-	local DESCR="解锁网易云灰色歌曲！"
+	local DESCR="解锁网易云灰色歌曲(nodejs版)！"
 	local PLVER=$(cat ${DIR}/version)
 
 	if [ "$(dbus get softcenter_module_unblockmusic_install)" == "1" ];then
