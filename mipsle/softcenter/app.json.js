@@ -120,14 +120,15 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2024-11-09_12:35:36",
+            "build_date": "2026-05-29_08:46:54",
             "description": "老板，来一斤虚拟内存~",
             "home_url": "Module_swap.asp",
-            "md5": "e0e9d8147bb47d6421d6a82221286444",
+            "md5": "f98d4e1ebdb7f814cdbde7e18da7e0e1",
             "name": "swap",
+            "rc_support": "",
             "tar_url": "swap/swap.tar.gz",
             "title": "虚拟内存",
-            "version": "2.6"
+            "version": "2.7"
         },
         {
             "arch": "mipsle",

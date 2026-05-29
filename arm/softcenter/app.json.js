@@ -108,14 +108,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:36",
+            "build_date": "2026-05-29_08:46:53",
             "description": "老板，来一斤虚拟内存~",
             "home_url": "Module_swap.asp",
-            "md5": "028836b8f544e80fe361ecb4a5d3e4f1",
+            "md5": "b99d8a38a1fee0264d75ceda1da690c0",
             "name": "swap",
+            "rc_support": "",
             "tar_url": "swap/swap.tar.gz",
             "title": "虚拟内存",
-            "version": "2.6"
+            "version": "2.7"
         },
         {
             "arch": "arm",

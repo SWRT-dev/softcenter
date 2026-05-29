@@ -1,9 +1,10 @@
 {
-"version":"2.6",
-"md5":"2a6734746ac15e2e8be2d0bfbed40d62",
+"version":"2.7",
+"md5":"c9291d4cc785ed16a7ebfed0e08f253e",
 "arch":"mips",
 "home_url":"Module_swap.asp",
 "title":"虚拟内存",
 "description":"老板，来一斤虚拟内存~",
-"build_date":"2024-11-09_12:35:36"
+"rc_support":"",
+"build_date":"2026-05-29_08:46:54"
 }

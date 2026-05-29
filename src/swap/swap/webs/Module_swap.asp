@@ -10,10 +10,7 @@
 <title>软件中心 - 虚拟内存</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
@@ -26,26 +23,16 @@
 <script type="text/javascript" src="/res/softcenter.js"></script>
 <script language="JavaScript" type="text/javascript" src="/client_function.js"></script>
 <style>
-.Bar_container {
-	width:85%;
-	height:20px;
-	border:1px inset #999;
-	margin:0 auto;
-	margin-top:20px \9;
-	background-color:#FFFFFF;
-	z-index:100;
+#scapp[skin=SWRT] .popup_bar_bg_ks, #scapp[skin=SWRT] #ok_button, #scapp[skin=SWRT] #log_content2, #scapp[skin=SWRT] #log_content3 {
+	background: transparent !important;
+	border:0px solid #006ce1;
 }
-#proceeding_img_text {
-	position:absolute;
-	z-index:101;
-	font-size:11px;
-	color:#000000;
-	line-height:21px;
-	width: 83%;
+#scapp[skin=SWRT] .loadingBarBlock{
+	background: #fefefe !important;
 }
-#proceeding_img {
-	height:21px;
-	background:#C0D1D3 url(/res/proceding.gif);
+#scapp[skin=SWRT] textarea{
+	border:0px solid #006ce1 !important;
+	color: #006ce1;
 }
 </style>
 
@@ -55,7 +42,8 @@ var db_swap_ = {};
 var dbus = {};
 var usbDevicesList
 function init() {
-	show_menu();
+	show_menu(menu_hook);
+	set_skin();
 	get_disks();
 	conf2obj();
 }
@@ -297,9 +285,15 @@ function makeswap(action){
 		}
 	});
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg">
