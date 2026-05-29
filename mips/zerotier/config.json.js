@@ -1,9 +1,10 @@
 {
-"version":"1.6",
-"md5":"622f4ce0fa7954d6663610348134689c",
+"version":"1.7",
+"md5":"767965f8c2bf24b7e453d68a95946a66",
 "arch":"mips",
 "home_url":"Module_zerotier.asp",
 "title":"zerotier",
 "description":"分布式的虚拟以太网",
-"build_date":"2024-11-09_12:35:37"
+"rc_support":"",
+"build_date":"2026-05-29_10:37:54"
 }

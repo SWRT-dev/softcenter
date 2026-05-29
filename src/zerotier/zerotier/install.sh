@@ -5,7 +5,6 @@ eval `dbus export zerotier_`
 eval `dbus export softcenter_arch`
 alias echo_date='echo 【$(TZ=UTC-8 date -R +%Y年%m月%d日\ %X)】:'
 MODEL=
-UI_TYPE=ASUSWRT
 DIR=$(cd $(dirname $0); pwd)
 module=${DIR##*/}
 
@@ -19,21 +18,35 @@ get_model(){
 	fi
 }
 
-get_ui_type(){
-	local ROG_FLAG=$(grep -o "680516" /www/form_style.css|head -n1)
-	local TUF_FLAG=$(grep -o "D0982C" /www/form_style.css|head -n1)
+set_skin(){
+	local UI_TYPE=ASUSWRT
+	local SC_SKIN=$(nvram get sc_skin)
+	local SWRT_SKIN=$(nvram get swrt_skin)
 	local TS_FLAG=$(grep -o "2ED9C3" /www/css/difference.css 2>/dev/null|head -n1)
-	if [ -n "${ROG_FLAG}" ];then
+	local ROG_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "2071044")
+	local TUF_FLAG=$(cat /www/form_style.css|grep -A1 ".tab_NW:hover{"|grep "background"|grep -o "D0982C")
+	if [ -n "${SWRT_SKIN}" ];then
+		if [ "ts" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TS"
+		elif [ "rog" == "${SWRT_SKIN}" ];then
+			UI_TYPE="ROG"
+		elif [ "tuf" == "${SWRT_SKIN}" ];then
+			UI_TYPE="TUF"
+		elif [ "swrt" == "${SWRT_SKIN}" ];then
+			UI_TYPE="SWRT"
+		fi
+	elif [ -n "${TS_FLAG}" ];then
+		UI_TYPE="TS"
+	elif [ -n "${ROG_FLAG}" ];then
 		UI_TYPE="ROG"
-	fi
-	if [ -n "${TUF_FLAG}" ];then
+	elif [ -n "${TUF_FLAG}" ];then
 		UI_TYPE="TUF"
 	fi
-	if [ -n "${TS_FLAG}" ];then
-		UI_TYPE="TS"
+	if [ -z "${SC_SKIN}" -o "${SC_SKIN}" != "${UI_TYPE}" ];then
+		nvram set sc_skin="${UI_TYPE}"
+		nvram commit
 	fi
 }
-
 
 exit_install(){
 	local state=$1
@@ -51,29 +64,6 @@ exit_install(){
 			exit 0
 			;;
 	esac
-}
-
-install_ui(){
-	# intall different UI
-	get_ui_type
-	if [ "${UI_TYPE}" == "ROG" ];then
-		echo_date "安装ROG皮肤！"
-		sed -i '/asuscss/d' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1
-	fi
-	if [ "${UI_TYPE}" == "TUF" ];then
-		echo_date "安装TUF皮肤！"
-		sed -i '/asuscss/d' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1
-		sed -i 's/3e030d/3e2902/g;s/91071f/92650F/g;s/680516/D0982C/g;s/cf0a2c/c58813/g;s/700618/74500b/g;s/530412/92650F/g' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1
-	fi
-	if [ "${UI_TYPE}" == "TS" ];then
-		echo_date "安装TS皮肤！"
-		sed -i 's/3e030d/3e2902/g;s/91071f/92650F/g;s/680516/D0982C/g;s/cf0a2c/c58813/g;s/700618/74500b/g;s/530412/92650F/g' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1 >/dev/null 2>&1
-		sed -i '/asuscss/d' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1
-	fi
-	if [ "${UI_TYPE}" == "ASUSWRT" ];then
-		echo_date "安装ASUSWRT皮肤！"
-		sed -i '/rogcss/d' /jffs/softcenter/webs/Module_${module}.asp >/dev/null 2>&1
-	fi
 }
 
 platform_test(){
@@ -140,7 +130,7 @@ install_now(){
 	chmod +x /jffs/softcenter/init.d/S99zerotier.sh
 
 	# intall different UI
-	install_ui
+	set_skin
 
 	# dbus value
 	echo_date "设置插件默认参数..."

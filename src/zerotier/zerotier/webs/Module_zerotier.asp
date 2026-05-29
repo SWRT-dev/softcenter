@@ -11,7 +11,7 @@
 <title>软件中心 - zerotier</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"> 
 <link rel="stylesheet" type="text/css" href="form_style.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
 <link rel="stylesheet" type="text/css" href="/js/table/table.css">
 <link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
@@ -221,9 +221,40 @@ input[type=button]:focus {
 	font-size: 14px;
 	font-family: Roboto-Light, "Microsoft JhengHei";
 }
-#zerotier_main, #zerotier_ztnets, #zerotier_route_div_2, #zt_moons_settings_div, #zerotier_interface_div_0, #zerotier_interface_div_1, #zerotier_interface_div_2, #zerotier_interface_div_3, #zerotier_interface_div_4, #zerotier_interface_div_5 {
-	border: none; /* W3C asuscss */
-	border: 1px solid #91071f; /* W3C rogcss */
+#scapp[skin=TUF] .loadingBarBlock{
+	width:770px;
+	outline: 1px solid #ffa523;
+}
+#scapp[skin=TUF] #zerotier_main, #scapp[skin=TUF] #zerotier_ztnets, #scapp[skin=TUF] #zerotier_route_div_2, #scapp[skin=TUF] #zt_moons_settings_div, #scapp[skin=TUF] #zerotier_interface_div_0, #scapp[skin=TUF] #zerotier_interface_div_1, #scapp[skin=TUF] #zerotier_interface_div_2, #scapp[skin=TUF] #zerotier_interface_div_3, #scapp[skin=TUF] #zerotier_interface_div_4, #scapp[skin=TUF] #zerotier_interface_div_5 {
+	border: 1px solid #92650F;
+}
+#scapp[skin=ROG] .loadingBarBlock{
+	width:770px;
+	outline: 1px solid #91071f;
+}
+#scapp[skin=ROG] #zerotier_main, #scapp[skin=ROG] #zerotier_ztnets, #scapp[skin=ROG] #zerotier_route_div_2, #scapp[skin=ROG] #zt_moons_settings_div, #scapp[skin=ROG] #zerotier_interface_div_0, #scapp[skin=ROG] #zerotier_interface_div_1, #scapp[skin=ROG] #zerotier_interface_div_2, #scapp[skin=ROG] #zerotier_interface_div_3, #scapp[skin=ROG] #zerotier_interface_div_4, #scapp[skin=ROG] #zerotier_interface_div_5 {
+	border: 1px solid #91071f;
+}
+#scapp[skin=SWRT] .loadingBarBlock{
+	width:770px;
+	outline: 1px solid #006ce1;
+	background: transparent !important;
+}
+#scapp[skin=SWRT] #zerotier_main, #scapp[skin=SWRT] #zerotier_ztnets, #scapp[skin=SWRT] #zerotier_route_div_2, #scapp[skin=SWRT] #zt_moons_settings_div, #scapp[skin=SWRT] #zerotier_interface_div_0, #scapp[skin=SWRT] #zerotier_interface_div_1, #scapp[skin=SWRT] #zerotier_interface_div_2, #scapp[skin=SWRT] #zerotier_interface_div_3, #scapp[skin=SWRT] #zerotier_interface_div_4, #scapp[skin=SWRT] #zerotier_interface_div_5 {
+	border: 1px solid #006ce1;
+}
+#scapp[skin=SWRT] .content_status {
+	box-shadow: 3px 3px 10px #006ce1;
+	background: rgba(225, 225, 225,0.88);
+}
+#scapp[skin=SWRT] #ok_button {
+	background: #fefefe !important;
+}
+#scapp[skin=SWRT] #log_content{
+	border:1px solid #006ce1;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: #fefefe !important;
 }
 </style>
 <script>
@@ -243,6 +274,7 @@ var active_tab = 0;
 
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 }
 function get_dbus_data(){
@@ -708,7 +740,7 @@ function get_log(flag){
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length -1] = new Array("", "软件中心", "离线下载", "zerotier");
 	tablink[tablink.length -1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_zerotier.asp");
 }
@@ -1060,9 +1092,15 @@ function apply_uppoaded_moon(Info) {
 		}
 	});
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<div id="LoadingBar" class="popup_bar_bg_ks" style="z-index: 200;" >
@@ -1088,7 +1126,7 @@ function apply_uppoaded_moon(Info) {
 		<div style="margin: 10px 10px 10px 15px;width:718px;text-align:center;overflow:hidden;outline:1px solid #818181;padding-top:10px">
 			<textarea cols="63" rows="18" wrap="off" id="ztpeers_status" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
 		</div>
-		<div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+		<div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
 			<input class="button_gen" type="button" onclick="close_peers_info();" value="返回主界面">
 		</div>
 	</div>
@@ -1136,8 +1174,8 @@ function apply_uppoaded_moon(Info) {
 			</tr>
 		</table>
 		<span style="margin-left:30px">加入moon有两种方法：1. 通过上传配置文件加入moon；2. 通过id加入moon。选择其一即可！</span>
-		<div style="padding-top:10px;padding-bottom:10px;width:100%;text-align:center;">
-			<input class="button_gen" type="button" onclick="close_moons_sett();" id="cancelBtn" value="返回">
+		<div class="apply_gen" style="padding-top:10px;padding-bottom:10px;width:100%;text-align:center;">
+			<input class="button_gen" type="button" onclick="close_moons_sett();" value="返回">
 		</div>
 	</div>
 	<!--===================================Ending of zerotier moons settings===========================================-->
