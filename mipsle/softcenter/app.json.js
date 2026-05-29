@@ -433,10 +433,10 @@
         },
         {
             "arch": "mipsle",
-            "build_date": "2026-05-29_09:10:01",
+            "build_date": "2026-05-29_10:03:03",
             "description": "腾讯云ddns",
             "home_url": "Module_tenddns.asp",
-            "md5": "ecf367da6a85cf7ec9860b5218bb4158",
+            "md5": "18c7e62d12e11388f61459aca761cfa9",
             "name": "tenddns",
             "rc_support": "",
             "tar_url": "tenddns/tenddns.tar.gz",

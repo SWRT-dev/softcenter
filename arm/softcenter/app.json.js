@@ -421,10 +421,10 @@
         },
         {
             "arch": "arm",
-            "build_date": "2026-05-29_09:10:01",
+            "build_date": "2026-05-29_10:03:03",
             "description": "腾讯云ddns",
             "home_url": "Module_tenddns.asp",
-            "md5": "d28b55b39a24cd629ab3537d4ad13cc7",
+            "md5": "94b476070b4638f9cab0b12b653ba175",
             "name": "tenddns",
             "rc_support": "",
             "tar_url": "tenddns/tenddns.tar.gz",
