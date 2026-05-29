@@ -14,14 +14,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:20",
+            "build_date": "2026-05-29_10:01:52",
             "description": "简便高效的异地组网、内网穿透工具",
             "home_url": "Module_vnt.asp",
-            "md5": "0c363f0e8fee98206a3eb6bbd51b63a2",
+            "md5": "650dedaf17b2d3e85856de24615623a3",
             "name": "vnt",
+            "rc_support": "",
             "tar_url": "vnt/vnt.tar.gz",
             "title": "vnt",
-            "version": "1.2"
+            "version": "1.3"
         },
         {
             "arch": "armng",

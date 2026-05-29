@@ -10,12 +10,8 @@
 <title>软件中心 - VNT 异地组网、内网穿透工具</title>
 <link rel="stylesheet" type="text/css" href="index_style.css" />
 <link rel="stylesheet" type="text/css" href="form_style.css" />
-<link rel="stylesheet" type="text/css" href="usp_style.css" />
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="/res/layer/theme/default/layer.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -27,104 +23,166 @@
 <script type="text/javascript" src="/res/softcenter.js"></script>
 <style type="text/css">
 .show-btn1, .show-btn2, .show-btn3 {
-    border: 1px solid #222;
-    background: #576d73;
-    background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
-    font-size:10pt;
-    color: #fff;
-    padding: 10px 3.75px;
-    border-radius: 5px 5px 0px 0px;
-    width:15%;
-    border: 1px solid #91071f; /* W3C rogcss*/
-    background: none; /* W3C rogcss*/
-    }
+	border: 1px solid #222;
+	background: #576d73;
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+	font-size:10pt;
+	color: #fff;
+	padding: 10px 3.75px;
+	border-radius: 5px 5px 0px 0px;
+	width:15%;
+	}
 .active {
-    background: #807e79;
-    background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
-    border: 1px solid #91071f; /* W3C rogcss*/
+	background: #807e79;
 }
 .close {
-    background: red;
-    color: black;
-    border-radius: 12px;
-    line-height: 18px;
-    text-align: center;
-    height: 18px;
-    width: 18px;
-    font-size: 16px;
-    padding: 1px;
-    top: -10px;
-    right: -10px;
-    position: absolute;
+	background: red;
+	color: black;
+	border-radius: 12px;
+	line-height: 18px;
+	text-align: center;
+	height: 18px;
+	width: 18px;
+	font-size: 16px;
+	padding: 1px;
+	top: -10px;
+	right: -10px;
+	position: absolute;
 }
 /* use cross as close button */
 .close::before {
-    content: "\2716";
+	content: "\2716";
 }
 .contentM_qis {
-    position: fixed;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius:10px;
-    z-index: 10;
-    background-color:#2B373B;
-    /*margin-left: -100px;*/
-    top: 100px;
-    width:755px;
-    return height:auto;
-    box-shadow: 3px 3px 10px #000;
-    background: rgba(0,0,0,0.85);
-    display:none;
+	position: fixed;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius:10px;
+	z-index: 10;
+	background-color:#2B373B;
+	/*margin-left: -100px;*/
+	top: 100px;
+	width:755px;
+	return height:auto;
+	box-shadow: 3px 3px 10px #000;
+	background: rgba(0,0,0,0.85);
+	display:none;
 }
 .user_title{
-    text-align:center;
-    font-size:18px;
-    color:#99FF00;
-    padding:10px;
-    font-weight:bold;
+	text-align:center;
+	font-size:18px;
+	color:#99FF00;
+	padding:10px;
+	font-weight:bold;
 }
 .info_btn {
-    border: 1px solid #222;
-    background: linear-gradient(to bottom, #003333  0%, #000000 100%); /* W3C */
-    background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
-    font-size:10pt;
-    color: #fff;
-    padding: 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    width:16%;
+	border: 1px solid #222;
+	background: linear-gradient(to bottom, #003333  0%, #000000 100%);
+	font-size:10pt;
+	color: #fff;
+	padding: 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	width:16%;
 }
 .info_btn:hover {
-    border: 1px solid #222;
-    background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%); /* W3C */
-    background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
-    font-size:10pt;
-    color: #fff;
-    padding: 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    width:16%;
+	border: 1px solid #222;
+	background: linear-gradient(to bottom, #27c9c9  0%, #279fd9 100%);
+	font-size:10pt;
+	color: #fff;
+	padding: 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	width:16%;
 }
 
 .formbottomdesc {
-    margin-top:10px;
-    margin-left:10px;
+	margin-top:10px;
+	margin-left:10px;
 }
 input[type=button]:focus {
-    outline: none;
+	outline: none;
 }
 .vnt_custom_btn {
-    border: 1px solid #222;
-    background: linear-gradient(to bottom, #003333 0%, #000000 100%);
-    background: linear-gradient(to bottom, #91071f  0%, #700618 100%); /* W3C rogcss*/
-    font-size: 10pt;
-    color: #fff;
-    padding: 5px 5px;
-    border-radius: 5px;
-    width: auto;
+	border: 1px solid #222;
+	background: linear-gradient(to bottom, #003333 0%, #000000 100%);
+	font-size: 10pt;
+	color: #fff;
+	padding: 5px 5px;
+	border-radius: 5px;
+	width: auto;
 }
 
 .vnt_custom_btn:hover {
-    background: linear-gradient(to bottom, #27c9c9 0%, #279fd9 100%);
-    background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%); /* W3C rogcss*/
+	background: linear-gradient(to bottom, #27c9c9 0%, #279fd9 100%);
+}
+#scapp[skin=TUF] .show-btn1, #scapp[skin=TUF] .show-btn2, #scapp[skin=TUF] .show-btn3 {
+	border: 1px solid #92650F !important;
+	background: none !important;
+}
+#scapp[skin=TUF] .active {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+	border: 1px solid #92650F;
+}
+#scapp[skin=TUF] .vnt_custom_btn, #scapp[skin=TUF] .info_btn {
+	background: linear-gradient(to bottom, #92650F  0%, #74500b 100%);
+}
+#scapp[skin=TUF] .vnt_custom_btn:hover, #scapp[skin=TUF] .info_btn:hover {
+	background: linear-gradient(to bottom, #c58813  0%, #92650F 100%);
+}
+#scapp[skin=ROG] .show-btn1, #scapp[skin=ROG] .show-btn2, #scapp[skin=ROG] .show-btn3 {
+	border: 1px solid #91071f !important;
+	background: none !important;
+}
+#scapp[skin=ROG] .active {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+	border: 1px solid #91071f;
+}
+#scapp[skin=ROG] .vnt_custom_btn, #scapp[skin=ROG] .info_btn {
+	background: linear-gradient(to bottom, #91071f  0%, #700618 100%);
+}
+#scapp[skin=ROG] .vnt_custom_btn:hover, #scapp[skin=ROG] .info_btn:hover {
+	background: linear-gradient(to bottom, #cf0a2c  0%, #91071f 100%);
+}
+#scapp[skin=SWRT] .show-btn1, #scapp[skin=SWRT] .show-btn2, #scapp[skin=SWRT] .show-btn3 {
+	border: 1px solid #006ce1 !important;
+	background: none !important;
+	color: #000 !important;
+	border-left: 1px solid #006ce1 !important;
+	border-top: 1px solid #006ce1 !important;
+	border-right: 1px solid #006ce1 !important;
+}
+#scapp[skin=SWRT] .vnt_custom_btn, #scapp[skin=SWRT] .info_btn {
+	border: 1px solid #006ce1;
+	color: #006ce1 !important;
+	vertical-align: middle;
+	background: none;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .vnt_custom_btn:hover, #scapp[skin=SWRT] .info_btn:hover {
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+	vertical-align: middle;
+	background: #006ce1;
+	font-weight: bolder;
+}
+#scapp[skin=SWRT] .active {
+	background: #006ce1 !important;
+	border: 1px solid #006ce1;
+	color: #fefefe !important;
+}
+#scapp[skin=SWRT] .contentM_qis {
+	background:#F5F5F5 !important;
+	border:1px solid #006ce1 !important;
+	box-shadow: 3px 3px 10px #006ce1 !important;
+	color:#fefefe;
+}
+#scapp[skin=SWRT] .popup_bar_bg_ks {
+	background: transparent !important;
+}
+#scapp[skin=SWRT] textarea {
+	border:1px solid #006ce1 !important;
+}
+#scapp[skin=SWRT] .FormTable_table {
+	box-shadow: 3px 3px 10px #006ce1 !important;
 }
 </style>
 <script>
@@ -133,6 +191,7 @@ var params_input = ["vnt_cron_time", "vnt_cron_hour_min","vnts_cron_time", "vnts
 var params_check = ["vnt_enable","vnts_enable","vnt_proxy_enable","vnt_W_enable","vnt_finger_enable","vnt_relay_enable","vnt_first_latency_enable","vnt_mn_enable","vnts_finger_enable"]
 function initial() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 	get_vnt_status();
 	toggle_func();
@@ -372,7 +431,7 @@ function clear_vntslog() {
 		}
 	});
 }
-function menu_hook(title, tab) {
+function menu_hook() {
 	tabtitle[tabtitle.length - 1] = new Array("", "软件中心", "离线安装", "VNT");
 	tablink[tablink.length - 1] = new Array("", "Main_Soft_center.asp", "Main_Soft_setting.asp", "Module_vnt.asp");
 }
@@ -1047,9 +1106,15 @@ function get_installog(s) {
 		}
 	});
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="initial();">
+<body onload="initial();" id="scapp" skin="ASUSWRT">
 <div id="TopBanner"></div>
 <div id="Loading" class="popup_bg"></div>
 <iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -1537,7 +1602,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnts_logtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node1" class="button_gen" type="button" onclick="close_conf('vnts_log');" value="返回主界面">
                                             &nbsp;&nbsp;<input class="button_gen" type="button" onclick="close_conf('vnts_log');clear_vntslog();" value="清空日志">
                                         </div>
@@ -1548,7 +1613,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnts_cmdtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node2" class="button_gen" type="button" onclick="close_conf('vnts_cmd');" value="返回主界面">
                                         </div>
                                     </div>
@@ -1558,7 +1623,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_logtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node3" class="button_gen" type="button" onclick="close_conf('vnt_log');" value="返回主界面">
                                             &nbsp;&nbsp;<input class="button_gen" type="button" onclick="close_conf('vnt_log');clear_vntlog();" value="清空日志">
                                         </div>
@@ -1569,7 +1634,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_infotxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node4" class="button_gen" type="button" onclick="close_conf('vnt_info');" value="返回主界面">
                                         </div></div>
 
@@ -1578,7 +1643,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_alltxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node5" class="button_gen" type="button" onclick="close_conf('vnt_all');" value="返回主界面">
                                         </div></div>
 
@@ -1587,7 +1652,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_listtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node6" class="button_gen" type="button" onclick="close_conf('vnt_list');" value="返回主界面">
                                         </div></div>
 
@@ -1596,7 +1661,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_routetxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node7" class="button_gen" type="button" onclick="close_conf('vnt_route');" value="返回主界面">
                                         </div></div>
 
@@ -1605,7 +1670,7 @@ function get_installog(s) {
                                         <div id="user_tr" style="margin: 10px 10px 10px 10px;width:98%;text-align:center;">
                                             <textarea cols="50" rows="20" wrap="off" id="vnt_cmdtxt" style="width:97%;padding-left:10px;padding-right:10px;border:1px solid #222;font-family:'Courier New', Courier, mono; font-size:11px;background:#475A5F;color:#FFFFFF;outline: none;" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
                                         </div>
-                                        <div style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
+                                        <div class="apply_gen" style="margin-top:5px;padding-bottom:10px;width:100%;text-align:center;">
                                             <input id="edit_node8" class="button_gen" type="button" onclick="close_conf('vnt_cmd');" value="返回主界面">
                                         </div></div>
 

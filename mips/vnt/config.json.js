@@ -1,9 +1,10 @@
 {
-"version":"1.2",
-"md5":"764f262cc93f9bb0d6400dd0d50648e8",
+"version":"1.3",
+"md5":"033f320f16d0ca0014ae3d62337fe12e",
 "arch":"mips",
 "home_url":"Module_vnt.asp",
 "title":"vnt",
 "description":"简便高效的异地组网、内网穿透工具",
-"build_date":"2024-11-09_12:35:20"
+"rc_support":"",
+"build_date":"2026-05-29_10:01:52"
 }
