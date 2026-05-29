@@ -109,8 +109,6 @@ install_now(){
 }
 
 install(){
-	get_model
-	platform_test
 	install_now
 }
 

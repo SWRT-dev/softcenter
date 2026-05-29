@@ -1,10 +1,10 @@
 {
 "version":"1.2.2",
-"md5":"184712612f2ef1f967c12931fd41c057",
+"md5":"1450d5e6dcc30886697aab12ba6acba9",
 "arch":"arm",
 "home_url":"Module_unblockmusic.asp",
 "title":"解锁网易云灰色歌曲(go版)",
 "description":"解锁网易云灰色歌曲",
 "rc_support":"",
-"build_date":"2026-05-29_09:17:12"
+"build_date":"2026-05-29_10:03:40"
 }
