@@ -240,14 +240,15 @@
         },
         {
             "arch": "mips",
-            "build_date": "2024-11-09_12:35:40",
+            "build_date": "2026-05-29_09:36:51",
             "description": "自己的私有云",
             "home_url": "Module_verysync.asp",
-            "md5": "250cc5d99be3978c01115f0c87eb640e",
+            "md5": "1edad4189b18ec8220eeb17b34d30910",
             "name": "verysync",
+            "rc_support": "",
             "tar_url": "verysync/verysync.tar.gz",
             "title": "微力同步",
-            "version": "1.1.1"
+            "version": "1.1.2"
         },
         {
             "arch": "mips",

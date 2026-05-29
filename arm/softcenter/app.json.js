@@ -228,14 +228,15 @@
         },
         {
             "arch": "arm",
-            "build_date": "2024-11-09_12:35:40",
+            "build_date": "2026-05-29_09:36:51",
             "description": "自己的私有云",
             "home_url": "Module_verysync.asp",
-            "md5": "555ebc628fe8742d94101ebb5fe47aa4",
+            "md5": "67dc61a67ec8294444a40806ebf8e877",
             "name": "verysync",
+            "rc_support": "",
             "tar_url": "verysync/verysync.tar.gz",
             "title": "微力同步",
-            "version": "1.1.1"
+            "version": "1.1.2"
         },
         {
             "arch": "arm",

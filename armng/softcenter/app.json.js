@@ -240,14 +240,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:40",
+            "build_date": "2026-05-29_09:36:51",
             "description": "自己的私有云",
             "home_url": "Module_verysync.asp",
-            "md5": "080a96fbedab4ef7b77ca91170e2a77d",
+            "md5": "5673e8bae976456740124a34254196db",
             "name": "verysync",
+            "rc_support": "",
             "tar_url": "verysync/verysync.tar.gz",
             "title": "微力同步",
-            "version": "1.1.1"
+            "version": "1.1.2"
         },
         {
             "arch": "armng",

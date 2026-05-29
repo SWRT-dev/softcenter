@@ -10,11 +10,8 @@
 <title>软件中心 - 微力同步 verysync.com</title>
 <link rel="stylesheet" type="text/css" href="index_style.css"/>
 <link rel="stylesheet" type="text/css" href="form_style.css"/>
-<link rel="stylesheet" type="text/css" href="usp_style.css"/>
-<link rel="stylesheet" type="text/css" href="ParentalControl.css">
-<link rel="stylesheet" type="text/css" href="css/icon.css">
-<link rel="stylesheet" type="text/css" href="css/element.css">
-<link rel="stylesheet" type="text/css" href="res/softcenter.css">
+<link rel="stylesheet" type="text/css" href="/css/element.css">
+<link rel="stylesheet" type="text/css" href="/res/softcenter.css">
 <script language="JavaScript" type="text/javascript" src="/js/jquery.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/httpApi.js"></script>
 <script type="text/javascript" src="/state.js"></script>
@@ -28,6 +25,7 @@
 var db_verysync = {}
 function init() {
 	show_menu(menu_hook);
+	set_skin();
 	get_dbus_data();
 }
 
@@ -136,9 +134,15 @@ function verifyFields(focused, quiet){
     }
 	return 1;
 }
+function set_skin(){
+	var SKN = '<% nvram_get("sc_skin"); %>';
+	if(SKN){
+		$("#scapp").attr("skin", SKN);
+	}
+}
 </script>
 </head>
-<body onload="init();">
+<body onload="init();" id="scapp" skin="ASUSWRT">
 	<div id="TopBanner"></div>
 	<div id="Loading" class="popup_bg"></div>
 	<iframe name="hidden_frame" id="hidden_frame" src="" width="0" height="0" frameborder="0"></iframe>
@@ -247,7 +251,7 @@ function verifyFields(focused, quiet){
 												<th>应用数据目录</th>
 												<td>
 													<!-- <input type="text" name="verysync_home" id="verysync_home" class="input_ss_table"  value="" /> -->
-													<select name="verysync_home" id="verysync_home">
+													<select name="verysync_home" id="verysync_home" class="input_option">
 													<option value="">选择数据目录</option>
 													</select>
 													<br />
