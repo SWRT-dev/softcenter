@@ -1,9 +1,10 @@
 {
-"version":"0.0.4",
-"md5":"261951f04428813b476c07b11ee64f5c",
+"version":"0.0.5",
+"md5":"ecf367da6a85cf7ec9860b5218bb4158",
 "arch":"mipsle",
 "home_url":"Module_tenddns.asp",
 "title":"腾讯云ddns",
 "description":"腾讯云ddns",
-"build_date":"2024-11-09_12:35:59"
+"rc_support":"",
+"build_date":"2026-05-29_09:10:01"
 }

@@ -430,14 +430,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2024-11-09_12:35:59",
+            "build_date": "2026-05-29_09:10:01",
             "description": "腾讯云ddns",
             "home_url": "Module_tenddns.asp",
-            "md5": "908e1c43db2fac4cc5ab01b0b9a89b59",
+            "md5": "df13ba5c9689f0afffc0a796f3205d39",
             "name": "tenddns",
+            "rc_support": "",
             "tar_url": "tenddns/tenddns.tar.gz",
             "title": "腾讯云ddns",
-            "version": "0.0.4"
+            "version": "0.0.5"
         }
     ],
     "home_url": "https://raw.githubusercontent.com/SWRT-dev/softcenter/master",
