@@ -75,7 +75,7 @@ install_now(){
 	cp -rf /tmp/${module}/res/* /jffs/softcenter/res/
 	cp -rf /tmp/${module}/scripts/* /jffs/softcenter/scripts/
 	cp -rf /tmp/${module}/webs/* /jffs/softcenter/webs/
-	cp -rf /tmp/${module}/uninstall.sh /jffs/softcenter/scripts/uninstall_${module}.sh
+	#cp -rf /tmp/${module}/uninstall.sh /jffs/softcenter/scripts/uninstall_${module}.sh
 	# Permissions
 	chmod +x /jffs/softcenter/scripts/*
 	chmod +x /jffs/softcenter/init.d/*
@@ -113,8 +113,6 @@ dbus set verysync_disklist=`df -h $1  | grep mnt| awk '
 }
 
 install(){
-	get_model
-	platform_test
 	install_now
 }
-
+install

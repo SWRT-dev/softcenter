@@ -241,10 +241,10 @@
         },
         {
             "arch": "mips",
-            "build_date": "2026-05-29_09:36:51",
+            "build_date": "2026-05-29_10:04:35",
             "description": "自己的私有云",
             "home_url": "Module_verysync.asp",
-            "md5": "1edad4189b18ec8220eeb17b34d30910",
+            "md5": "de0514a74592ffaf86ca6c3b5ebf5875",
             "name": "verysync",
             "rc_support": "",
             "tar_url": "verysync/verysync.tar.gz",

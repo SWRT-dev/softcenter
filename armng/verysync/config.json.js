@@ -1,10 +1,10 @@
 {
 "version":"1.1.2",
-"md5":"5673e8bae976456740124a34254196db",
+"md5":"fc905f7bf3e6f64ad587739ca065623f",
 "arch":"armng",
 "home_url":"Module_verysync.asp",
 "title":"微力同步",
 "description":"自己的私有云",
 "rc_support":"",
-"build_date":"2026-05-29_09:36:51"
+"build_date":"2026-05-29_10:04:35"
 }
