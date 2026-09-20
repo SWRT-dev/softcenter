@@ -326,15 +326,15 @@
         },
         {
             "arch": "armng",
-            "build_date": "2026-05-26_21:48:45",
+            "build_date": "2026-09-20_13:48:09",
             "description": "Cloudflare Tunnel 客户端(以前称为 Argo Tunnel)",
             "home_url": "Module_cloudflared.asp",
-            "md5": "7aedc198ded61d6131c4cf485b0c071c",
+            "md5": "e942c9fd38f5fd9997f22cdcb6511926",
             "name": "cloudflared",
             "rc_support": "",
             "tar_url": "cloudflared/cloudflared.tar.gz",
             "title": "cloudflared",
-            "version": "1.3"
+            "version": "1.4"
         },
         {
             "arch": "armng",

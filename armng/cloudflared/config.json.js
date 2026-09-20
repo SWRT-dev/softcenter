@@ -1,10 +1,10 @@
 {
-"version":"1.3",
-"md5":"7aedc198ded61d6131c4cf485b0c071c",
+"version":"1.4",
+"md5":"e942c9fd38f5fd9997f22cdcb6511926",
 "arch":"armng",
 "home_url":"Module_cloudflared.asp",
 "title":"cloudflared",
 "description":"Cloudflare Tunnel 客户端(以前称为 Argo Tunnel)",
 "rc_support":"",
-"build_date":"2026-05-26_21:48:45"
+"build_date":"2026-09-20_13:48:09"
 }

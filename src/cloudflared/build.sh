@@ -2,7 +2,7 @@
 
 
 MODULE=cloudflared
-VERSION=1.3
+VERSION=1.4
 TITLE=cloudflared
 DESCRIPTION="Cloudflare Tunnel 客户端(以前称为 Argo Tunnel)"
 HOME_URL=Module_cloudflared.asp
