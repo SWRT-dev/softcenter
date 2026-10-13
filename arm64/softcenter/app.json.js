@@ -458,7 +458,7 @@
         }
     ],
     "home_url": "https://raw.githubusercontent.com/SWRT-dev/softcenter/master",
-    "md5": "0aeae15a94090a2839e59039b49cc58c",
+    "md5": "4d025bbd049d66a2968bec6ff7a26485",
     "tar_url": "softcenter/softcenter.tar.gz",
-    "version": "1.5.8"
+    "version": "1.5.9"
 }

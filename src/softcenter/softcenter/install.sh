@@ -104,6 +104,9 @@ install_now() {
 		if [ -f "/usr/bin/jq" ];then
 			cd /jffs/softcenter/bin && rm -rf jq && ln -sf /usr/bin/jq jq
 		fi
+		if [ -f "/usr/sbin/sc_auth" ];then
+			cd /jffs/softcenter/bin && rm -rf sc_auth && ln -sf /usr/sbin/sc_auth sc_auth
+		fi
 		cd /jffs/softcenter/scripts && ln -sf ks_app_install.sh ks_app_remove.sh
 		chmod 755 /jffs/softcenter/bin/*
 		#chmod 755 /jffs/softcenter/init.d/*
