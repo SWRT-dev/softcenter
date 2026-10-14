@@ -362,6 +362,18 @@
         },
         {
             "arch": "mips",
+            "build_date": "2026-10-14_15:34:06",
+            "description": "本机NAT类型检测工具，测得你路由网络的NAT类型上限",
+            "home_url": "Module_gostun.asp",
+            "md5": "d5afe0a31b98b89b0110a63d15ceb713",
+            "name": "gostun",
+            "rc_support": "",
+            "tar_url": "gostun/gostun.tar.gz",
+            "title": "Gostun NAT检测",
+            "version": "1.0"
+        },
+        {
+            "arch": "mips",
             "build_date": "2026-05-28_12:35:11",
             "description": "光猫助手: 快速设置，通过路由直接访问猫后台",
             "home_url": "Module_lookcat.asp",
